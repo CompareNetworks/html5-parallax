@@ -1,0 +1,10 @@
+{
+    "chapters": [
+        {
+            "chapter_id": "01",
+            "chapter_name": "First Chapter",
+            "chapter_thumbnail": "images/presentations/chapters/",
+            "subject": "Premuditha-subject-01"
+        }
+    ]
+}
