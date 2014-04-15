@@ -6395,6 +6395,7 @@ a img {
 }
 .main-container footer.footer-menu .chapter-menu .slides-outer {
   display: none;
+  height: 110px;
 }
 .main-container footer.footer-menu .chapter-menu .slides-outer .slides-container {
   margin: 10px;
