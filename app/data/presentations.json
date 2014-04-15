@@ -1,10 +1,330 @@
 {
     "chapters": [
         {
-            "chapter_id": "01",
-            "chapter_name": "First Chapter",
-            "chapter_thumbnail": "images/presentations/chapters/",
-            "subject": "Premuditha-subject-01"
+            "chapter_no": "1",
+            "chapter_title": "First Chapter",
+            "first_slide": "0",
+            "chapter_thumbnail": "images/presentations/chapter_1/thumbnail.gif",
+            "slides": [
+                {
+                    "slide_no": "1",
+                    "slide_title": "Chapter 1 - Slide 1",
+                    "slide_path": "images/presentations/chapter_1/slide_1.gif",
+                    "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
+                    "related_docs": [
+                        {
+                            "related_doc_name": "Test related doc 01"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 02"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 03"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 04"
+                        }
+                    ]
+                },
+                {
+                    "slide_no": "2",
+                    "slide_title": "Chapter 1 - Slide 2",
+                    "slide_path": "images/presentations/chapter_1/slide_2.gif",
+                    "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
+                    "related_docs": [
+                        {
+                            "related_doc_name": "Test related doc 01"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 02"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 03"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 04"
+                        }
+                    ]
+                },
+                {
+                    "slide_no": "3",
+                    "slide_title": "Chapter 1 - Slide 3",
+                    "slide_path": "images/presentations/chapter_1/slide_3.gif",
+                    "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
+                    "related_docs": [
+                        {
+                            "related_doc_name": "Test related doc 01"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 02"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 03"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 04"
+                        }
+                    ]
+                },
+                {
+                    "slide_no": "4",
+                    "slide_title": "Chapter 1 - Slide 4",
+                    "slide_path": "images/presentations/chapter_1/slide_4.gif",
+                    "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
+                    "related_docs": [
+                        {
+                            "related_doc_name": "Test related doc 01"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 02"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 03"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 04"
+                        }
+                    ]
+                },
+                {
+                    "slide_no": "5",
+                    "slide_title": "Chapter 1 - Slide 5",
+                    "slide_path": "images/presentations/chapter_1/slide_5.gif",
+                    "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
+                    "related_docs": [
+                        {
+                            "related_doc_name": "Test related doc 01"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 02"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 03"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 04"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        {
+            "chapter_no": "2",
+            "chapter_title": "Second Chapter",
+            "first_slide": "6",
+            "chapter_thumbnail": "images/presentations/chapter_2/thumbnail.gif",
+            "slides": [
+                {
+                    "slide_no": "1",
+                    "slide_title": "Chapter 02 - Slide 1",
+                    "slide_path": "images/presentations/chapter_2/slide_1.gif",
+                    "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
+                    "related_docs": [
+                        {
+                            "related_doc_name": "Test related doc 01"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 02"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 03"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 04"
+                        }
+                    ]
+                },
+                {
+                    "slide_no": "2",
+                    "slide_title": "Chapter 02 - Slide 2",
+                    "slide_path": "images/presentations/chapter_2/slide_2.gif",
+                    "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
+                    "related_docs": [
+                        {
+                            "related_doc_name": "Test related doc 01"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 02"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 03"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 04"
+                        }
+                    ]
+                },
+                {
+                    "slide_no": "3",
+                    "slide_title": "Chapter 02 - Slide 3",
+                    "slide_path": "images/presentations/chapter_2/slide_3.gif",
+                    "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
+                    "related_docs": [
+                        {
+                            "related_doc_name": "Test related doc 01"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 02"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 03"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 04"
+                        }
+                    ]
+                },
+                {
+                    "slide_no": "4",
+                    "slide_title": "Chapter 02 - Slide 4",
+                    "slide_path": "images/presentations/chapter_2/slide_4.gif",
+                    "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
+                    "related_docs": [
+                        {
+                            "related_doc_name": "Test related doc 01"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 02"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 03"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 04"
+                        }
+                    ]
+                },
+                {
+                    "slide_no": "5",
+                    "slide_title": "Chapter 02 - Slide 5",
+                    "slide_path": "images/presentations/chapter_2/slide_5.gif",
+                    "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
+                    "related_docs": [
+                        {
+                            "related_doc_name": "Test related doc 01"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 02"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 03"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 04"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        {
+            "chapter_no": "3",
+            "chapter_title": "Third Chapter",
+            "first_slide": "11",
+            "chapter_thumbnail": "images/presentations/chapter_2/thumbnail.gif",
+            "slides": [
+                {
+                    "slide_no": "1",
+                    "slide_title": "Chapter 03 - Slide 1",
+                    "slide_path": "images/presentations/chapter_3/slide_1.gif",
+                    "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
+                    "related_docs": [
+                        {
+                            "related_doc_name": "Test related doc 01"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 02"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 03"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 04"
+                        }
+                    ]
+                },
+                {
+                    "slide_no": "2",
+                    "slide_title": "Chapter 03 - Slide 2",
+                    "slide_path": "images/presentations/chapter_3/slide_2.gif",
+                    "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
+                    "related_docs": [
+                        {
+                            "related_doc_name": "Test related doc 01"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 02"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 03"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 04"
+                        }
+                    ]
+                },
+                {
+                    "slide_no": "3",
+                    "slide_title": "Chapter 03 - Slide 3",
+                    "slide_path": "images/presentations/chapter_3/slide_3.gif",
+                    "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
+                    "related_docs": [
+                        {
+                            "related_doc_name": "Test related doc 01"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 02"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 03"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 04"
+                        }
+                    ]
+                },
+                {
+                    "slide_no": "4",
+                    "slide_title": "Chapter 03 - Slide 4",
+                    "slide_path": "images/presentations/chapter_3/slide_4.gif",
+                    "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
+                    "related_docs": [
+                        {
+                            "related_doc_name": "Test related doc 01"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 02"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 03"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 04"
+                        }
+                    ]
+                },
+                {
+                    "slide_no": "5",
+                    "slide_title": "Chapter 03 - Slide 5",
+                    "slide_path": "images/presentations/chapter_3/slide_5.gif",
+                    "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
+                    "related_docs": [
+                        {
+                            "related_doc_name": "Test related doc 01"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 02"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 03"
+                        },
+                        {
+                            "related_doc_name": "Test related doc 04"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

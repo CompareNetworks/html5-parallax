@@ -1,4 +1,5 @@
 {
+    "globals": { "Handlebars": false },
     "node": true,
     "browser": true,
     "esnext": true,
