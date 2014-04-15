@@ -1,95 +1,177 @@
-<!doctype html>
-<html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <title>interactive content navigator</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"
+          content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, width=device-width">
+    <title>imSmart</title>
 
-        <!-- build:css styles/vendor.css -->
-        <!-- bower:css -->
-        <!-- endbower -->
-        <!-- endbuild -->
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+</head>
 
-        <!-- build:css styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
-        <!-- endbuild -->
+<body>
+<div class="main-container">
 
-    </head>
-    <body>
-        <!--[if lt IE 10]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <div class="main-slider">
+        <div class="main-slides-container">
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-1"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-2"></div>
+            <div class="item"><img src="http://placehold.it/1027x900/42bdc2/FFFFFF&text=slide-3"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-4"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-5"></div>
+            <div class="item"><img src="http://placehold.it/1027x1024/42bdc2/FFFFFF&text=slide-6"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-7"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-8"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-9"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-10"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-11"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-12"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-13"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-14"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-15"></div>
+            <div class="item"><img src="http://placehold.it/1027x2056/42bdc2/FFFFFF&text=slide-16"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-17"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-18"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-19"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-20"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-21"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-22"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-23"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-24"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-25"></div>
+            <div class="item"><img src="http://placehold.it/1027x820/42bdc2/FFFFFF&text=slide-26"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-27"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-28"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-29"></div>
+            <div class="item"><img src="http://placehold.it/1027x768/42bdc2/FFFFFF&text=slide-30"></div>
+        </div>
+    </div>
 
-        <div class="container">
-            <div class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+    <footer class="footer-menu">
+        <div class="main-menu">
+            <a href="javascript:;" id="main-menu-btn">Menu</a>
+        </div>
+        <div class="chapter-menu">
+            <a href="#" class="close-btn">
+                <img src="images/cross-white.png" width="20" height="20">
+            </a>
+
+            <div class="tab-buttons">
+                <ul>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#related-documents">Related Documents</a></li>
+                    <li><a href="#slide-notes">Slide Notes</a></li>
                 </ul>
-                <h3 class="text-muted">interactive content navigator</h3>
             </div>
+            <div class="tab-contents">
+                <div id="menu">
+                    <ul class="chapters">
+                        <li class="chapter">
+                            <a href="#chapter1" data-first-slide="0">
+                                <img src="http://placehold.it/150x100/cccccc/999999&text=1+to+11">
+                            </a>
+                        </li>
+                        <li class="chapter">
+                            <a href="#chapter2" data-first-slide="11">
+                                <img src="http://placehold.it/150x100/cccccc/999999&text=12+to+15">
+                            </a>
+                        </li>
+                        <li class="chapter">
+                            <a href="#chapter3" data-first-slide="15">
+                                <img src="http://placehold.it/150x100/cccccc/999999&text=16+to+21">
+                            </a>
+                        </li>
+                        <li class="chapter">
+                            <a href="#chapter4" data-first-slide="21">
+                                <img src="http://placehold.it/150x100/cccccc/999999&text=22+to+30">
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="slides-outer">
+                        <div class="slides-container">
+                            <div class="item" data-slide-id="1"><img src="http://placehold.it/120x90&text=slide-1">
+                            </div>
+                            <div class="item" data-slide-id="2"><img src="http://placehold.it/120x90&text=slide-2">
+                            </div>
+                            <div class="item" data-slide-id="3"><img src="http://placehold.it/120x90&text=slide-3">
+                            </div>
+                            <div class="item" data-slide-id="4"><img src="http://placehold.it/120x90&text=slide-4">
+                            </div>
+                            <div class="item" data-slide-id="5"><img src="http://placehold.it/120x90&text=slide-5">
+                            </div>
+                            <div class="item" data-slide-id="6"><img src="http://placehold.it/120x90&text=slide-6">
+                            </div>
+                            <div class="item" data-slide-id="7"><img src="http://placehold.it/120x90&text=slide-7">
+                            </div>
+                            <div class="item" data-slide-id="8"><img src="http://placehold.it/120x90&text=slide-8">
+                            </div>
+                            <div class="item" data-slide-id="9"><img src="http://placehold.it/120x90&text=slide-9">
+                            </div>
+                            <div class="item" data-slide-id="10"><img src="http://placehold.it/120x90&text=slide-10">
+                            </div>
+                            <div class="item" data-slide-id="11"><img src="http://placehold.it/120x90&text=slide-11">
+                            </div>
+                            <div class="item" data-slide-id="12"><img src="http://placehold.it/120x90&text=slide-12">
+                            </div>
+                            <div class="item" data-slide-id="13"><img src="http://placehold.it/120x90&text=slide-13">
+                            </div>
+                            <div class="item" data-slide-id="14"><img src="http://placehold.it/120x90&text=slide-14">
+                            </div>
+                            <div class="item" data-slide-id="15"><img src="http://placehold.it/120x90&text=slide-15">
+                            </div>
+                            <div class="item" data-slide-id="16"><img src="http://placehold.it/120x90&text=slide-16">
+                            </div>
+                            <div class="item" data-slide-id="17"><img src="http://placehold.it/120x90&text=slide-17">
+                            </div>
+                            <div class="item" data-slide-id="18"><img src="http://placehold.it/120x90&text=slide-18">
+                            </div>
+                            <div class="item" data-slide-id="19"><img src="http://placehold.it/120x90&text=slide-19">
+                            </div>
+                            <div class="item" data-slide-id="20"><img src="http://placehold.it/120x90&text=slide-20">
+                            </div>
+                            <div class="item" data-slide-id="21"><img src="http://placehold.it/120x90&text=slide-21">
+                            </div>
+                            <div class="item" data-slide-id="22"><img src="http://placehold.it/120x90&text=slide-22">
+                            </div>
+                            <div class="item" data-slide-id="23"><img src="http://placehold.it/120x90&text=slide-23">
+                            </div>
+                            <div class="item" data-slide-id="24"><img src="http://placehold.it/120x90&text=slide-24">
+                            </div>
+                            <div class="item" data-slide-id="25"><img src="http://placehold.it/120x90&text=slide-25">
+                            </div>
+                            <div class="item" data-slide-id="26"><img src="http://placehold.it/120x90&text=slide-26">
+                            </div>
+                            <div class="item" data-slide-id="27"><img src="http://placehold.it/120x90&text=slide-27">
+                            </div>
+                            <div class="item" data-slide-id="28"><img src="http://placehold.it/120x90&text=slide-28">
+                            </div>
+                            <div class="item" data-slide-id="29"><img src="http://placehold.it/120x90&text=slide-29">
+                            </div>
+                            <div class="item" data-slide-id="30"><img src="http://placehold.it/120x90&text=slide-30">
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="jumbotron">
-                <h1>'Allo, 'Allo!</h1>
-                <p class="lead">Always a pleasure scaffolding your apps.</p>
-                <p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
-            </div>
-
-            <div class="row marketing">
-                <div class="col-lg-6">
-                    <h4>HTML5 Boilerplate</h4>
-                    <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-
-                    <h4>Sass with Compass</h4>
-                    <p>Compass is an open-source CSS Authoring Framework that uses Sass.</p>
-
-                    <h4>Bootstrap</h4>
-                    <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
                 </div>
-            </div>
-
-            <div class="footer">
-                <p>♥ from the Yeoman team</p>
+                <div id="related-documents">second</div>
+                <div id="slide-notes">third</div>
             </div>
         </div>
+    </footer>
+</div>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/owlcarousel/owl-carousel/owl.carousel.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
 
-        <!-- build:js scripts/vendor.js -->
-        <!-- bower:js -->
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap.js"></script>
-        <!-- endbower -->
-        <!-- endbuild -->
+<!-- build:js scripts/main.js -->
+<script src="scripts/mala-tabs.js"></script>
+<script src="scripts/slides.js"></script>
+<!-- endbuild -->
 
-        <!-- build:js scripts/plugins.js -->
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/affix.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/alert.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/modal.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/transition.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/button.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/popover.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/collapse.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tab.js"></script>
-        <!-- endbuild -->
-
-        <!-- build:js scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <!-- endbuild -->
 </body>
 </html>

@@ -6267,89 +6267,159 @@ button.close {
     display: none !important;
   }
 }
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-/* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  font-family: helvetica, arial;
+  font-size: 100%;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+a img {
+  display: block;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-  /* Make the masthead heading the same height as the navigation */
+.main-container .main-slider .owl-wrapper-outer {
+  overflow: hidden;
 }
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
+.main-container .main-slider .owl-wrapper-outer .owl-wrapper {
+  *zoom: 1;
 }
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+.main-container .main-slider .owl-wrapper-outer .owl-wrapper:before, .main-container .main-slider .owl-wrapper-outer .owl-wrapper:after {
+  display: table;
+  content: " ";
 }
-
-.container-narrow > hr {
-  margin: 30px 0;
+.main-container .main-slider .owl-wrapper-outer .owl-wrapper:after {
+  clear: both;
 }
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
+.main-container .main-slider .owl-wrapper-outer .owl-wrapper .owl-item {
+  float: left;
 }
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
+.main-container .main-slider .owl-wrapper-outer .owl-wrapper .owl-item .item img {
+  display: block;
+  margin: 0 auto;
 }
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
+.main-container footer.footer-menu {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
 }
-.marketing p + h4 {
-  margin-top: 28px;
+.main-container footer.footer-menu .main-menu {
+  background: #000000;
+  padding: 10px;
+  position: relative;
+  z-index: 3000;
 }
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+.main-container footer.footer-menu .main-menu a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+.main-container footer.footer-menu .chapter-menu {
+  position: absolute;
+  z-index: 4000;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  display: none;
+  background: #ffffff;
+}
+.main-container footer.footer-menu .chapter-menu a.close-btn {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  right: 10px;
+  top: 8px;
+}
+.main-container footer.footer-menu .chapter-menu .tab-buttons {
+  *zoom: 1;
+  background: #000000;
+  border-top: solid 2px #000000;
+  border-left: solid 2px #000000;
+}
+.main-container footer.footer-menu .chapter-menu .tab-buttons:before, .main-container footer.footer-menu .chapter-menu .tab-buttons:after {
+  display: table;
+  content: " ";
+}
+.main-container footer.footer-menu .chapter-menu .tab-buttons:after {
+  clear: both;
+}
+.main-container footer.footer-menu .chapter-menu .tab-buttons li {
+  float: left;
+}
+.main-container footer.footer-menu .chapter-menu .tab-buttons li a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1em;
+  padding: 10px 20px;
+  display: block;
+}
+.main-container footer.footer-menu .chapter-menu .tab-buttons li.selected-tab {
+  background: #ffffff;
+}
+.main-container footer.footer-menu .chapter-menu .tab-buttons li.selected-tab a {
+  color: #000000;
+  cursor: default;
+}
+.main-container footer.footer-menu .chapter-menu .tab-contents {
+  min-height: 120px;
+  border: solid 2px #000000;
+  border-top: none;
+}
+.main-container footer.footer-menu .chapter-menu ul.chapters {
+  *zoom: 1;
+  padding: 10px;
+}
+.main-container footer.footer-menu .chapter-menu ul.chapters:before, .main-container footer.footer-menu .chapter-menu ul.chapters:after {
+  display: table;
+  content: " ";
+}
+.main-container footer.footer-menu .chapter-menu ul.chapters:after {
+  clear: both;
+}
+.main-container footer.footer-menu .chapter-menu ul.chapters li {
+  float: left;
+  margin-right: 10px;
+  width: 150px;
+}
+.main-container footer.footer-menu .chapter-menu ul.chapters li a {
+  display: block;
+}
+.main-container footer.footer-menu .chapter-menu ul.chapters li a img {
+  width: 100%;
+  display: block;
+}
+.main-container footer.footer-menu .chapter-menu.chapter-selected ul.chapters {
+  background: #eeeeee;
+  border-bottom: solid 1px #dddddd;
+}
+.main-container footer.footer-menu .chapter-menu .slides-outer {
+  display: none;
+}
+.main-container footer.footer-menu .chapter-menu .slides-outer .slides-container {
+  margin: 10px;
+}
+.main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .owl-wrapper-outer {
+  overflow: hidden;
+}
+.main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .owl-wrapper-outer .owl-wrapper {
+  *zoom: 1;
+}
+.main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .owl-wrapper-outer .owl-wrapper:before, .main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .owl-wrapper-outer .owl-wrapper:after {
+  display: table;
+  content: " ";
+}
+.main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .owl-wrapper-outer .owl-wrapper:after {
+  clear: both;
+}
+.main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .owl-wrapper-outer .owl-wrapper .owl-item {
+  float: left;
+}
+.main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .item {
+  margin: 3px;
+}
+.main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .item img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
