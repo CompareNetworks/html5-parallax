@@ -5,6 +5,7 @@ var gulp = require('gulp');
 var zip = require('gulp-zip');
 var open = require('open');
 var wiredep = require('wiredep').stream;
+var jsonminify = require('gulp-jsonminify');
 
 // Load plugins
 var $ = require('gulp-load-plugins')();
@@ -14,8 +15,8 @@ var $ = require('gulp-load-plugins')();
 gulp.task('styles', function () {
     return gulp.src('app/styles/main.scss')
         .pipe($.rubySass({
-          style: 'expanded',
-          loadPath: ['app/bower_components']
+            style: 'expanded',
+            loadPath: ['app/bower_components']
         }))
         .pipe($.autoprefixer('last 1 version'))
         .pipe(gulp.dest('app/styles'))
@@ -80,7 +81,7 @@ gulp.task('clean', function () {
 });
 
 // Build
-gulp.task('build', ['html', 'images', 'fonts']);
+gulp.task('build', ['html', 'images', 'fonts', 'minify']);
 
 // Default task
 gulp.task('default', ['clean'], function () {
@@ -89,16 +90,16 @@ gulp.task('default', ['clean'], function () {
 
 // Connect
 gulp.task('connect', function () {
-  $.connect.server({
-    root: ['app'],
-    port: 9000,
-    livereload: true
-  });
+    $.connect.server({
+        root: ['app'],
+        port: 9000,
+        livereload: true
+    });
 });
 
 // Open
-gulp.task('serve', ['connect', 'styles'], function() {
-  open("http://localhost:9000");
+gulp.task('serve', ['connect', 'styles'], function () {
+    open("http://localhost:9000");
 });
 
 // Inject Bower components
@@ -146,8 +147,15 @@ gulp.task('watch', ['connect', 'serve'], function () {
 
 // Zip Build File
 gulp.task('zip', function () {
-   var allSrc = ['**/*'];
-   return gulp.src(allSrc, {cwd: __dirname + "/dist"})
+    var allSrc = ['**/*'];
+    return gulp.src(allSrc, {cwd: __dirname + "/dist"})
         .pipe(zip('archive.zip'))
         .pipe(gulp.dest('compiled'));
+});
+
+// Minify Data JSON
+gulp.task('minify', function () {
+    gulp.src(['app/data/*.json'])
+        .pipe(jsonminify())
+        .pipe(gulp.dest('dist/data'));
 });

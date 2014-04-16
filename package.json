@@ -22,7 +22,8 @@
     "open": "~0.0.4",
     "gulp-flatten": "~0.0.2",
     "gulp-bower-files": "~0.2.1",
-    "gulp-zip": "^0.3.4"
+    "gulp-zip": "^0.3.4",
+    "gulp-jsonminify": "0.0.1"
   },
   "engines": {
     "node": ">=0.10.0"

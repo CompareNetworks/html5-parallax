@@ -36,17 +36,16 @@ var LOAD_DATA = {
         $('.slides-container').html(slidesThumbCompliedTpl(resJSON));
 
         var slidesCompliedTpl = Handlebars.compile(slidesTemplate);
-        $('.main-slides-container').html(slidesCompliedTpl(resJSON))
+        $('.main-slides-container').html(slidesCompliedTpl(resJSON));
 
         $.event.trigger({type: 'onTemplateRenderComplete'});
 
     },
 
     render: function () {
-        $.ajax({
-            url: 'data/presentations.json',
-            method: 'get',
-            success: this.handlerData
+        var that = this;
+        $.getJSON('data/presentations.json', function(data) {
+            that.handlerData(data);
         });
     }
 };
