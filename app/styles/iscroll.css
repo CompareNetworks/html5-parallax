@@ -1,0 +1,128 @@
+/*
+This CSS file is for testing purposes of iScroll.
+
+Note: Change the 'width' of '.slides-container' class to make slide thumbnail more smoother.
+*/
+
+.slides-container {
+    position: absolute;
+    z-index: 1;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    width: 1600px;
+    height: 75px;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+.slides-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.slides-container li {
+    display: block;
+    float: left;
+    width: 99px;
+    height: 74px;
+    border-right: 1px solid #ccc;
+    background-color: #fafafa;
+    font-size: 14px;
+}
+
+body {
+    /*On modern browsers, prevent the whole page to bounce*/
+    overflow: hidden;
+}
+
+#wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+
+    /*Prevent native touch events on Windows*/
+    -ms-touch-action: none;
+
+    /*Prevent the callout on tap-hold and text selection*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    /*Prevent text resize on orientation change, useful for web-apps*/
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+#scroller {
+    position: absolute;
+
+    /*Prevent elements to be highlighted on tap*/
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    /*Put the scroller into the HW Compositing layer right from the start*/
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+#wrapper1 {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+
+    /*Prevent native touch events on Windows*/
+    -ms-touch-action: none;
+
+    /*Prevent the callout on tap-hold and text selection*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    /*Prevent text resize on orientation change, useful for web-apps*/
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+#scroller1 {
+    position: absolute;
+
+    /*Prevent elements to be highlighted on tap*/
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    /*Put the scroller into the HW Compositing layer right from the start*/
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}

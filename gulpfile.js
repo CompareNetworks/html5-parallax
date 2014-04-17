@@ -13,7 +13,7 @@ var $ = require('gulp-load-plugins')();
 
 // Styles
 gulp.task('styles', function () {
-    return gulp.src('app/styles/main.scss')
+    return gulp.src('app/styles/*.scss')
         .pipe($.rubySass({
             style: 'expanded',
             loadPath: ['app/bower_components']

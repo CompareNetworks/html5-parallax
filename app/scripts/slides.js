@@ -11,8 +11,12 @@ function menuSlideDown() {
 
 $(document).on('onTemplateRenderComplete', function () {
 
-    var $slideThumbs = $('.slides-container');
+    document.ontouchmove = function (e) {
+        e.preventDefault();
+    };
+
     var $slides = $('.main-slides-container');
+    var $slideThumbs = $('.slides-container');
 
     $('.main-container').malaTabs({animation: 'fade'});
 
