@@ -1,9 +1,3 @@
-$icon-font-path: "/bower_components/bootstrap-sass/vendor/assets/fonts/bootstrap/";
-
-// bower:scss
-@import "bootstrap-sass/vendor/assets/stylesheets/bootstrap.scss";
-// endbower
-
 @mixin clearfix {
   *zoom: 1;
   &:before, &:after {
