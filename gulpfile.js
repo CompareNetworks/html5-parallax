@@ -77,11 +77,11 @@ gulp.task('fonts', function () {
 
 // Clean
 gulp.task('clean', function () {
-    return gulp.src(['dist/styles', 'dist/scripts', 'dist/images', 'dist/fonts'], { read: false }).pipe($.clean());
+    return gulp.src(['dist/styles', 'dist/scripts', 'dist/images', 'dist/fonts', 'dist/data'], { read: false }).pipe($.clean());
 });
 
 // Build
-gulp.task('build', ['html', 'images', 'fonts', 'minify']);
+gulp.task('build', ['html', 'images', 'fonts', 'minify', 'copy_data']);
 
 // Default task
 gulp.task('default', ['clean'], function () {
@@ -158,4 +158,11 @@ gulp.task('minify', function () {
     gulp.src(['app/data/*.json'])
         .pipe(jsonminify())
         .pipe(gulp.dest('dist/data'));
+});
+
+// Copy Data Content.
+gulp.task('copy_data', function () {
+    gulp.src(['app/data/presentation-content/**/*'])
+        .pipe(jsonminify())
+        .pipe(gulp.dest('dist/data/presentation-content'));
 });

@@ -11,12 +11,27 @@ function menuSlideDown() {
 
 function loadSlideContent() {
     var owlData = $('.main-slides-container').data('owlCarousel'),
-        currentSlide = parseInt(owlData.currentItem + 1), // Because owl data returns first slide as 0.
-        prevSlide = parseInt(owlData.prevItem + 1),
-        slideEl = $('.slide-no-' + currentSlide),
-        slideContent = slideEl.data('content');
+        selectedSlide = parseInt(owlData.currentItem + 1), // Because owlData returns first slide as 0.
+        previousSlide = parseInt(owlData.prevItem + 1),
+        slideElement = $('.slide-no-' + selectedSlide),
+        slideContent = slideElement.data('content'),
+        bufferSize = 1;
 
-    slideEl.load('data/test.html');
+    slideElement.load(slideContent);
+
+    if (selectedSlide < owlData.itemsAmount){
+        var nextSlideElement = $('.slide-no-' + (selectedSlide + bufferSize)),
+            nextSlideContent = nextSlideElement.data('content');
+
+        nextSlideElement.load(nextSlideContent);
+    }
+
+    if ((selectedSlide - bufferSize) > 0) {
+        var previousSlideElement = $('.slide-no-' + (selectedSlide - bufferSize)),
+            previousSlideContent = previousSlideElement.data('content');
+
+        previousSlideElement.load(previousSlideContent);
+    }
 }
 
 $(document).on('onTemplateRenderComplete', function () {
