@@ -18,15 +18,13 @@ var LOAD_DATA = {
         // HandelBar template for Slide thumbnails.
         var slidesThumbnailTemplate = '{{#each chapters}} {{#each slides}}' +
                 '<div class="item" data-slide-id="{{slide_no}}">' +
-                    '<img src="{{slide_path}}">' +
+                    '<img src="{{slide_thumb}}">' +
                 '</div>' +
             '{{/each}} {{/each}}';
 
         // HandelBar template for Slide.
         var slidesTemplate = '{{#each chapters}} {{#each slides}}' +
-                '<div class="item">' +
-                    '<img src="{{slide_path}}">' +
-                '</div>' +
+            '<div class="item slide-no-{{slide_no}}" style="height: 768px" data-content="{{slide_content}}"></div>' +
             '{{/each}} {{/each}}';
 
         var chaptersCompliedTpl = Handlebars.compile(chapterThumbnailTemplate);

@@ -9,6 +9,16 @@ function menuSlideDown() {
     $chapterStatus = true;
 }
 
+function loadSlideContent() {
+    var owlData = $('.main-slides-container').data('owlCarousel'),
+        currentSlide = parseInt(owlData.currentItem + 1), // Because owl data returns first slide as 0.
+        prevSlide = parseInt(owlData.prevItem + 1),
+        slideEl = $('.slide-no-' + currentSlide),
+        slideContent = slideEl.data('content');
+
+    slideEl.load('data/test.html');
+}
+
 $(document).on('onTemplateRenderComplete', function () {
 
     document.ontouchmove = function (e) {
@@ -34,8 +44,14 @@ $(document).on('onTemplateRenderComplete', function () {
         slideSpeed: 1000,
         singleItem: true,
         autoHeight: true,
-        transitionStyle: 'fade'
+        transitionStyle: 'fade',
+        afterMove: function () {
+            loadSlideContent();
+        }
     });
+
+    // loading first slide content at the initial application launch.
+    loadSlideContent();
 
 
     $('footer #main-menu-btn').click(function () {
