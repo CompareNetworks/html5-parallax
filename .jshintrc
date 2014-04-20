@@ -1,5 +1,8 @@
 {
-    "globals": { "Handlebars": false },
+    "globals": {
+        "Handlebars": false,
+        "IScroll": false
+    },
     "node": true,
     "browser": true,
     "esnext": true,

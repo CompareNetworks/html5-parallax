@@ -45,83 +45,94 @@ Note: Change the 'width' of '.slides-container' class to make slide thumbnail mo
     font-size: 14px;
 }
 
-body {
+/*.iscroll-enable {*/
+    /*position: absolute;*/
+    /*z-index: 1;*/
+    /*top: 0px;*/
+    /*bottom: 0px;*/
+    /*left: 0;*/
+    /*width: 100%;*/
+    /*background: #fafafa;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*body {*/
     /*On modern browsers, prevent the whole page to bounce*/
-    overflow: hidden;
-}
+    /*overflow: hidden;*/
+/*}*/
 
-#wrapper {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
-
-    /*Prevent native touch events on Windows*/
-    -ms-touch-action: none;
-
-    /*Prevent the callout on tap-hold and text selection*/
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-    /*Prevent text resize on orientation change, useful for web-apps*/
-    -webkit-text-size-adjust: none;
-    -moz-text-size-adjust: none;
-    -ms-text-size-adjust: none;
-    -o-text-size-adjust: none;
-    text-size-adjust: none;
-}
-
-#scroller {
-    position: absolute;
-
-    /*Prevent elements to be highlighted on tap*/
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-    /*Put the scroller into the HW Compositing layer right from the start*/
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0);
-}
-
-#wrapper1 {
-    position: relative;
-    width: 200px;
-    height: 300px;
-    overflow: hidden;
+/*#wrapper {*/
+    /*position: relative;*/
+    /*width: 300px;*/
+    /*height: 300px;*/
+    /*overflow: hidden;*/
 
     /*Prevent native touch events on Windows*/
-    -ms-touch-action: none;
+    /*-ms-touch-action: none;*/
 
     /*Prevent the callout on tap-hold and text selection*/
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    /*-webkit-touch-callout: none;*/
+    /*-webkit-user-select: none;*/
+    /*-moz-user-select: none;*/
+    /*-ms-user-select: none;*/
+    /*user-select: none;*/
 
     /*Prevent text resize on orientation change, useful for web-apps*/
-    -webkit-text-size-adjust: none;
-    -moz-text-size-adjust: none;
-    -ms-text-size-adjust: none;
-    -o-text-size-adjust: none;
-    text-size-adjust: none;
-}
+    /*-webkit-text-size-adjust: none;*/
+    /*-moz-text-size-adjust: none;*/
+    /*-ms-text-size-adjust: none;*/
+    /*-o-text-size-adjust: none;*/
+    /*text-size-adjust: none;*/
+/*}*/
 
-#scroller1 {
-    position: absolute;
+/*#scroller {*/
+    /*position: absolute;*/
 
     /*Prevent elements to be highlighted on tap*/
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /*-webkit-tap-highlight-color: rgba(0, 0, 0, 0);*/
 
     /*Put the scroller into the HW Compositing layer right from the start*/
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0);
-}
+    /*-webkit-transform: translateZ(0);*/
+    /*-moz-transform: translateZ(0);*/
+    /*-ms-transform: translateZ(0);*/
+    /*-o-transform: translateZ(0);*/
+    /*transform: translateZ(0);*/
+/*}*/
+
+/*#wrapper1 {*/
+    /*position: relative;*/
+    /*width: 200px;*/
+    /*height: 300px;*/
+    /*overflow: hidden;*/
+
+    /*Prevent native touch events on Windows*/
+    /*-ms-touch-action: none;*/
+
+    /*Prevent the callout on tap-hold and text selection*/
+    /*-webkit-touch-callout: none;*/
+    /*-webkit-user-select: none;*/
+    /*-moz-user-select: none;*/
+    /*-ms-user-select: none;*/
+    /*user-select: none;*/
+
+    /*Prevent text resize on orientation change, useful for web-apps*/
+    /*-webkit-text-size-adjust: none;*/
+    /*-moz-text-size-adjust: none;*/
+    /*-ms-text-size-adjust: none;*/
+    /*-o-text-size-adjust: none;*/
+    /*text-size-adjust: none;*/
+/*}*/
+
+/*#scroller1 {*/
+    /*position: absolute;*/
+
+    /*Prevent elements to be highlighted on tap*/
+    /*-webkit-tap-highlight-color: rgba(0, 0, 0, 0);*/
+
+    /*Put the scroller into the HW Compositing layer right from the start*/
+    /*-webkit-transform: translateZ(0);*/
+    /*-moz-transform: translateZ(0);*/
+    /*-ms-transform: translateZ(0);*/
+    /*-o-transform: translateZ(0);*/
+    /*transform: translateZ(0);*/
+/*}*/

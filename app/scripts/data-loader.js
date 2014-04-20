@@ -25,7 +25,7 @@ var LOAD_DATA = {
 
         // HandelBar template for Slide.
         var slidesTemplate = '{{#each chapters}} {{#each slides}}' +
-            '<div class="item slide-no-{{slide_no}}" style="height: 500px" data-content="{{slide_content}}" data-vertical-scrollable="{{vertical_scrollable}}"></div>' +
+            '<div class="item slide-no-{{slide_no}}" style="height: ' + window.innerHeight + 'px" data-content="{{slide_content}}" data-vertical-scrollable="{{vertical_scrollable}}"></div>' +
             '{{/each}} {{/each}}';
 
         var chaptersCompliedTpl = Handlebars.compile(chapterThumbnailTemplate);

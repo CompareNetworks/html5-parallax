@@ -1,3 +1,11 @@
+function initSlideSpecificPlugins(domElement) {
+    var verticalScroll = null;
+
+    if (domElement.data('vertical-scrollable')) {
+        verticalScroll = new IScroll(domElement.selector);
+    }
+}
+
 function updateNavigation(slideEl, selectedSlide, owlData) {
     var leftArrow = $('.left-arrow'),
         rightArrow = $('.right-arrow'),
@@ -65,7 +73,10 @@ function loadSlideContent() {
 
     function addToDom(domElement) {
         if (domElement.is(':empty')) {
-            domElement.load(domElement.data('content'));
+            domElement.load(domElement.data('content'), function(){
+                // Initializing the required plugins for the slide. E.g: IScroll.
+                initSlideSpecificPlugins(domElement);
+            });
         }
     }
 

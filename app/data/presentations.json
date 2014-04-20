@@ -5,7 +5,7 @@
             "first_slide": "1",
             "chapter_title": "First Chapter",
             "chapter_description": "First chapter description goes here. First chapter description goes here.",
-            "chapter_thumbnail": "images/presentations/chapter_1/thumbnail.gif",
+            "chapter_thumbnail": "data/presentation-content/chapter_1/thumbnail.gif",
             "slides": [
                 {
                     "slide_no": "1",
@@ -125,7 +125,7 @@
             "first_slide": "6",
             "chapter_title": "Second Chapter",
             "chapter_description": "Second chapter description goes here. Second chapter description goes here.",
-            "chapter_thumbnail": "images/presentations/chapter_2/thumbnail.gif",
+            "chapter_thumbnail": "data/presentation-content/chapter_2/thumbnail.gif",
             "slides": [
                 {
                     "slide_no": "6",
@@ -245,7 +245,7 @@
             "first_slide": "11",
             "chapter_title": "Third Chapter",
             "chapter_description": "Third chapter description goes here. Third chapter description goes here.",
-            "chapter_thumbnail": "images/presentations/chapter_3/thumbnail.gif",
+            "chapter_thumbnail": "data/presentation-content/chapter_3/thumbnail.gif",
             "slides": [
                 {
                     "slide_no": "11",
