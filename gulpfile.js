@@ -163,6 +163,5 @@ gulp.task('minify', function () {
 // Copy Data Content.
 gulp.task('copy_data', function () {
     gulp.src(['app/data/presentation-content/**/*'])
-        .pipe(jsonminify())
         .pipe(gulp.dest('dist/data/presentation-content'));
 });

@@ -114,7 +114,7 @@ $(document).on('onTemplateRenderComplete', function () {
     });
 
     $slides.owlCarousel({
-        slideSpeed: 500,
+        slideSpeed: 1500,
         singleItem: true,
         autoHeight: true,
         transitionStyle: 'fade',
