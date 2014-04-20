@@ -34,11 +34,6 @@ function updateNavigation(slideEl, selectedSlide, owlData) {
 
 }
 
-function loadChaptersInfo($title, $description) {
-    $('.chapter-info h3').html($title);
-    $('.chapter-info p').html($description);
-}
-
 function destroySlideContent(previousSlide, selectedSlide, bufferSize) {
     var backSlide = (previousSlide - bufferSize),
         nextSlide = (previousSlide + bufferSize),
@@ -95,16 +90,19 @@ function loadSlideContent() {
     updateNavigation(slideElement, selectedSlide, owlData);
 }
 
+function loadChaptersInfo($title, $description) {
+    $('.chapter-info h3').html($title);
+    $('.chapter-info p').html($description);
+}
+
 $(document).on('onTemplateRenderComplete', function () {
-
-    var $slides = $('.main-slides-container'),
-        $slideThumbs = $('.slides-container');
-
     $('.main-container').malaTabs({animation: 'fade'});
-
     document.ontouchmove = function (e) {
         e.preventDefault();
     };
+
+    var $slides = $('.main-slides-container'),
+        $slideThumbs = $('.slides-container');
 
     $slideThumbs.owlCarousel({
         items: 5,
