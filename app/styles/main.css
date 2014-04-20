@@ -1,6 +1,7 @@
 body {
   font-family: helvetica, arial;
   font-size: 100%;
+  margin: 0px;
 }
 
 a img {
@@ -34,7 +35,7 @@ a img {
 }
 .main-container footer.footer-menu .main-menu {
   background: #000000;
-  padding: 10px;
+  padding: 15px;
   position: relative;
   z-index: 3000;
 }
@@ -43,6 +44,49 @@ a img {
   font-weight: bold;
   text-decoration: none;
   font-size: 1.2em;
+}
+.main-container footer.footer-menu .main-menu .arrows {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  width: 45px;
+  height: 45px;
+}
+.main-container footer.footer-menu .main-menu .arrows a {
+  width: 0;
+  height: 0;
+  display: block;
+  position: absolute;
+}
+.main-container footer.footer-menu .main-menu .arrows .left-arrow {
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid rgba(255, 255, 255, 0.3);
+  top: 10px;
+  left: 0px;
+}
+.main-container footer.footer-menu .main-menu .arrows .left-arrow.active {
+  border-right: 10px solid #ffffff;
+}
+.main-container footer.footer-menu .main-menu .arrows .right-arrow {
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid rgba(255, 255, 255, 0.3);
+  top: 10px;
+  right: 0px;
+}
+.main-container footer.footer-menu .main-menu .arrows .right-arrow.active {
+  border-left: 10px solid #ffffff;
+}
+.main-container footer.footer-menu .main-menu .arrows .bottom-arrow {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid rgba(255, 255, 255, 0.3);
+  bottom: 0px;
+  left: 12px;
+}
+.main-container footer.footer-menu .main-menu .arrows .bottom-arrow.active {
+  border-top: 10px solid #ffffff;
 }
 .main-container footer.footer-menu .chapter-menu {
   position: absolute;
@@ -100,6 +144,8 @@ a img {
 .main-container footer.footer-menu .chapter-menu ul.chapters {
   *zoom: 1;
   padding: 10px;
+  background: #eeeeee;
+  border-bottom: solid 1px #dddddd;
 }
 .main-container footer.footer-menu .chapter-menu ul.chapters:before, .main-container footer.footer-menu .chapter-menu ul.chapters:after {
   display: table;
@@ -115,21 +161,65 @@ a img {
 }
 .main-container footer.footer-menu .chapter-menu ul.chapters li a {
   display: block;
+  position: relative;
+  padding-bottom: 10px;
+  text-decoration: none;
+}
+.main-container footer.footer-menu .chapter-menu ul.chapters li a .arrow {
+  display: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid #dddddd;
+  bottom: -11px;
+  left: 57px;
+}
+.main-container footer.footer-menu .chapter-menu ul.chapters li a .arrow .inner {
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 14px solid #ffffff;
+  position: absolute;
+  left: -14px;
+  top: 2px;
+}
+.main-container footer.footer-menu .chapter-menu ul.chapters li a .title {
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.8em;
+  padding: 5px;
+  width: 140px;
+  bottom: 0px;
+}
+.main-container footer.footer-menu .chapter-menu ul.chapters li a .title strong {
+  font-size: 0.9em;
+  font-weight: bold;
+  display: block;
 }
 .main-container footer.footer-menu .chapter-menu ul.chapters li a img {
   width: 100%;
   display: block;
 }
-.main-container footer.footer-menu .chapter-menu.chapter-selected ul.chapters {
-  background: #eeeeee;
-  border-bottom: solid 1px #dddddd;
+.main-container footer.footer-menu .chapter-menu ul.chapters li a.selected .arrow {
+  display: block;
+}
+.main-container footer.footer-menu .chapter-menu .chapter-info {
+  padding: 10px;
+}
+.main-container footer.footer-menu .chapter-menu .chapter-info h3 {
+  font-weight: bold;
+  font-size: 1.2em;
+  padding-bottom: 5px;
+}
+.main-container footer.footer-menu .chapter-menu .chapter-info p {
+  font-size: 1em;
 }
 .main-container footer.footer-menu .chapter-menu .slides-outer {
-  display: none;
-  height: 110px;
-}
-.main-container footer.footer-menu .chapter-menu .slides-outer .slides-container {
-  margin: 10px;
+  padding: 10px;
+  height: 100px;
 }
 .main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .owl-wrapper-outer {
   overflow: hidden;
@@ -149,6 +239,9 @@ a img {
 }
 .main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .item {
   margin: 3px;
+  width: 150px;
+  height: 80px;
+  overflow: hidden;
 }
 .main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .item img {
   display: block;

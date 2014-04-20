@@ -1,3 +1,5 @@
+
+
 @mixin clearfix {
   *zoom: 1;
   &:before, &:after {
@@ -9,15 +11,10 @@
   }
 }
 
-@mixin animation {
-  @include transition-property(all);
-  @include transition-duration(0.3s);
-  @include transition-timing-function(linear);
-}
-
 body {
   font-family: helvetica, arial;
   font-size: 100%;
+  margin:0px;
 }
 
 a {
@@ -51,7 +48,7 @@ a {
     width: 100%;
     .main-menu {
       background: #000000;
-      padding: 10px;
+      padding: 15px;
       position: relative;
       z-index: 3000;
       a {
@@ -59,6 +56,49 @@ a {
         font-weight: bold;
         text-decoration: none;
         font-size: 1.2em;
+      }
+      .arrows{
+        position: absolute;
+        right: 10px;
+        top: 0px;
+        width: 45px;
+        height: 45px;
+        a{
+          width: 0; 
+          height: 0; 
+          display:block;
+          position:absolute;
+        }
+        .left-arrow{
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-right: 10px solid rgba(255,255,255,0.3);
+          top: 10px;
+          left: 0px;
+          &.active{
+            border-right: 10px solid #ffffff;
+          }
+        }
+        .right-arrow{
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-left: 10px solid rgba(255,255,255,0.3);
+          top: 10px;
+          right: 0px;
+          &.active{
+            border-left: 10px solid #ffffff;
+          }
+        }
+        .bottom-arrow{
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-top: 10px solid rgba(255,255,255,0.3);
+          bottom: 0px;
+          left: 12px;
+          &.active{
+            border-top: 10px solid #ffffff;
+          }
+        }
       }
     }
     .chapter-menu {
@@ -109,36 +149,78 @@ a {
       ul.chapters {
         @include clearfix;
         padding: 10px;
+        background: #eeeeee;
+        border-bottom: solid 1px #dddddd;
         li {
           float: left;
           margin-right: 10px;
           width: 150px;
           a {
             display: block;
+            position:relative;
+            padding-bottom:10px;
+            text-decoration:none;
+            .arrow{
+              display:none;
+              position:absolute;
+              width: 0; 
+              height: 0; 
+              border-left: 15px solid transparent;
+              border-right: 15px solid transparent;
+              border-bottom: 15px solid #dddddd;
+              bottom:-11px;
+              left:57px;
+              .inner{
+                border-left: 14px solid transparent;
+                border-right: 14px solid transparent;
+                border-bottom: 14px solid #ffffff;
+                position: absolute;
+                left: -14px;
+                top: 2px;
+              }
+            }
+            .title{
+              display:block;
+              background:rgba(0,0,0,0.5);
+              color:#ffffff;
+              text-decoration:none;
+              font-size:0.8em;
+              padding:5px;
+              width:140px;
+              bottom:0px;
+              strong{
+                font-size:0.9em;
+                font-weight:bold;
+                display:block;
+              }
+            }
             img {
               width: 100%;
               display: block;
             }
+            &.selected{
+              .arrow{
+                display:block;
+              }
+            }
           }
         }
       }
-      &.chapter-selected {
-        .tab-contents {
-
+      .chapter-info{
+        padding:10px;
+        h3{
+          font-weight:bold;
+          font-size:1.2em;
+          padding-bottom:5px;
         }
-        ul.chapters {
-          background: #eeeeee;
-          border-bottom: solid 1px #dddddd;
-          li {
-            //width:100px;
-          }
+        p{
+          font-size:1em;
         }
       }
       .slides-outer {
-        display: none;
-        height: 110px;
+        padding: 10px;
+        height:100px;
         .slides-container {
-          margin: 10px;
           .owl-wrapper-outer {
             overflow: hidden;
             .owl-wrapper {
@@ -150,6 +232,9 @@ a {
           }
           .item {
             margin: 3px;
+            width:150px;
+            height:80px;
+            overflow:hidden;
             img {
               display: block;
               width: 100%;

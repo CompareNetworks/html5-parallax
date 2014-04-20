@@ -6,8 +6,9 @@
     <title>imSmart</title>
 
     <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/iscroll.css">
+    <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
 
@@ -22,6 +23,12 @@
     <footer class="footer-menu">
         <div class="main-menu">
             <a href="javascript:;" id="main-menu-btn">Menu</a>
+            
+            <div class="arrows">
+            	<a href="#" class="left-arrow"></a>
+                <a href="#" class="right-arrow"></a>
+                <a href="#" class="bottom-arrow"></a>
+            </div>
         </div>
         <div class="chapter-menu">
             <a href="#" class="close-btn">
@@ -40,6 +47,10 @@
                 <div id="menu">
                     <!-- Chapter list gets into following ul -->
                     <ul class="chapters"></ul>
+                    <div class="chapter-info">
+                    	<h3></h3>
+                        <p></p>
+                    </div>
                     <div class="slides-outer">
                         <!-- Slide thumbnail list gets into following div -->
                         <div class="slides-container"></div>

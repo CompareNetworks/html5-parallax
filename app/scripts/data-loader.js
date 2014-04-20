@@ -9,8 +9,9 @@ var LOAD_DATA = {
         // HandelBar template for Chapter thumbnails.
         var chapterThumbnailTemplate = '{{#each chapters}} ' +
                 '<li class="chapter"> ' +
-                    '<a href="#chapter{{chapter_no}}" data-first-slide="{{first_slide}}">' +
+                    '<a href="#chapter{{chapter_no}}" data-first-slide="{{first_slide}}" data-title="{{chapter_title}}" data-description="{{chapter_description}}">' +
                         '<img src="{{chapter_thumbnail}}">' +
+						'<span class="title"><strong>{{chapter_title}}</strong>Line 2</span>'+
                 '   </a>' +
                 '</li>' +
             '{{/each}}';
@@ -24,7 +25,7 @@ var LOAD_DATA = {
 
         // HandelBar template for Slide.
         var slidesTemplate = '{{#each chapters}} {{#each slides}}' +
-            '<div class="item slide-no-{{slide_no}}" style="height: 500px" data-content="{{slide_content}}"></div>' +
+            '<div class="item slide-no-{{slide_no}}" style="height: 500px" data-content="{{slide_content}}" data-vertical-scrollable="{{vertical_scrollable}}"></div>' +
             '{{/each}} {{/each}}';
 
         var chaptersCompliedTpl = Handlebars.compile(chapterThumbnailTemplate);
