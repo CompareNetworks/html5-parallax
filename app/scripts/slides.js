@@ -148,7 +148,7 @@ $(document).on('onTemplateRenderComplete', function () {
 
             $slideThumbs.trigger('owl.goTo', (slideNo - 1));
             $('footer .chapters a').removeClass('selected');
-            $('footer .chapters .chapter:nth-child(' + chapterNo + ') a').addClass('selected');
+            $('footer .chapters .owl-item:nth-child(' + chapterNo + ') a').addClass('selected');
             $slideThumbs.show();
         });
         return false;
