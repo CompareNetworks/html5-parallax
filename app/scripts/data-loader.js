@@ -26,9 +26,10 @@ var LOAD_DATA = {
 
         // HandelBar template for Slide.
         var slidesTemplate = '{{#each chapters}} {{#each slides}}' +
-                '<div class="item slide-no-{{slide_no}}" style="height: ' + (window.innerHeight - 50) + 'px" ' +
+                '<div class="item slide-no-{{slide_no}}"'+
+                'style="height: ' + (window.innerHeight - 50) + 'px" ' +
                 'data-content="{{slide_content}}" data-slide-notes="{{slide_notes}}" data-slide-no="{{slide_no}}" ' +
-                'data-chapter-no="{{../chapter_no}}" data-vertical-scrollable="{{vertical_scrollable}}">' +
+                'data-chapter-no="{{../chapter_no}}" data-vertical-scrollable="{{vertical_scrollable}}" data-related-docs-folder-id = "{{related_docs_folder}}"> ' +
                 '</div>' +
             '{{/each}} {{/each}}';
 
