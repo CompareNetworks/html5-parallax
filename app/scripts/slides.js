@@ -104,7 +104,8 @@ $(document).on('onTemplateRenderComplete', function () {
     };
 
     var $slides = $('.main-slides-container'),
-        $slideThumbs = $('.slides-container');
+        $slideThumbs = $('.slides-container'),
+		$chapters = $('.chapters');
 
     $slideThumbs.owlCarousel({
         items: 5,
@@ -112,6 +113,15 @@ $(document).on('onTemplateRenderComplete', function () {
         itemsDesktop: [1000, 5], //5 items between 1000px and 901px
         itemsDesktopSmall: [900, 5], // between 900px and 601px
         itemsTablet: [600, 5] //2 items between 600 and 0
+
+    });
+	
+	$chapters.owlCarousel({
+        items: 6,
+        slideSpeed: 1000,
+        itemsDesktop: [1000, 6], //5 items between 1000px and 901px
+        itemsDesktopSmall: [900, 6], // between 900px and 601px
+        itemsTablet: [600, 6] //2 items between 600 and 0
 
     });
 
@@ -154,9 +164,9 @@ $(document).on('onTemplateRenderComplete', function () {
     });
 
     $('footer .chapters a').append('<div class="arrow"><div class="inner"></div></div>');
-    $('footer .chapters .chapter:first-child a').addClass('selected');
-    var $firstTitle = $('footer .chapters .chapter:first-child a').attr('data-title');
-    var $firstDescription = $('footer .chapters .chapter:first-child a').attr('data-description');
+    $('footer .chapters .owl-item:first-child a').addClass('selected');
+    var $firstTitle = $('footer .chapters .owl-item:first-child a').attr('data-title');
+    var $firstDescription = $('footer .chapters .owl-item:first-child a').attr('data-description');
 
     loadChaptersInfo($firstTitle, $firstDescription);
 

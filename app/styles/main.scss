@@ -146,15 +146,15 @@ a {
         border: solid 2px #000000;
         border-top: none;
       }
-      ul.chapters {
+      .chapters {
         @include clearfix;
-        padding: 10px;
+        padding: 10px 10px 0px 10px;
         background: #eeeeee;
         border-bottom: solid 1px #dddddd;
-        li {
-          float: left;
+        .item {
           margin-right: 10px;
           width: 150px;
+          height:157px;
           a {
             display: block;
             position:relative;
@@ -202,6 +202,16 @@ a {
               .arrow{
                 display:block;
               }
+            }
+          }
+        }
+        .owl-wrapper-outer {
+          overflow: hidden;
+          margin-bottom:-2px;
+          .owl-wrapper {
+            @include clearfix;
+            .owl-item {
+              float: left;
             }
           }
         }
