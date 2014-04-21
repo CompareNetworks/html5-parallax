@@ -97,6 +97,21 @@ function loadChaptersInfo($title, $description) {
     $('.chapter-info p').html($description);
 }
 
+function loadSlideNotes() {
+    var selectedSlideEl = $('div.main-slider div.owl-item.active > div:first')[0],
+        slideNoteEl = $('footer #slide-notes'),
+        scroller = null;
+
+//    slideNoteEl.load($(selectedSlideEl).data('slide-notes'));
+    scroller = new IScroll('#slide-notes', {
+        scrollbars: true,
+        mouseWheel: true,
+        interactiveScrollbars: true,
+        shrinkScrollbars: 'scale',
+        fadeScrollbars: true
+    });
+}
+
 $(document).on('onTemplateRenderComplete', function () {
     $('.main-container').malaTabs({animation: 'fade'});
     document.ontouchmove = function (e) {
@@ -197,5 +212,9 @@ $(document).on('onTemplateRenderComplete', function () {
             $slideThumbs.hide();
         }, 500);
         return false;
+    });
+
+    $('footer #slide-notes-button').click( function() {
+        loadSlideNotes();
     });
 });
