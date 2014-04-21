@@ -100,17 +100,17 @@ function loadChaptersInfo($title, $description) {
 function loadSlideNotes() {
     var selectedSlideEl = $('div.main-slider div.owl-item.active > div:first')[0],
         slideNoteEl = $('footer #slide-notes'),
-        scroller = null;
+        scroll = null;
 
-//    slideNoteEl.load($(selectedSlideEl).data('slide-notes'));
-    slideNoteEl.load('data/presentation-content/chapter_1/slide_2/content.html', function () {
-        scroller = new IScroll('#slide-notes', {
+    slideNoteEl.empty();
+    slideNoteEl.load($(selectedSlideEl).data('slide-notes'), function () {
+        scroll = new IScroll('#slide-notes', {
             scrollbars: true,
             shrinkScrollbars: 'scale'
         });
         setTimeout(function () {
             // Refreshing the IScroll after the DOM manipulation.
-            scroller.refresh();
+            scroll.refresh();
         }, 1000);
     });
 }
