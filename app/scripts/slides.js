@@ -2,14 +2,16 @@ function initSlideSpecificPlugins(domElement) {
     var verticalScroll = null;
 
     if (domElement.data('vertical-scrollable')) {
-        verticalScroll = new IScroll(domElement.selector);
+        verticalScroll = new IScroll(domElement.selector, {
+            snap: true
+        });
     }
 }
 
 function updateNavigation(slideEl, selectedSlide, owlData) {
-    var leftArrow = $('.left-arrow'),
-        rightArrow = $('.right-arrow'),
-        bottomArrow = $('.bottom-arrow');
+    var leftArrow = $('footer a.left-arrow'),
+        rightArrow = $('footer a.right-arrow'),
+        bottomArrow = $('footer a.bottom-arrow');
 
     if (slideEl.data('vertical-scrollable')) {
         bottomArrow.addClass('active');
@@ -128,6 +130,7 @@ $(document).on('onTemplateRenderComplete', function () {
         singleItem: true,
         autoHeight: true,
         transitionStyle: 'fade',
+        addClassActive: true,
         afterMove: function () {
             loadSlideContent();
         }
@@ -139,9 +142,13 @@ $(document).on('onTemplateRenderComplete', function () {
 
     $('footer #main-menu-btn').click(function () {
         $('.chapter-menu').slideDown(function () {
-            $slideThumbs.trigger('owl.goTo', 0);
+            var selectedSlideEl = $('div.main-slider div.owl-item.active > div:first')[0],
+                chapterNo = $(selectedSlideEl).data('chapter-no'),
+                slideNo = $(selectedSlideEl).data('slide-no');
+
+            $slideThumbs.trigger('owl.goTo', (slideNo - 1));
             $('footer .chapters a').removeClass('selected');
-            $('footer .chapters .chapter:first-child a').addClass('selected');
+            $('footer .chapters .chapter:nth-child(' + chapterNo + ') a').addClass('selected');
             $slideThumbs.show();
         });
         return false;
