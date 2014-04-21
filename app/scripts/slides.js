@@ -167,7 +167,8 @@ $(document).on('onTemplateRenderComplete', function () {
             $('footer div.chapters div.chapter a').eq(chapterNo-1).addClass('selected');
             $slideThumbs.trigger('owl.goTo', (slideNo - 1));
             slideThumb.eq(slideNo - 1).addClass('slide-selected');
-            $slideThumbs.show();
+            $slideThumbs.fadeIn();
+			$('.owl-wrapper-outer',$chapters).fadeIn();
         });
         return false;
     });
@@ -217,4 +218,14 @@ $(document).on('onTemplateRenderComplete', function () {
     $('footer #slide-notes-button').click( function() {
         loadSlideNotes();
     });
+
+    document.addEventListener('touchmove', function (e) {
+        var container = $('.chapter-menu');
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            $slideThumbs.hide();
+            $('.owl-wrapper-outer', $chapters).hide();
+            $('.chapter-menu').slideUp();
+        }
+    });
+
 });
