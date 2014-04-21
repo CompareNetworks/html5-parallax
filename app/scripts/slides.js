@@ -103,12 +103,15 @@ function loadSlideNotes() {
         scroller = null;
 
 //    slideNoteEl.load($(selectedSlideEl).data('slide-notes'));
-    scroller = new IScroll('#slide-notes', {
-        scrollbars: true,
-        mouseWheel: true,
-        interactiveScrollbars: true,
-        shrinkScrollbars: 'scale',
-        fadeScrollbars: true
+    slideNoteEl.load('data/presentation-content/chapter_1/slide_2/content.html', function () {
+        scroller = new IScroll('#slide-notes', {
+            scrollbars: true,
+            shrinkScrollbars: 'scale'
+        });
+        setTimeout(function () {
+            // Refreshing the IScroll after the DOM manipulation.
+            scroller.refresh();
+        }, 1000);
     });
 }
 
