@@ -141,31 +141,31 @@ a img {
   border: solid 2px #000000;
   border-top: none;
 }
-.main-container footer.footer-menu .chapter-menu ul.chapters {
+.main-container footer.footer-menu .chapter-menu .chapters {
   *zoom: 1;
-  padding: 10px;
+  padding: 10px 10px 0px 10px;
   background: #eeeeee;
   border-bottom: solid 1px #dddddd;
 }
-.main-container footer.footer-menu .chapter-menu ul.chapters:before, .main-container footer.footer-menu .chapter-menu ul.chapters:after {
+.main-container footer.footer-menu .chapter-menu .chapters:before, .main-container footer.footer-menu .chapter-menu .chapters:after {
   display: table;
   content: " ";
 }
-.main-container footer.footer-menu .chapter-menu ul.chapters:after {
+.main-container footer.footer-menu .chapter-menu .chapters:after {
   clear: both;
 }
-.main-container footer.footer-menu .chapter-menu ul.chapters li {
-  float: left;
+.main-container footer.footer-menu .chapter-menu .chapters .item {
   margin-right: 10px;
   width: 150px;
+  height: 157px;
 }
-.main-container footer.footer-menu .chapter-menu ul.chapters li a {
+.main-container footer.footer-menu .chapter-menu .chapters .item a {
   display: block;
   position: relative;
   padding-bottom: 10px;
   text-decoration: none;
 }
-.main-container footer.footer-menu .chapter-menu ul.chapters li a .arrow {
+.main-container footer.footer-menu .chapter-menu .chapters .item a .arrow {
   display: none;
   position: absolute;
   width: 0;
@@ -176,7 +176,7 @@ a img {
   bottom: -11px;
   left: 57px;
 }
-.main-container footer.footer-menu .chapter-menu ul.chapters li a .arrow .inner {
+.main-container footer.footer-menu .chapter-menu .chapters .item a .arrow .inner {
   border-left: 14px solid transparent;
   border-right: 14px solid transparent;
   border-bottom: 14px solid #ffffff;
@@ -184,7 +184,7 @@ a img {
   left: -14px;
   top: 2px;
 }
-.main-container footer.footer-menu .chapter-menu ul.chapters li a .title {
+.main-container footer.footer-menu .chapter-menu .chapters .item a .title {
   display: block;
   background: rgba(0, 0, 0, 0.5);
   color: #ffffff;
@@ -194,17 +194,34 @@ a img {
   width: 140px;
   bottom: 0px;
 }
-.main-container footer.footer-menu .chapter-menu ul.chapters li a .title strong {
+.main-container footer.footer-menu .chapter-menu .chapters .item a .title strong {
   font-size: 0.9em;
   font-weight: bold;
   display: block;
 }
-.main-container footer.footer-menu .chapter-menu ul.chapters li a img {
+.main-container footer.footer-menu .chapter-menu .chapters .item a img {
   width: 100%;
   display: block;
 }
-.main-container footer.footer-menu .chapter-menu ul.chapters li a.selected .arrow {
+.main-container footer.footer-menu .chapter-menu .chapters .item a.selected .arrow {
   display: block;
+}
+.main-container footer.footer-menu .chapter-menu .chapters .owl-wrapper-outer {
+  overflow: hidden;
+  margin-bottom: -2px;
+}
+.main-container footer.footer-menu .chapter-menu .chapters .owl-wrapper-outer .owl-wrapper {
+  *zoom: 1;
+}
+.main-container footer.footer-menu .chapter-menu .chapters .owl-wrapper-outer .owl-wrapper:before, .main-container footer.footer-menu .chapter-menu .chapters .owl-wrapper-outer .owl-wrapper:after {
+  display: table;
+  content: " ";
+}
+.main-container footer.footer-menu .chapter-menu .chapters .owl-wrapper-outer .owl-wrapper:after {
+  clear: both;
+}
+.main-container footer.footer-menu .chapter-menu .chapters .owl-wrapper-outer .owl-wrapper .owl-item {
+  float: left;
 }
 .main-container footer.footer-menu .chapter-menu .chapter-info {
   padding: 10px;
@@ -247,4 +264,9 @@ a img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.slide-selected {
+    border-style:solid;
+    border-width:5px;
 }

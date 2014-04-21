@@ -143,13 +143,13 @@ $(document).on('onTemplateRenderComplete', function () {
     $('footer #main-menu-btn').click(function () {
         $('.chapter-menu').slideDown(function () {
             var selectedSlideEl = $('div.main-slider div.owl-item.active > div:first')[0],
-                slideThumb = $('footer div.owl-item div.item'),
+                slideThumb = $('footer div.slides-outer div.owl-item div.item'),
                 chapterNo = $(selectedSlideEl).data('chapter-no'),
                 slideNo = $(selectedSlideEl).data('slide-no');
 
             $('footer .chapters a').removeClass('selected');
             slideThumb.removeClass('slide-selected');
-            $('footer .chapters .chapter:nth-child(' + chapterNo + ') a').addClass('selected');
+            $('footer div.chapters div.chapter a').eq(chapterNo-1).addClass('selected');
             $slideThumbs.trigger('owl.goTo', (slideNo - 1));
             slideThumb.eq(slideNo - 1).addClass('slide-selected');
             $slideThumbs.show();
@@ -188,7 +188,7 @@ $(document).on('onTemplateRenderComplete', function () {
     $('.slides-container .item').click(function () {
         var slide = $(this);
         var slideNumber = parseInt(slide.attr('data-slide-id'));
-        var slideThumb = $('footer div.owl-item div.item');
+        var slideThumb = $('footer div.slides-outer div.owl-item div.item');
         $slides.trigger('owl.jumpTo', slideNumber - 1);
         slideThumb.removeClass('slide-selected');
         slide.addClass('slide-selected');
