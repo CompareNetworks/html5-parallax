@@ -100,15 +100,18 @@ function loadChaptersInfo($title, $description) {
 function loadSlideNotes() {
     var selectedSlideEl = $('div.main-slider div.owl-item.active > div:first')[0],
         slideNoteEl = $('footer #slide-notes'),
-        scroller = null;
+        scroll = null;
 
-//    slideNoteEl.load($(selectedSlideEl).data('slide-notes'));
-    scroller = new IScroll('#slide-notes', {
-        scrollbars: true,
-        mouseWheel: true,
-        interactiveScrollbars: true,
-        shrinkScrollbars: 'scale',
-        fadeScrollbars: true
+    slideNoteEl.empty();
+    slideNoteEl.load($(selectedSlideEl).data('slide-notes'), function () {
+        scroll = new IScroll('#slide-notes', {
+            scrollbars: true,
+            shrinkScrollbars: 'scale'
+        });
+        setTimeout(function () {
+            // Refreshing the IScroll after the DOM manipulation.
+            scroll.refresh();
+        }, 1000);
     });
 }
 
