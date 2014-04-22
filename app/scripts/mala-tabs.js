@@ -28,7 +28,7 @@
         createContent: function (opts, $buttonContainer, $tabContainer) {
             $('> div', $tabContainer).addClass('tab').hide();
             if (opts.fistTabId === '') {
-                $('div:first-child', $tabContainer).addClass('active-tab').show();
+                $('.tab:first-child', $tabContainer).addClass('active-tab').show();
                 $('li:first-child', $buttonContainer).addClass(opts.selectedClass);
             }
             else {

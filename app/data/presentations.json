@@ -11,7 +11,7 @@
                     "slide_no": "1",
                     "slide_title": "Chapter 1 - Slide 1",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_1/slide_1/thumbnail.gif",
+                    "slide_thumb": "data/presentation-content/chapter_1/slide_1/thumb_1.png",
                     "slide_content": "data/presentation-content/chapter_1/slide_1/content.html",
                     "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
                     "related_docs": [
@@ -33,7 +33,7 @@
                     "slide_no": "2",
                     "slide_title": "Chapter 1 - Slide 2",
                     "vertical_scrollable": "true",
-                    "slide_thumb": "data/presentation-content/chapter_1/slide_2/thumbnail.gif",
+                    "slide_thumb": "data/presentation-content/chapter_1/slide_2/thumb_2.png",
                     "slide_content": "data/presentation-content/chapter_1/slide_2/content.html",
                     "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
                     "related_docs": [
@@ -55,7 +55,7 @@
                     "slide_no": "3",
                     "slide_title": "Chapter 1 - Slide 3",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_1/slide_3/thumbnail.gif",
+                    "slide_thumb": "data/presentation-content/chapter_1/slide_3/thumb_3.png",
                     "slide_content": "data/presentation-content/chapter_1/slide_3/content.html",
                     "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
                     "related_docs": [
@@ -77,7 +77,7 @@
                     "slide_no": "4",
                     "slide_title": "Chapter 1 - Slide 4",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_1/slide_4/thumbnail.gif",
+                    "slide_thumb": "data/presentation-content/chapter_1/slide_4/thumb_4.png",
                     "slide_content": "data/presentation-content/chapter_1/slide_4/content.html",
                     "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
                     "related_docs": [
@@ -99,7 +99,7 @@
                     "slide_no": "5",
                     "slide_title": "Chapter 1 - Slide 5",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_1/slide_5/thumbnail.gif",
+                    "slide_thumb": "data/presentation-content/chapter_1/slide_5/thumb_5.png",
                     "slide_content": "data/presentation-content/chapter_1/slide_5/content.html",
                     "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
                     "related_docs": [
@@ -131,7 +131,7 @@
                     "slide_no": "6",
                     "slide_title": "Chapter 02 - Slide 1",
                     "vertical_scrollable": "true",
-                    "slide_thumb": "data/presentation-content/chapter_2/slide_6/thumbnail.gif",
+                    "slide_thumb": "data/presentation-content/chapter_2/slide_6/thumb_6.png",
                     "slide_content": "data/presentation-content/chapter_2/slide_6/content.html",
                     "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
                     "related_docs": [
@@ -153,7 +153,7 @@
                     "slide_no": "7",
                     "slide_title": "Chapter 02 - Slide 2",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_2/slide_7/thumbnail.gif",
+                    "slide_thumb": "data/presentation-content/chapter_2/slide_7/thumb_7.png",
                     "slide_content": "data/presentation-content/chapter_2/slide_7/content.html",
                     "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
                     "related_docs": [
@@ -175,7 +175,7 @@
                     "slide_no": "8",
                     "slide_title": "Chapter 02 - Slide 3",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_2/slide_8/thumbnail.gif",
+                    "slide_thumb": "data/presentation-content/chapter_2/slide_8/thumb_8.png",
                     "slide_content": "data/presentation-content/chapter_2/slide_8/content.html",
                     "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
                     "related_docs": [
@@ -197,7 +197,7 @@
                     "slide_no": "9",
                     "slide_title": "Chapter 02 - Slide 4",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_2/slide_9/thumbnail.gif",
+                    "slide_thumb": "data/presentation-content/chapter_2/slide_9/thumb_9.png",
                     "slide_content": "data/presentation-content/chapter_2/slide_9/content.html",
                     "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
                     "related_docs": [
@@ -219,7 +219,7 @@
                     "slide_no": "10",
                     "slide_title": "Chapter 02 - Slide 5",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_2/slide_10/thumbnail.gif",
+                    "slide_thumb": "data/presentation-content/chapter_2/slide_10/thumb_10.png",
                     "slide_content": "data/presentation-content/chapter_2/slide_10/content.html",
                     "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
                     "related_docs": [
@@ -251,7 +251,7 @@
                     "slide_no": "11",
                     "slide_title": "Chapter 03 - Slide 1",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_3/slide_11/thumbnail.gif",
+                    "slide_thumb": "data/presentation-content/chapter_3/slide_11/thumb_11.png",
                     "slide_content": "data/presentation-content/chapter_3/slide_11/content.html",
                     "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
                     "related_docs": [
@@ -273,7 +273,7 @@
                     "slide_no": "12",
                     "slide_title": "Chapter 03 - Slide 2",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_3/slide_12/thumbnail.gif",
+                    "slide_thumb": "data/presentation-content/chapter_3/slide_12/thumb_12.png",
                     "slide_content": "data/presentation-content/chapter_3/slide_12/content.html",
                     "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
                     "related_docs": [
@@ -295,7 +295,7 @@
                     "slide_no": "13",
                     "slide_title": "Chapter 03 - Slide 3",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_3/slide_13/thumbnail.gif",
+                    "slide_thumb": "data/presentation-content/chapter_3/slide_13/thumb_13.png",
                     "slide_content": "data/presentation-content/chapter_3/slide_13/content.html",
                     "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
                     "related_docs": [
@@ -317,7 +317,7 @@
                     "slide_no": "14",
                     "slide_title": "Chapter 03 - Slide 4",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_3/slide_14/thumbnail.gif",
+                    "slide_thumb": "data/presentation-content/chapter_3/slide_14/thumb_14.png",
                     "slide_content": "data/presentation-content/chapter_3/slide_14/content.html",
                     "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
                     "related_docs": [
@@ -339,7 +339,7 @@
                     "slide_no": "15",
                     "slide_title": "Chapter 03 - Slide 5",
                     "vertical_scrollable": "true",
-                    "slide_thumb": "data/presentation-content/chapter_3/slide_15/thumbnail.gif",
+                    "slide_thumb": "data/presentation-content/chapter_3/slide_15/thumb_15.png",
                     "slide_content": "data/presentation-content/chapter_3/slide_15/content.html",
                     "slide_notes": "Test related notes. Test related notes. Test related notes. Test related notes. ",
                     "related_docs": [

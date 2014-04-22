@@ -105,7 +105,17 @@ $(document).on('onTemplateRenderComplete', function () {
 
     var $slides = $('.main-slides-container'),
         $slideThumbs = $('.slides-container'),
-		$chapters = $('.chapters');
+		$chapters = $('.chapters'),
+		$innerCss = '',
+		$windowHeight = $(window).height() - 50;
+		
+	$innerCss += '<style type="text/css">'
+				+ '.main-slides-container #wrapper .page{'
+				+ 'height:' + $windowHeight + 'px'
+				+ '}'
+				+ '</style>';
+	
+	$('.main-container').append($innerCss);
 
     $slideThumbs.owlCarousel({
         items: 5,
