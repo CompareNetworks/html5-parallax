@@ -11,7 +11,7 @@
                     "slide_no": "1",
                     "slide_title": "Chapter 1 - Slide 1",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_1/slide_1/thumb_1.png",
+                    "slide_thumb": "data/presentation-content/chapter_1/slide_1/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_1/slide_1/content.html",
                     "slide_notes": "data/presentation-content/chapter_1/slide_1/notes.html",
                     "related_docs_folder": "47318"
@@ -19,8 +19,8 @@
                 {
                     "slide_no": "2",
                     "slide_title": "Chapter 1 - Slide 2",
-                    "vertical_scrollable": "true",
-                    "slide_thumb": "data/presentation-content/chapter_1/slide_2/thumb_2.png",
+                    "vertical_scrollable": "false",
+                    "slide_thumb": "data/presentation-content/chapter_1/slide_2/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_1/slide_2/content.html",
                     "slide_notes": "data/presentation-content/chapter_1/slide_2/notes.html",
                     "related_docs_folder": "47368"
@@ -29,7 +29,7 @@
                     "slide_no": "3",
                     "slide_title": "Chapter 1 - Slide 3",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_1/slide_3/thumb_3.png",
+                    "slide_thumb": "data/presentation-content/chapter_1/slide_3/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_1/slide_3/content.html",
                     "slide_notes": "data/presentation-content/chapter_1/slide_3/notes.html",
                     "related_docs_folder": "47368"
@@ -38,7 +38,7 @@
                     "slide_no": "4",
                     "slide_title": "Chapter 1 - Slide 4",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_1/slide_4/thumb_4.png",
+                    "slide_thumb": "data/presentation-content/chapter_1/slide_4/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_1/slide_4/content.html",
                     "slide_notes": "data/presentation-content/chapter_1/slide_4/notes.html",
                     "related_docs_folder": "47418"
@@ -47,7 +47,7 @@
                     "slide_no": "5",
                     "slide_title": "Chapter 1 - Slide 5",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_1/slide_5/thumb_5.png",
+                    "slide_thumb": "data/presentation-content/chapter_1/slide_5/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_1/slide_5/content.html",
                     "slide_notes": "data/presentation-content/chapter_1/slide_5/notes.html",
                     "related_docs_folder": "45318"
@@ -66,7 +66,7 @@
                     "slide_no": "6",
                     "slide_title": "Chapter 02 - Slide 1",
                     "vertical_scrollable": "true",
-                    "slide_thumb": "data/presentation-content/chapter_2/slide_6/thumb_6.png",
+                    "slide_thumb": "data/presentation-content/chapter_2/slide_6/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_2/slide_6/content.html",
                     "slide_notes": "data/presentation-content/chapter_2/slide_6/notes.html",
                     "related_docs_folder": "47388"
@@ -75,7 +75,7 @@
                     "slide_no": "7",
                     "slide_title": "Chapter 02 - Slide 2",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_2/slide_7/thumb_7.png",
+                    "slide_thumb": "data/presentation-content/chapter_2/slide_7/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_2/slide_7/content.html",
                     "slide_notes": "data/presentation-content/chapter_2/slide_7/notes.html",
                     "related_docs_folder": "47398"
@@ -84,7 +84,7 @@
                     "slide_no": "8",
                     "slide_title": "Chapter 02 - Slide 3",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_2/slide_8/thumb_8.png",
+                    "slide_thumb": "data/presentation-content/chapter_2/slide_8/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_2/slide_8/content.html",
                     "slide_notes": "data/presentation-content/chapter_2/slide_8/notes.html",
                     "related_docs_folder": "47308"
@@ -93,7 +93,7 @@
                     "slide_no": "9",
                     "slide_title": "Chapter 02 - Slide 4",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_2/slide_9/thumb_9.png",
+                    "slide_thumb": "data/presentation-content/chapter_2/slide_9/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_2/slide_9/content.html",
                     "slide_notes": "data/presentation-content/chapter_2/slide_9/notes.html",
                     "related_docs_folder": "47328"
@@ -102,7 +102,7 @@
                     "slide_no": "10",
                     "slide_title": "Chapter 02 - Slide 5",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_2/slide_10/thumb_10.png",
+                    "slide_thumb": "data/presentation-content/chapter_2/slide_10/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_2/slide_10/content.html",
                     "slide_notes": "data/presentation-content/chapter_2/slide_10/notes.html",
                     "related_docs_folder": "42318"
@@ -121,7 +121,7 @@
                     "slide_no": "11",
                     "slide_title": "Chapter 03 - Slide 1",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_3/slide_11/thumb_11.png",
+                    "slide_thumb": "data/presentation-content/chapter_3/slide_11/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_3/slide_11/content.html",
                     "slide_notes": "data/presentation-content/chapter_3/slide_11/notes.html",
                     "related_docs_folder": "47918"
@@ -130,7 +130,7 @@
                     "slide_no": "12",
                     "slide_title": "Chapter 03 - Slide 2",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_3/slide_12/thumb_12.png",
+                    "slide_thumb": "data/presentation-content/chapter_3/slide_12/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_3/slide_12/content.html",
                     "slide_notes": "data/presentation-content/chapter_3/slide_12/notes.html",
                     "related_docs_folder": "40318"
@@ -139,7 +139,7 @@
                     "slide_no": "13",
                     "slide_title": "Chapter 03 - Slide 3",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_3/slide_13/thumb_13.png",
+                    "slide_thumb": "data/presentation-content/chapter_3/slide_13/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_3/slide_13/content.html",
                     "slide_notes": "data/presentation-content/chapter_3/slide_13/notes.html",
                     "related_docs_folder": "56318"
@@ -148,7 +148,7 @@
                     "slide_no": "14",
                     "slide_title": "Chapter 03 - Slide 4",
                     "vertical_scrollable": "false",
-                    "slide_thumb": "data/presentation-content/chapter_3/slide_14/thumb_14.png",
+                    "slide_thumb": "data/presentation-content/chapter_3/slide_14/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_3/slide_14/content.html",
                     "slide_notes": "data/presentation-content/chapter_3/slide_14/notes.html",
                     "related_docs_folder": "57318"
@@ -156,11 +156,101 @@
                 {
                     "slide_no": "15",
                     "slide_title": "Chapter 03 - Slide 5",
-                    "vertical_scrollable": "true",
-                    "slide_thumb": "data/presentation-content/chapter_3/slide_15/thumb_15.png",
+                    "vertical_scrollable": "false",
+                    "slide_thumb": "data/presentation-content/chapter_3/slide_15/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_3/slide_15/content.html",
                     "slide_notes": "data/presentation-content/chapter_3/slide_15/notes.html",
                     "related_docs_folder": "45418"
+                }
+            ]
+        },
+        {
+            "chapter_no": "4",
+            "first_slide": "16",
+            "chapter_title": "Fourth Chapter",
+            "chapter_description": "Fourth chapter description goes here. Fourth chapter description goes here.",
+            "chapter_thumbnail": "data/presentation-content/chapter_4/thumbnail.gif",
+            "slides": [
+                {
+                    "slide_no": "16",
+                    "slide_title": "Chapter 04 - Slide 16",
+                    "vertical_scrollable": "false",
+                    "slide_thumb": "data/presentation-content/chapter_4/slide_16/thumbnail.png",
+                    "slide_content": "data/presentation-content/chapter_4/slide_16/content.html",
+                    "slide_notes": "data/presentation-content/chapter_4/slide_16/notes.html",
+                    "related_docs_folder": "47918"
+                }
+            ]
+        },
+        {
+            "chapter_no": "5",
+            "first_slide": "17",
+            "chapter_title": "Fifth Chapter",
+            "chapter_description": "Fifth chapter description goes here. Fifth chapter description goes here.",
+            "chapter_thumbnail": "data/presentation-content/chapter_5/thumbnail.gif",
+            "slides": [
+                {
+                    "slide_no": "17",
+                    "slide_title": "Chapter 05 - Slide 17",
+                    "vertical_scrollable": "false",
+                    "slide_thumb": "data/presentation-content/chapter_5/slide_17/thumbnail.png",
+                    "slide_content": "data/presentation-content/chapter_5/slide_17/content.html",
+                    "slide_notes": "data/presentation-content/chapter_5/slide_17/notes.html",
+                    "related_docs_folder": "47918"
+                }
+            ]
+        },
+        {
+            "chapter_no": "6",
+            "first_slide": "18",
+            "chapter_title": "Sixth Chapter",
+            "chapter_description": "Sixth chapter description goes here. Sixth chapter description goes here.",
+            "chapter_thumbnail": "data/presentation-content/chapter_6/thumbnail.gif",
+            "slides": [
+                {
+                    "slide_no": "18",
+                    "slide_title": "Chapter 06 - Slide 18",
+                    "vertical_scrollable": "false",
+                    "slide_thumb": "data/presentation-content/chapter_6/slide_18/thumbnail.png",
+                    "slide_content": "data/presentation-content/chapter_6/slide_18/content.html",
+                    "slide_notes": "data/presentation-content/chapter_6/slide_18/notes.html",
+                    "related_docs_folder": "47918"
+                }
+            ]
+        },
+        {
+            "chapter_no": "7",
+            "first_slide": "19",
+            "chapter_title": "Seventh Chapter",
+            "chapter_description": "Seventh chapter description goes here. Seventh chapter description goes here.",
+            "chapter_thumbnail": "data/presentation-content/chapter_7/thumbnail.gif",
+            "slides": [
+                {
+                    "slide_no": "19",
+                    "slide_title": "Chapter 07 - Slide 19",
+                    "vertical_scrollable": "false",
+                    "slide_thumb": "data/presentation-content/chapter_7/slide_19/thumbnail.png",
+                    "slide_content": "data/presentation-content/chapter_7/slide_19/content.html",
+                    "slide_notes": "data/presentation-content/chapter_7/slide_19/notes.html",
+                    "related_docs_folder": "47918"
+                }
+            ]
+        },
+        {
+            "chapter_no": "8",
+            "first_slide": "20",
+            "chapter_title": "Eighth Chapter",
+            "chapter_description": "Eighth chapter description goes here. Eighth chapter description goes here.",
+            "chapter_thumbnail": "data/presentation-content/chapter_8/thumbnail.gif",
+            "slides": [
+                {
+                    "slide_no": "20",
+                    "slide_title": "Chapter 08 - Slide 20",
+                    "vertical_scrollable": "false",
+                    "slide_thumb": "data/presentation-content/chapter_8/slide_20/thumbnail.png",
+                    "slide_content": "data/presentation-content/chapter_8/slide_20/content.html",
+                    "slide_notes": "data/presentation-content/chapter_8/slide_20/notes.html",
+                    "related_docs_folder": "47918"
                 }
             ]
         }

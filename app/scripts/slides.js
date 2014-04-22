@@ -379,12 +379,15 @@ $(document).on('onTemplateRenderComplete', function () {
             var selectedSlideEl = $('div.main-slider div.owl-item.active > div:first')[0],
                 slideThumb = $('footer div.slides-outer div.owl-item div.item'),
                 chapterNo = $(selectedSlideEl).data('chapter-no'),
-                slideNo = $(selectedSlideEl).data('slide-no');
+                slideNo = $(selectedSlideEl).data('slide-no'),
+                selectedChapter = $('footer div.chapters div.chapter a').eq(chapterNo-1);
 
             $('footer .chapters a').removeClass('selected');
             slideThumb.removeClass('slide-selected');
-            $('footer div.chapters div.chapter a').eq(chapterNo-1).addClass('selected');
+            selectedChapter.addClass('selected');
+            loadChaptersInfo(selectedChapter.data('title'), selectedChapter.data('description'));
             $slideThumbs.trigger('owl.goTo', (slideNo - 1));
+            $chapters.trigger('owl.goTo', (chapterNo - 1));
             slideThumb.eq(slideNo - 1).addClass('slide-selected');
             $slideThumbs.fadeIn();
 			$('.owl-wrapper-outer',$chapters).fadeIn();
