@@ -222,8 +222,8 @@ $(document).on('onTemplateRenderComplete', function () {
         slideSpeed: 1000,
         itemsDesktop: [1000, 5], //5 items between 1000px and 901px
         itemsDesktopSmall: [900, 5], // between 900px and 601px
-        itemsTablet: [600, 5] //2 items between 600 and 0
-
+        itemsTablet: [600, 5], //2 items between 600 and 0
+        lazyLoad : true
     });
 	
 	$chapters.owlCarousel({
@@ -231,8 +231,8 @@ $(document).on('onTemplateRenderComplete', function () {
         slideSpeed: 1000,
         itemsDesktop: [1000, 6], //5 items between 1000px and 901px
         itemsDesktopSmall: [900, 6], // between 900px and 601px
-        itemsTablet: [600, 6] //2 items between 600 and 0
-
+        itemsTablet: [600, 6], //2 items between 600 and 0
+        lazyLoad : true
     });
 
     $slides.owlCarousel({
