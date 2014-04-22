@@ -45,6 +45,17 @@ Note: Change the 'width' of '.slides-container' class to make slide thumbnail mo
     font-size: 14px;
 }
 
+.xys {
+    position: relative;
+    /*z-index: 1;*/
+    /*top: 37px;*/
+    /*bottom: 0px;*/
+    /*left: 0;*/
+    /*width: 100%;*/
+    /*background: #ccc;*/
+    overflow: hidden;
+}
+
 /*.iscroll-enable {*/
     /*position: absolute;*/
     /*z-index: 1;*/

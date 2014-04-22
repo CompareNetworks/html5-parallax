@@ -97,6 +97,106 @@ function loadChaptersInfo($title, $description) {
     $('.chapter-info p').html($description);
 }
 
+function loadSlideNotes() {
+    var selectedSlideEl = $('div.main-slider div.owl-item.active > div:first')[0],
+        slideNoteEl = $('footer #slide-notes'),
+        scroll = null;
+
+    slideNoteEl.empty();
+    slideNoteEl.load($(selectedSlideEl).data('slide-notes'), function () {
+        scroll = new IScroll('#slide-notes', {
+            scrollbars: true,
+            shrinkScrollbars: 'scale'
+        });
+        setTimeout(function () {
+            // Refreshing the IScroll after the DOM manipulation.
+            scroll.refresh();
+        }, 1000);
+    });
+}
+
+function loadRelatedDocuments () {
+    var selectedSlideEl = $('div.main-slider div.owl-item.active > div:first')[0],
+        chapterNumber = $(selectedSlideEl).data('chapter-no'),
+        slideNumber = $(selectedSlideEl).data('slide-no'),
+        relatedDocumentFolderId = $(selectedSlideEl).data('related-docs-folder-id');
+
+    var divId = getDivId (chapterNumber, slideNumber, relatedDocumentFolderId);
+    $('#related-documents').siblings().hide();
+
+    if ($('div[id^='+divId+']').length > 0) {
+        $( "#"+divId ).show();
+    }
+    else{
+        macs.getFolderAssets(
+        relatedDocumentFolderId.toString(),
+        function(data) {
+          if (data) {
+            var divContent = null;
+            divContent = "<div id = "+divId+">";
+            divContent += "<ul>";
+
+                $.each(data['children'], function( index, item_id ) {
+                var resultArray = getItemInfo(item_id);
+                  if (resultArray['isFolder']) {
+                    divContent += "<li>" ;
+                    divContent += "<img src='' alt='ALT TEXT'>"
+                    // divContent += item_id ;
+                    divContent += "<p>" ;
+                    divContent += resultArray['title'];
+                    divContent += "</p>" ;
+                    divContent += "</li>" ;
+                  }
+                });
+
+            divContent += "</ul>";    
+            divContent += "</div>";
+
+            $( "#related-documents" ).append( divContent );
+          }  
+        },
+        function (error) {
+        }
+      );
+    }
+}
+
+function getDivId (chapterNumber, slideNumber, related_docs_folder_id) {
+    return 'div_'+chapterNumber.toString()+'_'+slideNumber.toString()+'_'+related_docs_folder_id.toString();
+}
+
+function getItemInfo(item_id) {
+    var success = false;
+    var title = null;
+    var indexArray = new Array();
+    macs.getRequiredAssetDetails(
+      item_id,
+      ["itemTypeId","title"],
+      function (data) {
+        if (data) {
+            var itemTypeId = parseInt(data.itemTypeId);
+             if (itemTypeId == 3) {
+                   success = false;
+             }else{
+                   success = true;
+                   title = data.title;
+             }
+
+        }else{
+             success = false;
+        }
+      },
+      function (error) {
+          success = false;
+      }
+    );
+
+    indexArray['isFolder'] = success;
+    indexArray['title'] = title;
+
+    return indexArray;
+}
+
 $(document).on('onTemplateRenderComplete', function () {
     $('.main-container').malaTabs({animation: 'fade'});
     document.ontouchmove = function (e) {
@@ -209,15 +309,22 @@ $(document).on('onTemplateRenderComplete', function () {
         }, 500);
         return false;
     });
-	
-	document.addEventListener('touchmove', function(e) 
-	{
-		var container = $('.chapter-menu');
-		if (!container.is(e.target) && container.has(e.target).length === 0)
-		{
-			$slideThumbs.hide();
-			$('.owl-wrapper-outer',$chapters).hide();
-        	$('.chapter-menu').slideUp();
-		}
-	});
+
+    $('footer #slide-notes-button').click( function() {
+        loadSlideNotes();
+    });
+
+    $('footer #related-doc-button').click( function() {
+        loadRelatedDocuments();
+    });
+
+    document.addEventListener('touchmove', function (e) {
+        var container = $('.chapter-menu');
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            $slideThumbs.hide();
+            $('.owl-wrapper-outer', $chapters).hide();
+            $('.chapter-menu').slideUp();
+        }
+    });
+
 });

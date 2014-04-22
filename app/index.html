@@ -37,9 +37,9 @@
 
             <div class="tab-buttons">
                 <ul>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#related-documents">Related Documents</a></li>
-                    <li><a href="#slide-notes">Slide Notes</a></li>
+                    <li><a id="menu-button" href="#menu">Menu</a></li>
+                    <li><a id="related-doc-button" href="#related-documents">Related Documents</a></li>
+                    <li><a id="slide-notes-button" href="#slide-notes">Slide Notes</a></li>
                 </ul>
             </div>
 
@@ -56,8 +56,9 @@
                         <div class="slides-container"></div>
                     </div>
                 </div>
-                <div id="related-documents">second</div>
-                <div id="slide-notes">third</div>
+                <div id="related-documents"></div>
+                <div id="slide-notes" class="xys" style="height: 250px;" >
+                </div>
             </div>
 
         </div>
@@ -74,6 +75,7 @@
 <!-- endbuild -->
 
 <!-- build:js scripts/main.js -->
+<script src="scripts/macs.js"></script>
 <script src="scripts/mala-tabs.js"></script>
 <script src="scripts/slides.js"></script>
 <script src="scripts/data-loader.js"></script>
