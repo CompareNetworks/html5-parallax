@@ -164,7 +164,7 @@ a {
         border-top: none;
         background:$lightGrey;
         .tab{
-          min-height:250px;
+          height:490px;
         }
       }
       .chapters {
@@ -252,7 +252,7 @@ a {
       }
       .slides-outer {
         padding: 10px;
-        height:155px;
+        height:245px;
         background:#ffffff;
         .slides-container {
           .owl-wrapper-outer {
@@ -302,9 +302,9 @@ a {
         }
       }
       #related-documents{
-        padding:15px;
         .related-doc{
           @include clearfix;
+          padding:15px;
           .related-doc-item{
             float:left;
             width:300px;
