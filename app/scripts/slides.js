@@ -256,10 +256,11 @@ function getDefaultImageName (fileType)
 function getItemInfo(item_id) {
     var success = false;
     var title = null;
+    var fileType = null;
     var indexArray = new Array();
     macs.getRequiredAssetDetails(
       item_id,
-      ["itemTypeId","title"],
+      ["itemTypeId","title",'fileType'],
       function (data) {
         if (data) {
             var itemTypeId = parseInt(data.itemTypeId);
@@ -268,6 +269,7 @@ function getItemInfo(item_id) {
              }else{
                    success = true;
                    title = data.title;
+                   fileType = data.fileType;
              }
 
         }else{
@@ -281,6 +283,7 @@ function getItemInfo(item_id) {
 
     indexArray['isFolder'] = success;
     indexArray['title'] = title;
+    indexArray['fileType'] = fileType;
 
     return indexArray;
 }
