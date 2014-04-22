@@ -1,11 +1,11 @@
-function initItemTypes () {
+function initItemTypes() {
     var itemsTypes = [];
 
     itemsTypes.pdf = 'pdf';
     itemsTypes.link = 'link';
     itemsTypes.mp4 = 'video';
     itemsTypes.mpv = 'video';
-    itemsTypes['3gp']= 'video';
+    itemsTypes['3gp'] = 'video';
     itemsTypes.mov = 'video';
     itemsTypes.m4v = 'video';
     itemsTypes.aac = 'audio';
@@ -66,7 +66,6 @@ function initItemTypes () {
 }
 
 var itemTypes = initItemTypes();
-
 
 
 function initSlideSpecificPlugins(domElement) {
@@ -141,7 +140,7 @@ function loadSlideContent() {
 
     function addToDom(domElement) {
         if (domElement.is(':empty')) {
-            domElement.load(domElement.data('content'), function(){
+            domElement.load(domElement.data('content'), function () {
                 // Initializing the required plugins for the slide. E.g: IScroll.
                 initSlideSpecificPlugins(domElement);
             });
@@ -187,19 +186,19 @@ function loadSlideNotes() {
 }
 
 function openItem(itemId) {
-  macs.viewAsset(
-    itemId.toString(),
-    function (data) {
-    }
-  );
+    macs.viewAsset(
+        itemId.toString(),
+        function (data) {
+        }
+    );
 }
 
-function getDivId (chapterNumber, slideNumber, relatedDocsFolderId) {
-    return 'div_'+chapterNumber.toString()+'_'+slideNumber.toString()+'_'+relatedDocsFolderId.toString();
+function getDivId(chapterNumber, slideNumber, relatedDocsFolderId) {
+    return 'div_' + chapterNumber.toString() + '_' + slideNumber.toString() + '_' + relatedDocsFolderId.toString();
 }
 
-function getDefaultImageName (fileType) {
-    return itemTypes[fileType]+'_default_thumbnail.png';
+function getDefaultImageName(fileType) {
+    return itemTypes[fileType] + '_default_thumbnail.png';
 }
 
 function getItemInfo(itemId) {
@@ -208,26 +207,27 @@ function getItemInfo(itemId) {
     var fileType = null;
     var indexArray = [];
     macs.getRequiredAssetDetails(
-      itemId,
-      ['itemTypeId','title','fileType'],
-      function (data) {
-        if (data) {
-            var itemTypeId = parseInt(data.itemTypeId);
-             if (itemTypeId === 3) {
-                   success = false;
-             }else{
-                   success = true;
-                   title = data.title;
-                   fileType = data.fileType;
-             }
-        }else{
-             success = false;
+        itemId,
+        ['itemTypeId', 'title', 'fileType'],
+        function (data) {
+            if (data) {
+                var itemTypeId = parseInt(data.itemTypeId);
+                if (itemTypeId === 3) {
+                    success = false;
+                } else {
+                    success = true;
+                    title = data.title;
+                    fileType = data.fileType;
+                }
+
+            } else {
+                success = false;
+            }
+        },
+        function (error) {
+            console.log(error);
+            success = false;
         }
-      },
-      function (error) {
-        console.log(error);
-          success = false;
-      }
     );
 
     indexArray.isFolder = success;
@@ -237,82 +237,82 @@ function getItemInfo(itemId) {
     return indexArray;
 }
 
-function loadRelatedDocuments () {
+function loadRelatedDocuments() {
     var selectedSlideEl = $('div.main-slider div.owl-item.active > div:first')[0],
         chapterNumber = $(selectedSlideEl).data('chapter-no'),
         slideNumber = $(selectedSlideEl).data('slide-no'),
         relatedDocumentFolderId = $(selectedSlideEl).data('related-docs-folder-id');
 
-    var divId = getDivId (chapterNumber, slideNumber, relatedDocumentFolderId);
+    var divId = getDivId(chapterNumber, slideNumber, relatedDocumentFolderId);
     $('#related-documents').children().hide();
 
-    if ($('div[id^='+divId+']').length > 0) {
-        $( '#'+divId ).show();
+    if ($('div[id^=' + divId + ']').length > 0) {
+        $('#' + divId).show();
     }
-    else{
+    else {
         macs.getFolderAssets(
-        relatedDocumentFolderId.toString(),
-        function(data) {
-          if (data) {
-            var divContent = null;
-            divContent = '<div id = '+divId+'>';
-            divContent += '<ul class="related-doc">';
+            relatedDocumentFolderId.toString(),
+            function (data) {
+                if (data) {
+                    var divContent = null;
+                    divContent = '<div id = ' + divId + '>';
+                    divContent += '<ul class="related-doc">';
 
-                $.each(data.children, function( index, itemId ) {
-                var resultArray = getItemInfo(itemId);
-                  if (resultArray.isFolder) {
+                    $.each(data.children, function (index, itemId) {
+                        var resultArray = getItemInfo(itemId);
+                        if (resultArray.isFolder) {
 
-                var imagePath  = 'images/fileTypes/'+getDefaultImageName(resultArray.fileType);    
-                    divContent += '<li class="related-doc-item" data_item_id="'+itemId+'">' ;
-                    divContent += '<a href="#">';
+                            var imagePath = 'images/fileTypes/' + getDefaultImageName(resultArray.fileType);
+                            divContent += '<li class="related-doc-item" data_item_id="' + itemId + '">';
+                            divContent += '<a href="#">';
 
-                    divContent += '<img src="'+imagePath+'" height="65" width="50">';
-                    divContent += '</img>';
-                    divContent += '<span>' ;
-                    divContent += resultArray.title;
-                    divContent += '</span>' ;
+                            divContent += '<img src="' + imagePath + '" height="65" width="50">';
+                            divContent += '</img>';
+                            divContent += '<span>';
+                            divContent += resultArray.title;
+                            divContent += '</span>';
 
-                    divContent += '</a>';
-                    divContent += '</li>' ;
-                  }
-                });
+                            divContent += '</a>';
+                            divContent += '</li>';
+                        }
+                    });
 
-            divContent += '</ul>';    
-            divContent += '</div>';
+                    divContent += '</ul>';
+                    divContent += '</div>';
 
-            $( '#related-documents' ).append( divContent );
-            $.event.trigger({type: 'onRelatedDocumentsRenderComplete'});
-          }  
-        }
-      );
+                    $('#related-documents').append(divContent);
+                    $.event.trigger({type: 'onRelatedDocumentsRenderComplete'});
+                }
+            }
+        );
     }
 }
 
-function loadFirstTab(){
-	$tabContainer = $('.chapter-menu');
-	$tabButtons = $('.tab-buttons',$tabContainer);
-	$tabContents = $('.tab-contents',$tabContainer);
-	
-	$('.tab',$tabContents).removeClass('active-tab').hide();
-	$('.tab:first-child',$tabContents).addClass('active-tab').show();
-	$('ul li',$tabButtons).removeClass('selected-tab');
-	$('ul li a#menu-button',$tabButtons).parent().addClass('selected-tab');
-	
+function loadFirstTab() {
+    var $tabContainer = $('.chapter-menu');
+    var $tabButtons = $('.tab-buttons', $tabContainer);
+    var $tabContents = $('.tab-contents', $tabContainer);
+
+    $('.tab', $tabContents).removeClass('active-tab').hide();
+    $('.tab:first-child', $tabContents).addClass('active-tab').show();
+    $('ul li', $tabButtons).removeClass('selected-tab');
+    $('ul li a#menu-button', $tabButtons).parent().addClass('selected-tab');
+
 }
 
-function scrollEnable (divId) {
-    var scroll = new IScroll('#'+divId, {
+function scrollEnable(divId) {
+    var scroll = new IScroll('#' + divId, {
         scrollbars: true,
         shrinkScrollbars: 'scale',
         click: true 
-        });
+   	});
 
     setTimeout(function () {
         scroll.refresh();
     }, 1000);
 }
 
-$(document).on('onRelatedDocumentsRenderComplete',function () {
+$(document).on('onRelatedDocumentsRenderComplete', function () {
     $('.related-doc-item').click(function () {
         var itemId = $(this).attr('data_item_id');
         openItem(itemId);
@@ -329,17 +329,17 @@ $(document).on('onTemplateRenderComplete', function () {
 
     var $slides = $('.main-slides-container'),
         $slideThumbs = $('.slides-container'),
-		$chapters = $('.chapters'),
-		$innerCss = '',
-		$windowHeight = $(window).height() - 50;
-		
-	$innerCss += '<style type="text/css">' +
-                 '.main-slides-container #wrapper .page{'+ 
-                 'height:' + $windowHeight + 'px'+
-                 '}'+
-                 '</style>';
-	
-	$('.main-container').append($innerCss);
+        $chapters = $('.chapters'),
+        $innerCss = '',
+        $windowHeight = $(window).height() - 50;
+
+    $innerCss += '<style type="text/css">' +
+        '.main-slides-container #wrapper .page{' +
+        'height:' + $windowHeight + 'px' +
+        '}' +
+        '</style>';
+
+    $('.main-container').append($innerCss);
 
     $slideThumbs.owlCarousel({
         items: 5,
@@ -347,16 +347,16 @@ $(document).on('onTemplateRenderComplete', function () {
         itemsDesktop: [1000, 5], //5 items between 1000px and 901px
         itemsDesktopSmall: [900, 5], // between 900px and 601px
         itemsTablet: [600, 5], //2 items between 600 and 0
-        lazyLoad : true
+        lazyLoad: true
     });
-	
-	$chapters.owlCarousel({
+
+    $chapters.owlCarousel({
         items: 6,
         slideSpeed: 1000,
         itemsDesktop: [1000, 6], //5 items between 1000px and 901px
         itemsDesktopSmall: [900, 6], // between 900px and 601px
         itemsTablet: [600, 6], //2 items between 600 and 0
-        lazyLoad : true
+        lazyLoad: true
     });
 
     $slides.owlCarousel({
@@ -380,7 +380,7 @@ $(document).on('onTemplateRenderComplete', function () {
                 slideThumb = $('footer div.slides-outer div.owl-item div.item'),
                 chapterNo = $(selectedSlideEl).data('chapter-no'),
                 slideNo = $(selectedSlideEl).data('slide-no'),
-                selectedChapter = $('footer div.chapters div.chapter a').eq(chapterNo-1);
+                selectedChapter = $('footer div.chapters div.chapter a').eq(chapterNo - 1);
 
             $('footer .chapters a').removeClass('selected');
             slideThumb.removeClass('slide-selected');
@@ -390,16 +390,16 @@ $(document).on('onTemplateRenderComplete', function () {
             $chapters.trigger('owl.goTo', (chapterNo - 1));
             slideThumb.eq(slideNo - 1).addClass('slide-selected');
             $slideThumbs.fadeIn();
-			$('.owl-wrapper-outer',$chapters).fadeIn();
+            $('.owl-wrapper-outer', $chapters).fadeIn();
         });
         return false;
     });
 
     $('footer .close-btn').click(function () {
         $slideThumbs.hide();
-        $('.chapter-menu').slideUp(function(){
-			loadFirstTab();
-		});
+        $('.chapter-menu').slideUp(function () {
+            loadFirstTab();
+        });
         return false;
     });
 
@@ -439,11 +439,11 @@ $(document).on('onTemplateRenderComplete', function () {
         return false;
     });
 
-    $('footer #slide-notes-button').click( function() {
+    $('footer #slide-notes-button').click(function () {
         loadSlideNotes();
     });
 
-    $('footer #related-doc-button').click( function() {
+    $('footer #related-doc-button').click(function () {
         loadRelatedDocuments();
     });
 
@@ -452,9 +452,9 @@ $(document).on('onTemplateRenderComplete', function () {
         if (!container.is(e.target) && container.has(e.target).length === 0) {
             $slideThumbs.hide();
             $('.owl-wrapper-outer', $chapters).hide();
-            $('.chapter-menu').slideUp(function(){
-				loadFirstTab();
-			});
+            $('.chapter-menu').slideUp(function () {
+                loadFirstTab();
+            });
         }
     });
 
