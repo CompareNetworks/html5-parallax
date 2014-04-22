@@ -1,3 +1,73 @@
+var itemTypes = initItemTypes();
+
+function initItemTypes () {
+    var itemsTypes = new Array();
+    itemsTypes['pdf'] = 'pdf';
+    itemsTypes['link'] = 'link';
+    itemsTypes['mp4'] = 'video';
+    itemsTypes['mpv'] = 'video';
+    itemsTypes['3gp'] = 'video';
+    itemsTypes['mov'] = 'video';
+    itemsTypes['m4v'] = 'video';
+    itemsTypes['aac'] = 'audio';
+    itemsTypes['aif'] = 'audio';
+    itemsTypes['aiff'] = 'audio';
+    itemsTypes['aifc'] = 'audio';
+    itemsTypes['caf'] = 'audio';
+    itemsTypes['mp3'] = 'audio';
+    itemsTypes['m4a'] = 'audio';
+    itemsTypes['m4r'] = 'audio';
+    itemsTypes['au'] = 'audio';
+    itemsTypes['wav'] = 'audio';
+    itemsTypes['yuv'] = 'image';
+    itemsTypes['thm'] = 'image';
+    itemsTypes['psdimage'] = 'image';
+    itemsTypes['psd'] = 'image';
+    itemsTypes['bmp'] = 'image';
+    itemsTypes['gif'] = 'image';
+    itemsTypes['tif'] = 'image';
+    itemsTypes['png'] = 'image';
+    itemsTypes['jpg'] = 'image';
+    itemsTypes['jpeg'] = 'image';
+    itemsTypes['csv'] = 'csv';
+    itemsTypes['xlw'] = 'excel';
+    itemsTypes['xltx'] = 'excel';
+    itemsTypes['xltm'] = 'excel';
+    itemsTypes['xlt'] = 'excel';
+    itemsTypes['xlsx'] = 'excel';
+    itemsTypes['xlsm'] = 'excel';
+    itemsTypes['xlsb'] = 'excel';
+    itemsTypes['xls'] = 'excel';
+    itemsTypes['xlm'] = 'excel';
+    itemsTypes['xll'] = 'excel';
+    itemsTypes['xlc'] = 'excel';
+    itemsTypes['xlb'] = 'excel';
+    itemsTypes['xlam'] = 'excel';
+    itemsTypes['xla'] = 'excel';
+    itemsTypes['xl'] = 'excel';
+    itemsTypes['xar'] = 'excel';
+    itemsTypes['pptx'] = 'ppt';
+    itemsTypes['ppt'] = 'ppt';
+    itemsTypes['txt'] = 'text';
+    itemsTypes['dotx'] = 'word';
+    itemsTypes['dotm'] = 'word';
+    itemsTypes['dot'] = 'word';
+    itemsTypes['docm'] = 'word';
+    itemsTypes['cnv'] = 'word';
+    itemsTypes['asd'] = 'word';
+    itemsTypes['wll'] = 'word';
+    itemsTypes['wbk'] = 'word';
+    itemsTypes['docx'] = 'word';
+    itemsTypes['doc'] = 'word';
+    itemsTypes['zip'] = 'zip';
+    itemsTypes['buy'] = 'buy';
+    itemsTypes['external'] = 'external';
+
+    return itemsTypes;
+}
+
+
+
 function initSlideSpecificPlugins(domElement) {
     var verticalScroll = null;
 
@@ -140,15 +210,17 @@ function loadRelatedDocuments () {
           if (data) {
             var divContent = null;
             divContent = "<div id = "+divId+">";
-            divContent += "<ul class='related_doc'>";
+            divContent += "<ul class='related-doc'>";
 
                 $.each(data['children'], function( index, item_id ) {
                 var resultArray = getItemInfo(item_id);
                   if (resultArray['isFolder']) {
+
+                var imagePath  = "images/fileTypes/"+getDefaultImageName(resultArray['fileType']);    
                     divContent += "<li class='related-doc-item' data_item_id='"+item_id+"'>" ;
                     divContent += " <a href='#''>"
 
-                    divContent += "<img src='data/presentation-content/chapter_1/slide_1/thumbnail.gif' height='50' width='50'>"
+                    divContent += "<img src='"+imagePath+"' height='50' width='50'>"
                     divContent += "</img>";
                     divContent += "<span>" ;
                     divContent += resultArray['title'];
@@ -163,6 +235,7 @@ function loadRelatedDocuments () {
             divContent += "</div>";
 
             $( "#related-documents" ).append( divContent );
+            $.event.trigger({type: 'onRelatedDocumentsRenderComplete'});
           }  
         },
         function (error) {
@@ -173,6 +246,11 @@ function loadRelatedDocuments () {
 
 function getDivId (chapterNumber, slideNumber, related_docs_folder_id) {
     return 'div_'+chapterNumber.toString()+'_'+slideNumber.toString()+'_'+related_docs_folder_id.toString();
+}
+
+function getDefaultImageName (fileType)
+{
+    return itemTypes[fileType]+"_default_thumbnail.png";
 }
 
 function getItemInfo(item_id) {
@@ -206,6 +284,13 @@ function getItemInfo(item_id) {
 
     return indexArray;
 }
+
+$(document).on('onRelatedDocumentsRenderComplete',function () {
+    $('.related-doc-item').click(function () {
+        var itemId = $(this).attr('data_item_id');
+        openItem(itemId);
+    });
+});
 
 $(document).on('onTemplateRenderComplete', function () {
     $('.main-container').malaTabs({animation: 'fade'});
@@ -326,11 +411,6 @@ $(document).on('onTemplateRenderComplete', function () {
 
     $('footer #related-doc-button').click( function() {
         loadRelatedDocuments();
-    });
-
-    $( "body" ).delegate( ".related-doc-item", "click", function() {
-        var itemId = $(this).attr('data_item_id');
-        openItem(itemId);
     });
 
     document.addEventListener('touchmove', function (e) {
