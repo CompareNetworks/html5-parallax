@@ -301,6 +301,30 @@ a {
           }
         }
       }
+      #related-documents{
+        padding:15px;
+        .related-doc{
+          @include clearfix;
+          .related-doc-item{
+            float:left;
+            width:300px;
+            margin:0px 15px 15px 0px;
+            a{
+              @include clearfix;
+              padding-left:85px;
+              display:block;
+              color:#000000;
+              text-decoration:none;
+              font-size:1em;
+
+              img{
+                float:left;
+                margin-left:-85px;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
