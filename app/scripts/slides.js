@@ -115,6 +115,12 @@ function loadSlideNotes() {
     });
 }
 
+function openItem(itemId) {
+  macs.viewAsset(
+    itemId.toString()
+  );
+}
+
 function loadRelatedDocuments () {
     var selectedSlideEl = $('div.main-slider div.owl-item.active > div:first')[0],
         chapterNumber = $(selectedSlideEl).data('chapter-no'),
@@ -122,7 +128,7 @@ function loadRelatedDocuments () {
         relatedDocumentFolderId = $(selectedSlideEl).data('related-docs-folder-id');
 
     var divId = getDivId (chapterNumber, slideNumber, relatedDocumentFolderId);
-    $('#related-documents').siblings().hide();
+    $('#related-documents').children().hide();
 
     if ($('div[id^='+divId+']').length > 0) {
         $( "#"+divId ).show();
@@ -134,17 +140,21 @@ function loadRelatedDocuments () {
           if (data) {
             var divContent = null;
             divContent = "<div id = "+divId+">";
-            divContent += "<ul>";
+            divContent += "<ul class='related_doc'>";
 
                 $.each(data['children'], function( index, item_id ) {
                 var resultArray = getItemInfo(item_id);
                   if (resultArray['isFolder']) {
-                    divContent += "<li>" ;
-                    divContent += "<img src='' alt='ALT TEXT'>"
-                    // divContent += item_id ;
-                    divContent += "<p>" ;
+                    divContent += "<li class='related-doc-item' data_item_id='"+item_id+"'>" ;
+                    divContent += " <a href='#''>"
+
+                    divContent += "<img src='data/presentation-content/chapter_1/slide_1/thumbnail.gif' height='50' width='50'>"
+                    divContent += "</img>";
+                    divContent += "<span>" ;
                     divContent += resultArray['title'];
-                    divContent += "</p>" ;
+                    divContent += "</span>" ;
+
+                    divContent += " </a>";
                     divContent += "</li>" ;
                   }
                 });
@@ -306,6 +316,11 @@ $(document).on('onTemplateRenderComplete', function () {
 
     $('footer #related-doc-button').click( function() {
         loadRelatedDocuments();
+    });
+
+    $( "body" ).delegate( ".related-doc-item", "click", function() {
+        var itemId = $(this).attr('data_item_id');
+        openItem(itemId);
     });
 
     document.addEventListener('touchmove', function (e) {
