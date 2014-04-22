@@ -277,6 +277,26 @@ a {
           }
         }
       }
+      #slide-notes{
+        .notes-wrapper{
+          padding:15px;
+          .inner-content{
+            -webkit-column-gap:40px;
+            column-gap:40px;
+            -webkit-column-count:2;
+            column-count:2;
+          }
+          h3{
+            font-weight:bold;
+            font-size:1.2em;
+            padding-bottom:15px;
+          }
+          p{
+            font-size:1em;
+            padding-bottom:15px;
+          }
+        }
+      }
     }
   }
 }
