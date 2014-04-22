@@ -11,7 +11,7 @@ var LOAD_DATA = {
                 '<div class="item chapter"> ' +
                     '<a href="#chapter{{chapter_no}}" data-first-slide="{{first_slide}}" data-title="{{chapter_title}}" ' +
                         'data-description="{{chapter_description}}">' +
-                        '<img src="{{chapter_thumbnail}}">' +
+                        '<img class="lazyOwl" data-src="{{chapter_thumbnail}}">' +
 						'<span class="title"><strong>{{chapter_title}}</strong>Line 2</span>'+
                 '   </a>' +
                 '</div>' +
@@ -20,7 +20,7 @@ var LOAD_DATA = {
         // HandelBar template for Slide thumbnails.
         var slidesThumbnailTemplate = '{{#each chapters}} {{#each slides}}' +
                 '<div class="item" data-slide-id="{{slide_no}}">' +
-                    '<img src="{{slide_thumb}}">' +
+                    '<img class="lazyOwl" data-src="{{slide_thumb}}">' +
                 '</div>' +
             '{{/each}} {{/each}}';
 
