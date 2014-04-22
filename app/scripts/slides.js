@@ -122,7 +122,6 @@ function loadRelatedDocuments () {
         relatedDocumentFolderId = $(selectedSlideEl).data('related-docs-folder-id');
 
     var divId = getDivId (chapterNumber, slideNumber, relatedDocumentFolderId);
-
     $('#related-documents').siblings().hide();
 
     if ($('div[id^='+divId+']').length > 0) {
@@ -135,35 +134,44 @@ function loadRelatedDocuments () {
           if (data) {
             var divContent = null;
             divContent = "<div id = "+divId+">";
+            divContent += "<ul>";
 
                 $.each(data['children'], function( index, item_id ) {
-                  if (isNotFolder(item_id)) {
-                    divContent += "<div>" ;
-                    divContent += item_id ;
-                    divContent += "</div>" ;
+                var resultArray = getItemInfo(item_id);
+                  if (resultArray['isFolder']) {
+                    divContent += "<li>" ;
+                    divContent += "<img src='' alt='ALT TEXT'>"
+                    // divContent += item_id ;
+                    divContent += "<p>" ;
+                    divContent += resultArray['title'];
+                    divContent += "</p>" ;
+                    divContent += "</li>" ;
                   }
                 });
-                divContent += "</div>";
 
-             $( "#related-documents" ).append( divContent );
+            divContent += "</ul>";    
+            divContent += "</div>";
+
+            $( "#related-documents" ).append( divContent );
           }  
         },
-        function(error) {
+        function (error) {
         }
       );
     }
 }
 
 function getDivId (chapterNumber, slideNumber, related_docs_folder_id) {
-
-    return chapterNumber.toString()+'_'+slideNumber.toString()+'_'+related_docs_folder_id.toString();
+    return 'div_'+chapterNumber.toString()+'_'+slideNumber.toString()+'_'+related_docs_folder_id.toString();
 }
 
-function isNotFolder(item_id) {
-    var success = false; 
+function getItemInfo(item_id) {
+    var success = false;
+    var title = null;
+    var indexArray = new Array();
     macs.getRequiredAssetDetails(
       item_id,
-      ["itemTypeId"],
+      ["itemTypeId","title"],
       function (data) {
         if (data) {
             var itemTypeId = parseInt(data.itemTypeId);
@@ -171,6 +179,7 @@ function isNotFolder(item_id) {
                    success = false;
              }else{
                    success = true;
+                   title = data.title;
              }
 
         }else{
@@ -182,8 +191,11 @@ function isNotFolder(item_id) {
       }
     );
 
-    return success;
- }
+    indexArray['isFolder'] = success;
+    indexArray['title'] = title;
+
+    return indexArray;
+}
 
 $(document).on('onTemplateRenderComplete', function () {
     $('.main-container').malaTabs({animation: 'fade'});
