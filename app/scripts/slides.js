@@ -264,6 +264,7 @@ $(document).on('onTemplateRenderComplete', function () {
             slideThumb.eq(slideNo - 1).addClass('slide-selected');
             $slideThumbs.fadeIn();
 			$('.owl-wrapper-outer',$chapters).fadeIn();
+			loadSlideNotes();
         });
         return false;
     });
