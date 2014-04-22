@@ -220,7 +220,6 @@ function getItemInfo(itemId) {
                    title = data.title;
                    fileType = data.fileType;
              }
-
         }else{
              success = false;
         }
@@ -304,7 +303,8 @@ function loadFirstTab(){
 function scrollEnable (divId) {
     var scroll = new IScroll('#'+divId, {
         scrollbars: true,
-        shrinkScrollbars: 'scale'
+        shrinkScrollbars: 'scale',
+        click: true 
         });
 
     setTimeout(function () {
