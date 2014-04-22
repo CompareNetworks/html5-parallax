@@ -1,70 +1,71 @@
-var itemTypes = initItemTypes();
-
 function initItemTypes () {
-    var itemsTypes = new Array();
-    itemsTypes['pdf'] = 'pdf';
-    itemsTypes['link'] = 'link';
-    itemsTypes['mp4'] = 'video';
-    itemsTypes['mpv'] = 'video';
-    itemsTypes['3gp'] = 'video';
-    itemsTypes['mov'] = 'video';
-    itemsTypes['m4v'] = 'video';
-    itemsTypes['aac'] = 'audio';
-    itemsTypes['aif'] = 'audio';
-    itemsTypes['aiff'] = 'audio';
-    itemsTypes['aifc'] = 'audio';
-    itemsTypes['caf'] = 'audio';
-    itemsTypes['mp3'] = 'audio';
-    itemsTypes['m4a'] = 'audio';
-    itemsTypes['m4r'] = 'audio';
-    itemsTypes['au'] = 'audio';
-    itemsTypes['wav'] = 'audio';
-    itemsTypes['yuv'] = 'image';
-    itemsTypes['thm'] = 'image';
-    itemsTypes['psdimage'] = 'image';
-    itemsTypes['psd'] = 'image';
-    itemsTypes['bmp'] = 'image';
-    itemsTypes['gif'] = 'image';
-    itemsTypes['tif'] = 'image';
-    itemsTypes['png'] = 'image';
-    itemsTypes['jpg'] = 'image';
-    itemsTypes['jpeg'] = 'image';
-    itemsTypes['csv'] = 'csv';
-    itemsTypes['xlw'] = 'excel';
-    itemsTypes['xltx'] = 'excel';
-    itemsTypes['xltm'] = 'excel';
-    itemsTypes['xlt'] = 'excel';
-    itemsTypes['xlsx'] = 'excel';
-    itemsTypes['xlsm'] = 'excel';
-    itemsTypes['xlsb'] = 'excel';
-    itemsTypes['xls'] = 'excel';
-    itemsTypes['xlm'] = 'excel';
-    itemsTypes['xll'] = 'excel';
-    itemsTypes['xlc'] = 'excel';
-    itemsTypes['xlb'] = 'excel';
-    itemsTypes['xlam'] = 'excel';
-    itemsTypes['xla'] = 'excel';
-    itemsTypes['xl'] = 'excel';
-    itemsTypes['xar'] = 'excel';
-    itemsTypes['pptx'] = 'ppt';
-    itemsTypes['ppt'] = 'ppt';
-    itemsTypes['txt'] = 'text';
-    itemsTypes['dotx'] = 'word';
-    itemsTypes['dotm'] = 'word';
-    itemsTypes['dot'] = 'word';
-    itemsTypes['docm'] = 'word';
-    itemsTypes['cnv'] = 'word';
-    itemsTypes['asd'] = 'word';
-    itemsTypes['wll'] = 'word';
-    itemsTypes['wbk'] = 'word';
-    itemsTypes['docx'] = 'word';
-    itemsTypes['doc'] = 'word';
-    itemsTypes['zip'] = 'zip';
-    itemsTypes['buy'] = 'buy';
-    itemsTypes['external'] = 'external';
+    var itemsTypes = [];
+
+    itemsTypes.pdf = 'pdf';
+    itemsTypes.link = 'link';
+    itemsTypes.mp4 = 'video';
+    itemsTypes.mpv = 'video';
+    itemsTypes['3gp']= 'video';
+    itemsTypes.mov = 'video';
+    itemsTypes.m4v = 'video';
+    itemsTypes.aac = 'audio';
+    itemsTypes.aif = 'audio';
+    itemsTypes.aiff = 'audio';
+    itemsTypes.aifc = 'audio';
+    itemsTypes.caf = 'audio';
+    itemsTypes.mp3 = 'audio';
+    itemsTypes.m4a = 'audio';
+    itemsTypes.m4r = 'audio';
+    itemsTypes.au = 'audio';
+    itemsTypes.wav = 'audio';
+    itemsTypes.yuv = 'image';
+    itemsTypes.thm = 'image';
+    itemsTypes.psdimage = 'image';
+    itemsTypes.psd = 'image';
+    itemsTypes.bmp = 'image';
+    itemsTypes.gif = 'image';
+    itemsTypes.tif = 'image';
+    itemsTypes.png = 'image';
+    itemsTypes.jpg = 'image';
+    itemsTypes.jpeg = 'image';
+    itemsTypes.csv = 'csv';
+    itemsTypes.xlw = 'excel';
+    itemsTypes.xltx = 'excel';
+    itemsTypes.xltm = 'excel';
+    itemsTypes.xlt = 'excel';
+    itemsTypes.xlsx = 'excel';
+    itemsTypes.xlsm = 'excel';
+    itemsTypes.xlsb = 'excel';
+    itemsTypes.xls = 'excel';
+    itemsTypes.xlm = 'excel';
+    itemsTypes.xll = 'excel';
+    itemsTypes.xlc = 'excel';
+    itemsTypes.xlb = 'excel';
+    itemsTypes.xlam = 'excel';
+    itemsTypes.xla = 'excel';
+    itemsTypes.xl = 'excel';
+    itemsTypes.xar = 'excel';
+    itemsTypes.pptx = 'ppt';
+    itemsTypes.ppt = 'ppt';
+    itemsTypes.txt = 'text';
+    itemsTypes.dotx = 'word';
+    itemsTypes.dotm = 'word';
+    itemsTypes.dot = 'word';
+    itemsTypes.docm = 'word';
+    itemsTypes.cnv = 'word';
+    itemsTypes.asd = 'word';
+    itemsTypes.wll = 'word';
+    itemsTypes.wbk = 'word';
+    itemsTypes.docx = 'word';
+    itemsTypes.doc = 'word';
+    itemsTypes.zip = 'zip';
+    itemsTypes.buy = 'buy';
+    itemsTypes.external = 'external';
 
     return itemsTypes;
 }
+
+var itemTypes = initItemTypes();
 
 
 
@@ -187,84 +188,32 @@ function loadSlideNotes() {
 
 function openItem(itemId) {
   macs.viewAsset(
-    itemId.toString()
+    itemId.toString(),
+    function (data) {
+    }
   );
 }
 
-function loadRelatedDocuments () {
-    var selectedSlideEl = $('div.main-slider div.owl-item.active > div:first')[0],
-        chapterNumber = $(selectedSlideEl).data('chapter-no'),
-        slideNumber = $(selectedSlideEl).data('slide-no'),
-        relatedDocumentFolderId = $(selectedSlideEl).data('related-docs-folder-id');
-
-    var divId = getDivId (chapterNumber, slideNumber, relatedDocumentFolderId);
-    $('#related-documents').children().hide();
-
-    if ($('div[id^='+divId+']').length > 0) {
-        $( "#"+divId ).show();
-    }
-    else{
-        macs.getFolderAssets(
-        relatedDocumentFolderId.toString(),
-        function(data) {
-          if (data) {
-            var divContent = null;
-            divContent = "<div id = "+divId+">";
-            divContent += "<ul class='related-doc'>";
-
-                $.each(data['children'], function( index, item_id ) {
-                var resultArray = getItemInfo(item_id);
-                  if (resultArray['isFolder']) {
-
-                var imagePath  = "images/fileTypes/"+getDefaultImageName(resultArray['fileType']);    
-                    divContent += "<li class='related-doc-item' data_item_id='"+item_id+"'>" ;
-                    divContent += " <a href='#''>"
-
-                    divContent += "<img src='"+imagePath+"' height='50' width='50'>"
-                    divContent += "</img>";
-                    divContent += "<span>" ;
-                    divContent += resultArray['title'];
-                    divContent += "</span>" ;
-
-                    divContent += " </a>";
-                    divContent += "</li>" ;
-                  }
-                });
-
-            divContent += "</ul>";    
-            divContent += "</div>";
-
-            $( "#related-documents" ).append( divContent );
-            $.event.trigger({type: 'onRelatedDocumentsRenderComplete'});
-          }  
-        },
-        function (error) {
-        }
-      );
-    }
+function getDivId (chapterNumber, slideNumber, relatedDocsFolderId) {
+    return 'div_'+chapterNumber.toString()+'_'+slideNumber.toString()+'_'+relatedDocsFolderId.toString();
 }
 
-function getDivId (chapterNumber, slideNumber, related_docs_folder_id) {
-    return 'div_'+chapterNumber.toString()+'_'+slideNumber.toString()+'_'+related_docs_folder_id.toString();
+function getDefaultImageName (fileType) {
+    return itemTypes[fileType]+'_default_thumbnail.png';
 }
 
-function getDefaultImageName (fileType)
-{
-    return itemTypes[fileType]+"_default_thumbnail.png";
-}
-
-function getItemInfo(item_id) {
+function getItemInfo(itemId) {
     var success = false;
     var title = null;
     var fileType = null;
-    var indexArray = new Array();
+    var indexArray = [];
     macs.getRequiredAssetDetails(
-      item_id,
-      ["itemTypeId","title",'fileType'],
+      itemId,
+      ['itemTypeId','title','fileType'],
       function (data) {
         if (data) {
             var itemTypeId = parseInt(data.itemTypeId);
-             if (itemTypeId == 3) {
+             if (itemTypeId === 3) {
                    success = false;
              }else{
                    success = true;
@@ -277,15 +226,67 @@ function getItemInfo(item_id) {
         }
       },
       function (error) {
+        console.log(error);
           success = false;
       }
     );
 
-    indexArray['isFolder'] = success;
-    indexArray['title'] = title;
-    indexArray['fileType'] = fileType;
+    indexArray.isFolder = success;
+    indexArray.title = title;
+    indexArray.fileType = fileType;
 
     return indexArray;
+}
+
+function loadRelatedDocuments () {
+    var selectedSlideEl = $('div.main-slider div.owl-item.active > div:first')[0],
+        chapterNumber = $(selectedSlideEl).data('chapter-no'),
+        slideNumber = $(selectedSlideEl).data('slide-no'),
+        relatedDocumentFolderId = $(selectedSlideEl).data('related-docs-folder-id');
+
+    var divId = getDivId (chapterNumber, slideNumber, relatedDocumentFolderId);
+    $('#related-documents').children().hide();
+
+    if ($('div[id^='+divId+']').length > 0) {
+        $( '#'+divId ).show();
+    }
+    else{
+        macs.getFolderAssets(
+        relatedDocumentFolderId.toString(),
+        function(data) {
+          if (data) {
+            var divContent = null;
+            divContent = '<div id = '+divId+'>';
+            divContent += '<ul class="related-doc">';
+
+                $.each(data.children, function( index, itemId ) {
+                var resultArray = getItemInfo(itemId);
+                  if (resultArray.isFolder) {
+
+                var imagePath  = 'images/fileTypes/'+getDefaultImageName(resultArray.fileType);    
+                    divContent += '<li class="related-doc-item" data_item_id="'+itemId+'">' ;
+                    divContent += '<a href="#">';
+
+                    divContent += '<img src="'+imagePath+'" height="65" width="50">';
+                    divContent += '</img>';
+                    divContent += '<span>' ;
+                    divContent += resultArray.title;
+                    divContent += '</span>' ;
+
+                    divContent += '</a>';
+                    divContent += '</li>' ;
+                  }
+                });
+
+            divContent += '</ul>';    
+            divContent += '</div>';
+
+            $( '#related-documents' ).append( divContent );
+            $.event.trigger({type: 'onRelatedDocumentsRenderComplete'});
+          }  
+        }
+      );
+    }
 }
 
 function loadFirstTab(){
@@ -300,11 +301,24 @@ function loadFirstTab(){
 	
 }
 
+function scrollEnable (divId) {
+    var scroll = new IScroll('#'+divId, {
+        scrollbars: true,
+        shrinkScrollbars: 'scale'
+        });
+
+    setTimeout(function () {
+        scroll.refresh();
+    }, 1000);
+}
+
 $(document).on('onRelatedDocumentsRenderComplete',function () {
     $('.related-doc-item').click(function () {
         var itemId = $(this).attr('data_item_id');
         openItem(itemId);
     });
+
+    scrollEnable('related-documents');
 });
 
 $(document).on('onTemplateRenderComplete', function () {
@@ -319,11 +333,11 @@ $(document).on('onTemplateRenderComplete', function () {
 		$innerCss = '',
 		$windowHeight = $(window).height() - 50;
 		
-	$innerCss += '<style type="text/css">'
-				+ '.main-slides-container #wrapper .page{'
-				+ 'height:' + $windowHeight + 'px'
-				+ '}'
-				+ '</style>';
+	$innerCss += '<style type="text/css">' +
+                 '.main-slides-container #wrapper .page{'+ 
+                 'height:' + $windowHeight + 'px'+
+                 '}'+
+                 '</style>';
 	
 	$('.main-container').append($innerCss);
 
