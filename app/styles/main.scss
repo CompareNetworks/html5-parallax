@@ -163,6 +163,9 @@ a {
         min-height: 120px;
         border-top: none;
         background:$lightGrey;
+        .tab{
+          min-height:250px;
+        }
       }
       .chapters {
         @include clearfix;
@@ -294,6 +297,31 @@ a {
           p{
             font-size:1em;
             padding-bottom:15px;
+            line-height:20px;
+          }
+        }
+      }
+      #related-documents{
+        padding:15px;
+        .related-doc{
+          @include clearfix;
+          .related-doc-item{
+            float:left;
+            width:300px;
+            margin:0px 15px 15px 0px;
+            a{
+              @include clearfix;
+              padding-left:85px;
+              display:block;
+              color:#000000;
+              text-decoration:none;
+              font-size:1em;
+
+              img{
+                float:left;
+                margin-left:-85px;
+              }
+            }
           }
         }
       }
