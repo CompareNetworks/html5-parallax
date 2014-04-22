@@ -344,25 +344,27 @@ $(document).on('onTemplateRenderComplete', function () {
     $slideThumbs.owlCarousel({
         items: 5,
         slideSpeed: 1000,
-        itemsDesktop: [1000, 5], //5 items between 1000px and 901px
-        itemsDesktopSmall: [900, 5], // between 900px and 601px
-        itemsTablet: [600, 5], //2 items between 600 and 0
-        lazyLoad : true
+		scrollPerPage: true,
+		pagination: false,
+        itemsDesktop: [1000, 5],
+        itemsDesktopSmall: [900, 5], 
+        itemsTablet: [600, 5] 
     });
 	
 	$chapters.owlCarousel({
         items: 6,
         slideSpeed: 1000,
-        itemsDesktop: [1000, 6], //5 items between 1000px and 901px
-        itemsDesktopSmall: [900, 6], // between 900px and 601px
-        itemsTablet: [600, 6], //2 items between 600 and 0
-        lazyLoad : true
+		pagination: false,
+        itemsDesktop: [1000, 6], 
+        itemsDesktopSmall: [900, 6],
+        itemsTablet: [600, 6]
     });
 
     $slides.owlCarousel({
         slideSpeed: 1500,
         singleItem: true,
         autoHeight: true,
+		pagination: false,
         transitionStyle: 'fade',
         addClassActive: true,
         afterMove: function () {
