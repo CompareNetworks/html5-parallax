@@ -105,7 +105,7 @@ function loadSlideNotes() {
         scroll = null;
 
     slideNoteEl.empty();
-    slideNoteEl.load($(selectedSlideEl).data('slide-notes'), function (responseText, textStatus, req) {
+    slideNoteEl.load($(selectedSlideEl).data('slide-notes'), function (responseText, textStatus) {
         if (textStatus !== 'error') {
             scroll = new IScroll('#slide-notes', {
                 scrollbars: true,
@@ -297,6 +297,7 @@ $(document).on('onTemplateRenderComplete', function () {
     $chapters.owlCarousel({
         items: 6,
         slideSpeed: 1000,
+        scrollPerPage: true,
         pagination: false,
         itemsDesktop: [1000, 6],
         itemsDesktopSmall: [900, 6],
