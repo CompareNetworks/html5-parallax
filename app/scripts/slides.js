@@ -1,80 +1,81 @@
 var ITEM_TYPE_NAMES = {
-                        'PDF':'pdf',
-                        'LINK':'link',
-                        'VIDEO':'video',
-                        'AUDIO':'audio',
-                        'IMAGE':'image',
-                        'CSV':'csv',
-                        'EXCEL':'excel',
-                        'PPT':'ppt',
-                        'TEXT':'text',
-                        'WORD':'word',
-                        'ZIP':'zip',
-                        'BUY':'buy',
-                        'EXTERNAL':'external'};
+    'PDF': 'pdf',
+    'LINK': 'link',
+    'VIDEO': 'video',
+    'AUDIO': 'audio',
+    'IMAGE': 'image',
+    'CSV': 'csv',
+    'EXCEL': 'excel',
+    'PPT': 'ppt',
+    'TEXT': 'text',
+    'WORD': 'word',
+    'ZIP': 'zip',
+    'BUY': 'buy',
+    'EXTERNAL': 'external'
+};
 
 function initItemTypes() {
     var itemsTypes = [];
 
-    itemsTypes.pdf      = ITEM_TYPE_NAMES.PDF;
-    itemsTypes.link     = ITEM_TYPE_NAMES.LINK;
-    itemsTypes.mp4      = ITEM_TYPE_NAMES.VIDEO;
-    itemsTypes.mpv      = ITEM_TYPE_NAMES.VIDEO;
-    itemsTypes['3gp']   = ITEM_TYPE_NAMES.VIDEO;
-    itemsTypes.mov      = ITEM_TYPE_NAMES.VIDEO;
-    itemsTypes.m4v      = ITEM_TYPE_NAMES.VIDEO;
-    itemsTypes.aac      = ITEM_TYPE_NAMES.AUDIO;
-    itemsTypes.aif      = ITEM_TYPE_NAMES.AUDIO;
-    itemsTypes.aiff     = ITEM_TYPE_NAMES.AUDIO;
-    itemsTypes.aifc     = ITEM_TYPE_NAMES.AUDIO;
-    itemsTypes.caf      = ITEM_TYPE_NAMES.AUDIO;
-    itemsTypes.mp3      = ITEM_TYPE_NAMES.AUDIO;
-    itemsTypes.m4a      = ITEM_TYPE_NAMES.AUDIO;
-    itemsTypes.m4r      = ITEM_TYPE_NAMES.AUDIO;
-    itemsTypes.au       = ITEM_TYPE_NAMES.AUDIO;
-    itemsTypes.wav      = ITEM_TYPE_NAMES.AUDIO;
-    itemsTypes.yuv      = ITEM_TYPE_NAMES.IMAGE;
-    itemsTypes.thm      = ITEM_TYPE_NAMES.IMAGE;
+    itemsTypes.pdf = ITEM_TYPE_NAMES.PDF;
+    itemsTypes.link = ITEM_TYPE_NAMES.LINK;
+    itemsTypes.mp4 = ITEM_TYPE_NAMES.VIDEO;
+    itemsTypes.mpv = ITEM_TYPE_NAMES.VIDEO;
+    itemsTypes['3gp'] = ITEM_TYPE_NAMES.VIDEO;
+    itemsTypes.mov = ITEM_TYPE_NAMES.VIDEO;
+    itemsTypes.m4v = ITEM_TYPE_NAMES.VIDEO;
+    itemsTypes.aac = ITEM_TYPE_NAMES.AUDIO;
+    itemsTypes.aif = ITEM_TYPE_NAMES.AUDIO;
+    itemsTypes.aiff = ITEM_TYPE_NAMES.AUDIO;
+    itemsTypes.aifc = ITEM_TYPE_NAMES.AUDIO;
+    itemsTypes.caf = ITEM_TYPE_NAMES.AUDIO;
+    itemsTypes.mp3 = ITEM_TYPE_NAMES.AUDIO;
+    itemsTypes.m4a = ITEM_TYPE_NAMES.AUDIO;
+    itemsTypes.m4r = ITEM_TYPE_NAMES.AUDIO;
+    itemsTypes.au = ITEM_TYPE_NAMES.AUDIO;
+    itemsTypes.wav = ITEM_TYPE_NAMES.AUDIO;
+    itemsTypes.yuv = ITEM_TYPE_NAMES.IMAGE;
+    itemsTypes.thm = ITEM_TYPE_NAMES.IMAGE;
     itemsTypes.psdimage = ITEM_TYPE_NAMES.IMAGE;
-    itemsTypes.psd      = ITEM_TYPE_NAMES.IMAGE;
-    itemsTypes.bmp      = ITEM_TYPE_NAMES.IMAGE;
-    itemsTypes.gif      = ITEM_TYPE_NAMES.IMAGE;
-    itemsTypes.tif      = ITEM_TYPE_NAMES.IMAGE;
-    itemsTypes.png      = ITEM_TYPE_NAMES.IMAGE;
-    itemsTypes.jpg      = ITEM_TYPE_NAMES.IMAGE;
-    itemsTypes.jpeg     = ITEM_TYPE_NAMES.IMAGE;
-    itemsTypes.csv      = ITEM_TYPE_NAMES.CSV;
-    itemsTypes.xlw      = ITEM_TYPE_NAMES.EXCEL;
-    itemsTypes.xltx     = ITEM_TYPE_NAMES.EXCEL;
-    itemsTypes.xltm     = ITEM_TYPE_NAMES.EXCEL;
-    itemsTypes.xlt      = ITEM_TYPE_NAMES.EXCEL;
-    itemsTypes.xlsx     = ITEM_TYPE_NAMES.EXCEL;
-    itemsTypes.xlsm     = ITEM_TYPE_NAMES.EXCEL;
-    itemsTypes.xlsb     = ITEM_TYPE_NAMES.EXCEL;
-    itemsTypes.xls      = ITEM_TYPE_NAMES.EXCEL;
-    itemsTypes.xlm      = ITEM_TYPE_NAMES.EXCEL;
-    itemsTypes.xll      = ITEM_TYPE_NAMES.EXCEL;
-    itemsTypes.xlc      = ITEM_TYPE_NAMES.EXCEL;
-    itemsTypes.xlb      = ITEM_TYPE_NAMES.EXCEL;
-    itemsTypes.xlam     = ITEM_TYPE_NAMES.EXCEL;
-    itemsTypes.xla      = ITEM_TYPE_NAMES.EXCEL;
-    itemsTypes.xl       = ITEM_TYPE_NAMES.EXCEL;
-    itemsTypes.xar      = ITEM_TYPE_NAMES.EXCEL;
-    itemsTypes.pptx     = ITEM_TYPE_NAMES.PPT;
-    itemsTypes.ppt      = ITEM_TYPE_NAMES.PPT;
-    itemsTypes.txt      = ITEM_TYPE_NAMES.TEXT;
-    itemsTypes.dotx     =  ITEM_TYPE_NAMES.WORD;
-    itemsTypes.dotm     = ITEM_TYPE_NAMES.WORD;
-    itemsTypes.dot      = ITEM_TYPE_NAMES.WORD;
-    itemsTypes.docm     = ITEM_TYPE_NAMES.WORD;
-    itemsTypes.cnv      = ITEM_TYPE_NAMES.WORD;
-    itemsTypes.asd      = ITEM_TYPE_NAMES.WORD;
-    itemsTypes.wll      = ITEM_TYPE_NAMES.WORD;
-    itemsTypes.wbk      = ITEM_TYPE_NAMES.WORD;
-    itemsTypes.docx     = ITEM_TYPE_NAMES.WORD;
-    itemsTypes.doc      = ITEM_TYPE_NAMES.WORD;
-    itemsTypes.zip      = ITEM_TYPE_NAMES.ZIP;
-    itemsTypes.buy      = ITEM_TYPE_NAMES.BUY;
+    itemsTypes.psd = ITEM_TYPE_NAMES.IMAGE;
+    itemsTypes.bmp = ITEM_TYPE_NAMES.IMAGE;
+    itemsTypes.gif = ITEM_TYPE_NAMES.IMAGE;
+    itemsTypes.tif = ITEM_TYPE_NAMES.IMAGE;
+    itemsTypes.png = ITEM_TYPE_NAMES.IMAGE;
+    itemsTypes.jpg = ITEM_TYPE_NAMES.IMAGE;
+    itemsTypes.jpeg = ITEM_TYPE_NAMES.IMAGE;
+    itemsTypes.csv = ITEM_TYPE_NAMES.CSV;
+    itemsTypes.xlw = ITEM_TYPE_NAMES.EXCEL;
+    itemsTypes.xltx = ITEM_TYPE_NAMES.EXCEL;
+    itemsTypes.xltm = ITEM_TYPE_NAMES.EXCEL;
+    itemsTypes.xlt = ITEM_TYPE_NAMES.EXCEL;
+    itemsTypes.xlsx = ITEM_TYPE_NAMES.EXCEL;
+    itemsTypes.xlsm = ITEM_TYPE_NAMES.EXCEL;
+    itemsTypes.xlsb = ITEM_TYPE_NAMES.EXCEL;
+    itemsTypes.xls = ITEM_TYPE_NAMES.EXCEL;
+    itemsTypes.xlm = ITEM_TYPE_NAMES.EXCEL;
+    itemsTypes.xll = ITEM_TYPE_NAMES.EXCEL;
+    itemsTypes.xlc = ITEM_TYPE_NAMES.EXCEL;
+    itemsTypes.xlb = ITEM_TYPE_NAMES.EXCEL;
+    itemsTypes.xlam = ITEM_TYPE_NAMES.EXCEL;
+    itemsTypes.xla = ITEM_TYPE_NAMES.EXCEL;
+    itemsTypes.xl = ITEM_TYPE_NAMES.EXCEL;
+    itemsTypes.xar = ITEM_TYPE_NAMES.EXCEL;
+    itemsTypes.pptx = ITEM_TYPE_NAMES.PPT;
+    itemsTypes.ppt = ITEM_TYPE_NAMES.PPT;
+    itemsTypes.txt = ITEM_TYPE_NAMES.TEXT;
+    itemsTypes.dotx = ITEM_TYPE_NAMES.WORD;
+    itemsTypes.dotm = ITEM_TYPE_NAMES.WORD;
+    itemsTypes.dot = ITEM_TYPE_NAMES.WORD;
+    itemsTypes.docm = ITEM_TYPE_NAMES.WORD;
+    itemsTypes.cnv = ITEM_TYPE_NAMES.WORD;
+    itemsTypes.asd = ITEM_TYPE_NAMES.WORD;
+    itemsTypes.wll = ITEM_TYPE_NAMES.WORD;
+    itemsTypes.wbk = ITEM_TYPE_NAMES.WORD;
+    itemsTypes.docx = ITEM_TYPE_NAMES.WORD;
+    itemsTypes.doc = ITEM_TYPE_NAMES.WORD;
+    itemsTypes.zip = ITEM_TYPE_NAMES.ZIP;
+    itemsTypes.buy = ITEM_TYPE_NAMES.BUY;
     itemsTypes.external = ITEM_TYPE_NAMES.EXTERNAL;
 
     return itemsTypes;
@@ -200,10 +201,8 @@ function loadSlideNotes() {
 }
 
 function openItem(itemId) {
-    macs.viewAsset(
-        itemId.toString(),
-        function () {
-        }
+    macs.viewAsset(itemId.toString(),
+        function () {}
     );
 }
 
@@ -318,8 +317,8 @@ function scrollEnable(divId) {
     var scroll = new IScroll('#' + divId, {
         scrollbars: true,
         shrinkScrollbars: 'scale',
-        click: true 
-   	});
+        click: true
+    });
 
     setTimeout(function () {
         scroll.refresh();
@@ -358,25 +357,27 @@ $(document).on('onTemplateRenderComplete', function () {
     $slideThumbs.owlCarousel({
         items: 5,
         slideSpeed: 1000,
-        itemsDesktop: [1000, 5], //5 items between 1000px and 901px
-        itemsDesktopSmall: [900, 5], // between 900px and 601px
-        itemsTablet: [600, 5], //2 items between 600 and 0
-        lazyLoad: true
+        scrollPerPage: true,
+        pagination: false,
+        itemsDesktop: [1000, 5],
+        itemsDesktopSmall: [900, 5],
+        itemsTablet: [600, 5]
     });
 
     $chapters.owlCarousel({
         items: 6,
         slideSpeed: 1000,
-        itemsDesktop: [1000, 6], //5 items between 1000px and 901px
-        itemsDesktopSmall: [900, 6], // between 900px and 601px
-        itemsTablet: [600, 6], //2 items between 600 and 0
-        lazyLoad: true
+        pagination: false,
+        itemsDesktop: [1000, 6],
+        itemsDesktopSmall: [900, 6],
+        itemsTablet: [600, 6]
     });
 
     $slides.owlCarousel({
         slideSpeed: 1500,
         singleItem: true,
         autoHeight: true,
+        pagination: false,
         transitionStyle: 'fade',
         addClassActive: true,
         afterMove: function () {

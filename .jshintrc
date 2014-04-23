@@ -1,7 +1,8 @@
 {
     "globals": {
         "Handlebars": false,
-        "IScroll": false
+        "IScroll": false,
+        "macs": false
     },
     "node": true,
     "browser": true,
