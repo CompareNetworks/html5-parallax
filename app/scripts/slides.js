@@ -105,15 +105,20 @@ function loadSlideNotes() {
         scroll = null;
 
     slideNoteEl.empty();
-    slideNoteEl.load($(selectedSlideEl).data('slide-notes'), function () {
-        scroll = new IScroll('#slide-notes', {
-            scrollbars: true,
-            shrinkScrollbars: 'scale'
-        });
-        setTimeout(function () {
-            // Refreshing the IScroll after the DOM manipulation.
-            scroll.refresh();
-        }, 1000);
+    slideNoteEl.load($(selectedSlideEl).data('slide-notes'), function (responseText, textStatus) {
+        if (textStatus !== 'error') {
+            scroll = new IScroll('#slide-notes', {
+                scrollbars: true,
+                shrinkScrollbars: 'scale'
+            });
+            setTimeout(function () {
+                // Refreshing the IScroll after the DOM manipulation.
+                scroll.refresh();
+            }, 1000);
+        }
+        else {
+            slideNoteEl.html('<div class="sn-availability"><p class="sn-availability-message">Slide notes are not available.</p></div>');
+        }
     });
 }
 
@@ -330,6 +335,7 @@ $(document).on('onTemplateRenderComplete', function () {
     $chapters.owlCarousel({
         items: 6,
         slideSpeed: 1000,
+        scrollPerPage: true,
         pagination: false,
         itemsDesktop: [1000, 6],
         itemsDesktopSmall: [900, 6],
@@ -410,10 +416,6 @@ $(document).on('onTemplateRenderComplete', function () {
         $slides.trigger('owl.jumpTo', slideNumber - 1);
         slideThumb.removeClass('slide-selected');
         slide.addClass('slide-selected');
-        setTimeout(function () {
-            $('.chapter-menu').slideUp();
-            $slideThumbs.hide();
-        }, 500);
         return false;
     });
 
