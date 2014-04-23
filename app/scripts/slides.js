@@ -343,7 +343,7 @@ $(document).on('onTemplateRenderComplete', function () {
     });
 
     $slides.owlCarousel({
-        slideSpeed: 1500,
+        slideSpeed: 1000,
         singleItem: true,
         autoHeight: true,
         pagination: false,
