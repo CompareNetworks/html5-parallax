@@ -134,9 +134,9 @@ function getDivId(chapterNumber, slideNumber, relatedDocsFolderId) {
 
 function getIconImagePath (iconName, fileType) {
     var iconImagePath = null;    
-    if (iconName != null) {
+    if (iconName !== null) {
         var fullPath = window.location.pathname;
-        var pathComponentsArray = fullPath.split("/");
+        var pathComponentsArray = fullPath.split('/');
         var removedString = pathComponentsArray[pathComponentsArray.length - 2]+'/'+pathComponentsArray[pathComponentsArray.length - 1];
         var documentPath = fullPath.replace(removedString,'');
         iconImagePath = documentPath.concat(iconName+'.png');
@@ -173,7 +173,7 @@ function getItemInfo(itemId) {
                         itemDescription = data.itemDescription;
                     }
                     
-                    if (data.iconImageName && data.iconImageName != 'Not available') {
+                    if (data.iconImageName && data.iconImageName !== 'Not available') {
                         iconImageName = data.iconImageName;
                     }
                 }
@@ -212,7 +212,7 @@ function loadRelatedDocuments() {
         relatedDocumentFolderId = $(selectedSlideEl).data('related-docs-folder-id');
 
     var divId = getDivId(chapterNumber, slideNumber, relatedDocumentFolderId);
-    $( "#no_items_found" ).remove();
+    $( '#no_items_found' ).remove();
     $('#related-documents').children().hide();
 
     if ($('div[id^=' + divId + ']').length > 0) {
@@ -262,7 +262,7 @@ function loadRelatedDocuments() {
                     $.event.trigger({type: 'onRelatedDocumentsRenderComplete'});
                 }
             },
-            function (error) {
+            function () {
                 $('#related-documents').append('<div class = "no_items_found" id = "no_items_found">No Related Documents found.</div>');
             }
         );
