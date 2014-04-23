@@ -2,7 +2,8 @@
     "globals": {
         "Handlebars": false,
         "IScroll": false,
-        "macs": false
+        "macs": false,
+        "fileTypes": false
     },
     "node": true,
     "browser": true,
