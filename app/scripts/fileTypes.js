@@ -12,7 +12,7 @@
 	    'PPT'		: 'ppt',
 	    'TEXT'		: 'text',
 	    'WORD'		: 'word',
-	    'ZIP'		: 'zip',
+	    'ZIP'		: 'app',
 	    'BUY'		: 'buy',
 	    'EXTERNAL'	: 'external',
 	    'KEYNOTE' 	:'keynote',

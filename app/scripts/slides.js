@@ -127,20 +127,35 @@ function getDivId(chapterNumber, slideNumber, relatedDocsFolderId) {
     return 'div_' + chapterNumber.toString() + '_' + slideNumber.toString() + '_' + relatedDocsFolderId.toString();
 }
 
-function getDefaultImageName(fileType) {
-    return itemTypes[fileType] + '_default_thumbnail.png';
+function getIconImagePath (iconName, fileType) {
+    var iconImagePath = null;    
+    if (iconName != null) {
+        var fullPath = window.location.pathname;
+        var pathComponentsArray = fullPath.split("/");
+        var removedString = pathComponentsArray[pathComponentsArray.length - 2]+'/'+pathComponentsArray[pathComponentsArray.length - 1];
+        var documentPath = fullPath.replace(removedString,'');
+        iconImagePath = documentPath.concat(iconName+'.png');
+    }
+    else{
+        iconImagePath = 'images/fileTypes/' + itemTypes[fileType] + '_default_thumbnail.png';
+    }
+
+    return iconImagePath;
 }
 
 function getItemInfo(itemId) {
     var success = false;
     var title = null;
     var fileType = null;
+    var iconImageName = null;
+    var itemDescription = '';
     var indexArray = [];
     macs.getRequiredAssetDetails(
         itemId,
-        ['itemTypeId', 'title', 'fileType'],
+        ['itemTypeId', 'title', 'fileType','iconImageName','itemDescription'],
         function (data) {
             if (data) {
+                // alert(JSON.stringify(data)); 
                 var itemTypeId = parseInt(data.itemTypeId);
                 if (itemTypeId === 3) {
                     success = false;
@@ -148,6 +163,14 @@ function getItemInfo(itemId) {
                     success = true;
                     title = data.title;
                     fileType = data.fileType;
+
+                    if (data.itemDescription) {
+                        itemDescription = data.itemDescription;
+                    }
+                    
+                    if (data.iconImageName && data.iconImageName != 'Not available') {
+                        iconImageName = data.iconImageName;
+                    }
                 }
 
             } else {
@@ -163,8 +186,18 @@ function getItemInfo(itemId) {
     indexArray.isNotFolder = success;
     indexArray.title = title;
     indexArray.fileType = fileType;
+    indexArray.iconImageName = iconImageName;
+    indexArray.itemDescription = itemDescription;
 
     return indexArray;
+}
+
+function trancateTitle (title) {
+    var length = 10;
+    if (title.length > length) {
+       title = title.substring(0, length)+'...';
+    }
+    return title;
 }
 
 function loadRelatedDocuments() {
@@ -174,6 +207,7 @@ function loadRelatedDocuments() {
         relatedDocumentFolderId = $(selectedSlideEl).data('related-docs-folder-id');
 
     var divId = getDivId(chapterNumber, slideNumber, relatedDocumentFolderId);
+    $( "#no_items_found" ).remove();
     $('#related-documents').children().hide();
 
     if ($('div[id^=' + divId + ']').length > 0) {
@@ -193,14 +227,18 @@ function loadRelatedDocuments() {
                         var resultArray = getItemInfo(itemId);
                         if (resultArray.isNotFolder) {
                             assetsContain = true;
-                            var imagePath = 'images/fileTypes/' + getDefaultImageName(resultArray.fileType);
+                           var imagePath = getIconImagePath(resultArray.iconImageName, resultArray.fileType);
                             divContent += '<li class="related-doc-item" data_item_id="' + itemId + '">';
                             divContent += '<a href="#">';
 
-                            divContent += '<img src="' + imagePath + '" height="65" width="50">';
+                            divContent += '<img src="' + imagePath + '">';
                             divContent += '</img>';
-                            divContent += '<span>';
-                            divContent += resultArray.title;
+                            divContent += '<span class="title">';
+                            divContent += trancateTitle(resultArray.title);
+                            divContent += '</span>';
+
+                            divContent += '<span class="description">';
+                            divContent += resultArray.itemDescription;
                             divContent += '</span>';
 
                             divContent += '</a>';
@@ -209,7 +247,7 @@ function loadRelatedDocuments() {
                     });
 
                     if (!assetsContain){
-                            divContent += '<div id = "no_items_found">No Related Documents found.</div>';
+                            divContent += '<div class = "no-items-found" id = "no_items_found">No Related Documents found.</div>';
                     }
 
                     divContent += '</ul>';
@@ -220,7 +258,7 @@ function loadRelatedDocuments() {
                 }
             },
             function (error) {
-                $('#related-documents').append('<div id = "no_items_found">No Related Documents found.</div>');
+                $('#related-documents').append('<div class = "no_items_found" id = "no_items_found">No Related Documents found.</div>');
             }
         );
     }
