@@ -221,8 +221,6 @@ a {
         background: #d5d5d5;
         height: 110px;
         .item {
-          margin-right: 10px;
-          margin-left:3px;
           width: 154px;
           height:111px;
           a {
@@ -317,12 +315,14 @@ a {
             overflow:hidden;
             img {
               display: block;
-              width: 100%;
+              width: 158px;
               height: auto;
+              border:solid 1px #cfcfcf;
             }
             &.slide-selected{
-              box-shadow: 0px 1px 4px #555555;
-              border: solid 1px #ffffff;
+              img {
+                box-shadow: 0px 1px 4px #555555;
+              }
             }
           }
         }
@@ -381,11 +381,11 @@ a {
           padding:15px;
           .related-doc-item{
             float:left;
-            width:300px;
-            margin:0px 15px 15px 0px;
+            width:335px;
+            margin:0px 15px 40px 0px;
             a{
               @include clearfix;
-              padding-left:85px;
+              padding-left:120px;
               display:block;
               color:#000000;
               text-decoration:none;
@@ -393,7 +393,28 @@ a {
 
               img{
                 float:left;
-                margin-left:-85px;
+                margin-left:-120px;
+                width:100px;
+                height:100px;
+                border:solid 1px $darkGrey;
+                -webkit-border-radius: 7px;
+                -moz-border-radius: 7px;
+                border-radius: 7px;
+              }
+              span.title{
+                color:#373737;
+                font-family:zeissfrutigernextpro-rg,helvetica, arial;
+                font-size:14px;
+                padding-bottom:10px;
+                display:block;
+              }
+              span.description{
+                color:#626262;
+                font-family:zeissfrutigernextpro-rg,helvetica, arial;
+                font-size:11px;
+                line-height:17px;
+                display:block;
+                width:175px;
               }
             }
           }
