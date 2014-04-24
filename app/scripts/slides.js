@@ -160,9 +160,9 @@ function getItemInfo(itemId) {
         ['itemTypeId', 'title', 'fileType','iconImageName','itemDescription'],
         function (data) {
             if (data) {
-                // alert(JSON.stringify(data)); 
                 var itemTypeId = parseInt(data.itemTypeId);
-                if (itemTypeId === 3) {
+                 fileType = data.fileType;
+                if (itemTypeId === 3 || fileType === 'zip') {
                     success = false;
                 } else {
                     success = true;

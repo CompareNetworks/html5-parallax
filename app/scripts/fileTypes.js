@@ -3,7 +3,7 @@
 	var ITEM_TYPE_NAMES = 
 	{
 	    'PDF'		: 'pdf',
-	    'LINK'		: 'link',
+	    'LINK'		: 'weblink',
 	    'VIDEO'		: 'video',
 	    'AUDIO'		: 'audio',
 	    'IMAGE'		: 'image',
