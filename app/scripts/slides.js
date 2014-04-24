@@ -1,16 +1,18 @@
 var itemTypes = fileTypes.initItemTypes();
 
 function initSlideSpecificPlugins(domElement) {
-    var verticalScroll = null;
-
     if (domElement.data('vertical-scrollable')) {
-        verticalScroll = new IScroll(domElement.selector, {
-            snap: true
+        $('.vertical-scroll-slide', domElement).swiper({
+            mode: 'vertical',
+            slidesPerView: 1,
+            onSlideChangeEnd: function (as) {
+                console.log(as);
+            }
         });
     }
 }
 
-function updateNavigation(slideEl, selectedSlide, owlData) {
+function updateNavigation(slideEl, selectedSlide, swiperData) {
     var leftArrow = $('footer a.left-arrow'),
         rightArrow = $('footer a.right-arrow'),
         bottomArrow = $('footer a.bottom-arrow');
@@ -22,7 +24,7 @@ function updateNavigation(slideEl, selectedSlide, owlData) {
         bottomArrow.removeClass('active');
     }
 
-    if (selectedSlide < owlData.itemsAmount) {
+    if (selectedSlide < swiperData.slides.length) {
         rightArrow.addClass('active');
     }
     else if (rightArrow.hasClass('active')) {
@@ -63,10 +65,9 @@ function destroySlideContent(previousSlide, selectedSlide, bufferSize) {
     destroy(slideList);
 }
 
-function loadSlideContent() {
-    var owlData = $('div.main-slides-container').data('owlCarousel'),
-        selectedSlide = parseInt(owlData.currentItem + 1), // Because owlData returns first slide as 0.
-        previousSlide = parseInt(owlData.prevItem + 1),
+function loadSlideContent(swiperData) {
+    var selectedSlide = (swiperData.activeIndex + 1), // Because swiperData returns first slide as 0.
+        previousSlide = (swiperData.previousIndex + 1),
         slideElement = $('div.slide-no-' + selectedSlide),
         bufferSize = 1;
 
@@ -83,7 +84,7 @@ function loadSlideContent() {
 
     destroySlideContent(previousSlide, selectedSlide, bufferSize);
 
-    if (selectedSlide < owlData.itemsAmount) {
+    if (selectedSlide < swiperData.slides.length) {
         addToDom($('div.slide-no-' + (selectedSlide + bufferSize)));
     }
 
@@ -91,7 +92,7 @@ function loadSlideContent() {
         addToDom($('div.slide-no-' + (selectedSlide - bufferSize)));
     }
 
-    updateNavigation(slideElement, selectedSlide, owlData);
+    updateNavigation(slideElement, selectedSlide, swiperData);
 }
 
 function loadChaptersInfo($title, $description) {
@@ -100,7 +101,7 @@ function loadChaptersInfo($title, $description) {
 }
 
 function loadSlideNotes() {
-    var selectedSlideEl = $('div.main-slider div.owl-item.active > div:first')[0],
+    var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.swiper-slide-active')[0],
         slideNoteEl = $('footer #slide-notes'),
         scroll = null;
 
@@ -133,7 +134,7 @@ function getDivId(chapterNumber, slideNumber, relatedDocsFolderId) {
 }
 
 function getIconImagePath (iconName, fileType) {
-    var iconImagePath = null;    
+    var iconImagePath = null;
     if (iconName !== null) {
         var fullPath = window.location.pathname;
         var pathComponentsArray = fullPath.split('/');
@@ -197,16 +198,16 @@ function getItemInfo(itemId) {
     return indexArray;
 }
 
-function trancateTitle (title) {
+function trancateTitle(title) {
     var length = 10;
     if (title.length > length) {
-       title = title.substring(0, length)+'...';
+        title = title.substring(0, length) + '...';
     }
     return title;
 }
 
 function loadRelatedDocuments() {
-    var selectedSlideEl = $('div.main-slider div.owl-item.active > div:first')[0],
+    var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.swiper-slide-active')[0],
         chapterNumber = $(selectedSlideEl).data('chapter-no'),
         slideNumber = $(selectedSlideEl).data('slide-no'),
         relatedDocumentFolderId = $(selectedSlideEl).data('related-docs-folder-id');
@@ -232,7 +233,7 @@ function loadRelatedDocuments() {
                         var resultArray = getItemInfo(itemId);
                         if (resultArray.isNotFolder) {
                             assetsContain = true;
-                           var imagePath = getIconImagePath(resultArray.iconImageName, resultArray.fileType);
+                            var imagePath = getIconImagePath(resultArray.iconImageName, resultArray.fileType);
                             divContent += '<li class="related-doc-item" data_item_id="' + itemId + '">';
                             divContent += '<a href="#">';
 
@@ -252,7 +253,7 @@ function loadRelatedDocuments() {
                     });
 
                     if (!assetsContain){
-                            divContent += '<div class = "no-items-found" id = "no_items_found">No Related Documents found.</div>';
+                        divContent += '<div class = "no-items-found" id = "no_items_found">No Related Documents found.</div>';
                     }
 
                     divContent += '</ul>';
@@ -270,9 +271,9 @@ function loadRelatedDocuments() {
 }
 
 function loadFirstTab() {
-    var $tabContainer = $('.chapter-menu');
-    var $tabButtons = $('.tab-buttons', $tabContainer);
-    var $tabContents = $('.tab-contents', $tabContainer);
+    var $tabContainer = $('.chapter-menu'),
+        $tabButtons = $('.tab-buttons', $tabContainer),
+        $tabContents = $('.tab-contents', $tabContainer);
 
     $('.tab', $tabContents).removeClass('active-tab').hide();
     $('.tab:first-child', $tabContents).addClass('active-tab').show();
@@ -308,7 +309,8 @@ $(document).on('onTemplateRenderComplete', function () {
         e.preventDefault();
     };
 
-    var $slides = $('.main-slides-container'),
+    var swiperObj = null,
+        $slides = $('.swiper-container'),
         $slideThumbs = $('.slides-container'),
         $chapters = $('.chapters'),
         $innerCss = '',
@@ -342,25 +344,21 @@ $(document).on('onTemplateRenderComplete', function () {
         itemsTablet: [600, 6]
     });
 
-    $slides.owlCarousel({
-        slideSpeed: 1000,
-        singleItem: true,
-        autoHeight: true,
-        pagination: false,
-        transitionStyle: 'fade',
-        addClassActive: true,
-        afterMove: function () {
-            loadSlideContent();
+    $slides.swiper({
+        mode: 'horizontal',
+        onSlideChangeEnd: function (swiper) {
+            loadSlideContent(swiper);
+            swiperObj = swiper;
+        },
+        onFirstInit: function (swiper) {
+            loadSlideContent(swiper);
+            swiperObj = swiper;
         }
     });
 
-    // loading first slide content at the initial application launch.
-    loadSlideContent();
-
-
     $('footer #main-menu-btn').click(function () {
         $('.chapter-menu').slideDown(function () {
-            var selectedSlideEl = $('div.main-slider div.owl-item.active > div:first')[0],
+            var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.swiper-slide-active')[0],
                 slideThumb = $('footer div.slides-outer div.owl-item div.item'),
                 chapterNo = $(selectedSlideEl).data('chapter-no'),
                 slideNo = $(selectedSlideEl).data('slide-no'),
@@ -410,10 +408,18 @@ $(document).on('onTemplateRenderComplete', function () {
     });
 
     $('.slides-container .item').click(function () {
-        var slide = $(this);
-        var slideNumber = parseInt(slide.attr('data-slide-id'));
-        var slideThumb = $('footer div.slides-outer div.owl-item div.item');
-        $slides.trigger('owl.jumpTo', slideNumber - 1);
+        var slide = $(this),
+            slideNumber = parseInt(slide.data('slide-id')),
+            chapterNo = parseInt(slide.data('chapter-no')),
+            slideThumb = $('footer div.slides-outer div.owl-item div.item'),
+            selectedChapter = $('footer div.chapters div.chapter a').eq(chapterNo - 1);
+
+
+        $('footer .chapters a').removeClass('selected');
+        selectedChapter.addClass('selected');
+        loadChaptersInfo(selectedChapter.data('title'), selectedChapter.data('description'));
+        $chapters.trigger('owl.goTo', (chapterNo - 1));
+        swiperObj.swipeTo(slideNumber - 1, 1);
         slideThumb.removeClass('slide-selected');
         slide.addClass('slide-selected');
         return false;
