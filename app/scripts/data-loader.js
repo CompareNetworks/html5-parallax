@@ -26,11 +26,10 @@ var LOAD_DATA = {
 
         // HandelBar template for Slide.
         var slidesTemplate = '{{#each chapters}} {{#each slides}}' +
-                '<div class="swiper-slide slide-no-{{slide_no}}" style="height: ' + (window.innerHeight - 63) + 'px" ' +
+                '<div class="swiper-slide parent slide-no-{{slide_no}}" style="height: ' + (window.innerHeight - 63) + 'px" ' +
                 'data-content="{{slide_content}}" data-slide-notes="{{slide_notes}}" data-slide-no="{{slide_no}}" ' +
                 'data-chapter-no="{{../chapter_no}}" data-vertical-scrollable="{{vertical_scrollable}}"' +
-            'data-related-docs-folder-id = "{{related_docs_folder}}">' +
-                '</div>' +
+            'data-related-docs-folder-id = "{{related_docs_folder}}"><p class="loading-text">Loading...</p></div>' +
             '{{/each}} {{/each}}';
 
         var chaptersCompliedTpl = Handlebars.compile(chapterThumbnailTemplate);

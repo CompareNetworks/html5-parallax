@@ -1,4 +1,5 @@
 var itemTypes = fileTypes.initItemTypes(),
+    loadingMessage = '<p class="loading-text">Loading...</p>',
     verticalScroll = null;
 
 function initSlideSpecificPlugins(domElement) {
@@ -69,7 +70,9 @@ function destroySlideContent(previousSlide, selectedSlide, bufferSize) {
 
     function destroy(slideList) {
         slideList.forEach(function (slideNo) {
-            $('div.slide-no-' + slideNo).empty();
+            var element = $('div.slide-no-' + slideNo);
+            element.empty();
+            element.html(loadingMessage);
         });
     }
 
@@ -93,7 +96,8 @@ function loadSlideContent(swiperData) {
         bufferSize = 1;
 
     function addToDom(domElement) {
-        if (domElement.is(':empty')) {
+        if (domElement[0].innerHTML === loadingMessage) {
+            domElement.empty();
             domElement.load(domElement.data('content'), function () {
                 // Initializing the required plugins for the slide. E.g: IScroll.
                 initSlideSpecificPlugins(domElement);
@@ -122,7 +126,7 @@ function loadChaptersInfo($title, $description) {
 }
 
 function loadSlideNotes() {
-    var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.swiper-slide-active')[0],
+    var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.parent.swiper-slide-active')[0],
         slideNoteEl = $('footer #slide-notes'),
         scroll = null;
 
@@ -182,9 +186,9 @@ function getItemInfo(itemId) {
         ['itemTypeId', 'title', 'fileType','iconImageName','itemDescription'],
         function (data) {
             if (data) {
-                // alert(JSON.stringify(data)); 
                 var itemTypeId = parseInt(data.itemTypeId);
-                if (itemTypeId === 3) {
+                fileType = data.fileType;
+                if (itemTypeId === 3 || fileType === 'zip') {
                     success = false;
                 } else {
                     success = true;
@@ -228,7 +232,7 @@ function trancateTitle(title) {
 }
 
 function loadRelatedDocuments() {
-    var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.swiper-slide-active')[0],
+    var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.parent.swiper-slide-active')[0],
         chapterNumber = $(selectedSlideEl).data('chapter-no'),
         slideNumber = $(selectedSlideEl).data('slide-no'),
         relatedDocumentFolderId = $(selectedSlideEl).data('related-docs-folder-id');
@@ -382,7 +386,7 @@ $(document).on('onTemplateRenderComplete', function () {
 
     $('footer #main-menu-btn').click(function () {
         $('.chapter-menu').slideDown(function () {
-            var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.swiper-slide-active')[0],
+            var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.parent.swiper-slide-active')[0],
                 slideThumb = $('footer div.slides-outer div.owl-item div.item'),
                 chapterNo = $(selectedSlideEl).data('chapter-no'),
                 slideNo = $(selectedSlideEl).data('slide-no'),
