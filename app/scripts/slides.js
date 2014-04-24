@@ -1,4 +1,5 @@
 var itemTypes = fileTypes.initItemTypes(),
+    loadingMessage = '<p class="loading-text">Loading...</p>',
     verticalScroll = null;
 
 function initSlideSpecificPlugins(domElement) {
@@ -69,7 +70,9 @@ function destroySlideContent(previousSlide, selectedSlide, bufferSize) {
 
     function destroy(slideList) {
         slideList.forEach(function (slideNo) {
-            $('div.slide-no-' + slideNo).empty();
+            var element = $('div.slide-no-' + slideNo);
+            element.empty();
+            element.html(loadingMessage);
         });
     }
 
@@ -93,7 +96,8 @@ function loadSlideContent(swiperData) {
         bufferSize = 1;
 
     function addToDom(domElement) {
-        if (domElement.is(':empty')) {
+        if (domElement[0].innerHTML === loadingMessage) {
+            domElement.empty();
             domElement.load(domElement.data('content'), function () {
                 // Initializing the required plugins for the slide. E.g: IScroll.
                 initSlideSpecificPlugins(domElement);
@@ -183,7 +187,7 @@ function getItemInfo(itemId) {
         function (data) {
             if (data) {
                 var itemTypeId = parseInt(data.itemTypeId);
-                 fileType = data.fileType;
+                fileType = data.fileType;
                 if (itemTypeId === 3 || fileType === 'zip') {
                     success = false;
                 } else {
