@@ -85,7 +85,7 @@ sizes, pagination, etc.
 	/* Specify Swiper's Size: */
 
 	width: 1024px;
-	/*height: 748px;*/
+	height: 600px;
     z-index: 0;
 }
 .swiper-slide {
