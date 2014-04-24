@@ -74,7 +74,7 @@
                 {
                     "slide_no": "7",
                     "slide_title": "Chapter 02 - Slide 2",
-                    "vertical_scrollable": "false",
+                    "vertical_scrollable": "true",
                     "slide_thumb": "data/presentation-content/chapter_2/slide_7/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_2/slide_7/content.html",
                     "slide_notes": "data/presentation-content/chapter_2/slide_7/notes.html",

@@ -1,3 +1,4 @@
+//noinspection JSHint
 (function (w, d) {
 
 	var ITEM_TYPE_NAMES = 
