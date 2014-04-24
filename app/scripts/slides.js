@@ -1,12 +1,29 @@
-var itemTypes = fileTypes.initItemTypes();
+var itemTypes = fileTypes.initItemTypes(),
+    verticalScroll = null;
 
 function initSlideSpecificPlugins(domElement) {
     if (domElement.data('vertical-scrollable')) {
+        var topArrow = $('footer a.top-arrow'),
+            bottomArrow = $('footer a.bottom-arrow');
+
         $('.vertical-scroll-slide', domElement).swiper({
             mode: 'vertical',
             slidesPerView: 1,
-            onSlideChangeEnd: function (as) {
-                console.log(as);
+            onSlideChangeEnd: function (swiper) {
+                verticalScroll = swiper;
+                if (swiper.activeIndex > 0) {
+                    topArrow.addClass('active');
+                    if (swiper.activeIndex === (swiper.slides.length - 1)) {
+                        bottomArrow.removeClass('active');
+                    }
+                    else {
+                        bottomArrow.addClass('active');
+                    }
+                }
+                else {
+                    topArrow.removeClass('active');
+                    bottomArrow.addClass('active');
+                }
             }
         });
     }
@@ -16,6 +33,10 @@ function updateNavigation(slideEl, selectedSlide, swiperData) {
     var leftArrow = $('footer a.left-arrow'),
         rightArrow = $('footer a.right-arrow'),
         bottomArrow = $('footer a.bottom-arrow');
+
+    if (verticalScroll) {
+        verticalScroll.swipeTo(0, 1);
+    }
 
     if (slideEl.data('vertical-scrollable')) {
         bottomArrow.addClass('active');
