@@ -314,12 +314,14 @@ $(document).on('onTemplateRenderComplete', function () {
         $slideThumbs = $('.slides-container'),
         $chapters = $('.chapters'),
         $innerCss = '',
-        $windowHeight = $(window).height() - 50;
+        $windowHeight = $(window).height() - 63;
 
     $innerCss += '<style type="text/css">' +
         '.main-slides-container #wrapper .page{' +
         'height:' + $windowHeight + 'px' +
         '}' +
+		'.swiper-container{' +
+		'height:' + $windowHeight + 'px' +
         '</style>';
 
     $('.main-container').append($innerCss);
@@ -329,6 +331,7 @@ $(document).on('onTemplateRenderComplete', function () {
         slideSpeed: 1000,
         scrollPerPage: true,
         pagination: false,
+		navigation:true,
         itemsDesktop: [1000, 5],
         itemsDesktopSmall: [900, 5],
         itemsTablet: [600, 5]
@@ -385,7 +388,7 @@ $(document).on('onTemplateRenderComplete', function () {
         return false;
     });
 
-    $('footer .chapters a').append('<div class="arrow"><div class="inner"></div></div>');
+    $('footer .chapters a').append('<div class="arrow"></div>');
     $('footer .chapters .owl-item:first-child a').addClass('selected');
     var $firstTitle = $('footer .chapters .owl-item:first-child a').attr('data-title');
     var $firstDescription = $('footer .chapters .owl-item:first-child a').attr('data-description');

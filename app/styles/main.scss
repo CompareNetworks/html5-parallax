@@ -11,6 +11,18 @@
 
 }
 
+@font-face {
+    font-family: 'ZeissFrutigerNextPro-Bold';
+    src: url('fonts/ZeissFrutigerNextPro-Bold.eot');
+    src: url('fonts/ZeissFrutigerNextPro-Bold.eot?#iefix') format('embedded-opentype'),
+         url('fonts/ZeissFrutigerNextPro-Bold.woff') format('woff'),
+         url('fonts/ZeissFrutigerNextPro-Bold.ttf') format('truetype'),
+         url('fonts/ZeissFrutigerNextPro-Bold.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 /*variables*/
 $lightGrey: #f0ede8;
 $darkGrey:#b2b2b2;
@@ -55,7 +67,6 @@ a {
         img.dummyContent{
           height:auto;
           width:auto;
-          max-height:100%;
           max-width:100%;
           display:block;
         }
@@ -201,25 +212,34 @@ a {
         border-top: none;
         background:$lightGrey;
         .tab{
-          height:400px;
+          height:410px;
         }
       }
       .chapters {
         @include clearfix;
         padding: 10px 10px 0px 10px;
-        background: $lightGrey;
-        border-bottom: solid 1px $darkGrey;
-        height: 156px;
+        background: #d5d5d5;
+        height: 110px;
         .item {
           margin-right: 10px;
           margin-left:3px;
-          width: 150px;
-          height:157px;
+          width: 154px;
+          height:111px;
           a {
             display: block;
             position:relative;
             padding-bottom:10px;
             text-decoration:none;
+            .outer{
+              position:relative;
+              height:89px;
+              display:block;
+              overflow:hidden;
+              -webkit-border-radius: 7px;
+              -moz-border-radius: 7px;
+              border-radius: 7px;
+              border:solid 1px $darkGrey;
+            }
             .arrow{
               display:none;
               position:absolute;
@@ -227,32 +247,22 @@ a {
               height: 0; 
               border-left: 15px solid transparent;
               border-right: 15px solid transparent;
-              border-bottom: 15px solid $darkGrey;
+              border-bottom: 15px solid #f9f9f9;
               bottom:-11px;
-              left:57px;
-              .inner{
-                border-left: 14px solid transparent;
-                border-right: 14px solid transparent;
-                border-bottom: 14px solid #ffffff;
-                position: absolute;
-                left: -14px;
-                top: 2px;
-              }
+              left:61px;
             }
             .title{
               display:block;
-              background:rgba(0,0,0,0.5);
-              color:#ffffff;
+              background:rgba(255,255,255,0.8);
+              color:#363636;
               text-decoration:none;
-              font-size:0.8em;
-              padding:5px;
-              width:140px;
+              font-size:9px;
+              letter-spacing:1px;
+              padding:12px 5px;
+              width:144px;
               bottom:0px;
-              strong{
-                font-size:0.9em;
-                font-weight:bold;
-                display:block;
-              }
+              position:absolute;
+              font-family:ZeissFrutigerNextPro-Bold,helvetica, arial;
             }
             img {
               width: 100%;
@@ -278,21 +288,19 @@ a {
       }
       .chapter-info{
         padding:10px;
-        background:#ffffff;
-        h3{
-          font-weight:bold;
-          font-size:1.2em;
-          padding-bottom:5px;
-        }
+        background:#f9f9f9;
         p{
-          font-size:1em;
+          font-size:18px;
+          font-family:zeissfrutigernextpro-rg,helvetica, arial;
+          color:#363636;
         }
       }
       .slides-outer {
-        padding: 10px;
-        height:245px;
-        background:#ffffff;
+        padding: 0px 25px 10px;
+        height:250px;
+        background:#f9f9f9;
         .slides-container {
+          position:relative;
           .owl-wrapper-outer {
             overflow: hidden;
             .owl-wrapper {
@@ -303,8 +311,9 @@ a {
             }
           }
           .item {
-            margin: 3px;
-            width:150px;
+            margin: 0 auto;
+            width:160px;
+            height:250px;
             overflow:hidden;
             img {
               display: block;
@@ -315,6 +324,33 @@ a {
               box-shadow: 0px 1px 4px #555555;
               border: solid 1px #ffffff;
             }
+          }
+        }
+        .owl-controls{
+          position:absolute;
+          top:0px;
+          width:100%;
+          .owl-prev,.owl-next{
+            width:20px;
+            height:36px;
+            text-indent:-9999px;
+            position:absolute;
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            border-radius: 0px;
+            background:none;
+            opacity:1;
+            top:90px;
+          }
+          .owl-prev{
+            left:-20px;
+            background:url(../images/prev-btn.png) no-repeat;
+            background-size:20px 36px;
+          }
+          .owl-next{
+            right:-40px;
+            background:url(../images/next-btn.png) no-repeat;
+            background-size:20px 36px;
           }
         }
       }
