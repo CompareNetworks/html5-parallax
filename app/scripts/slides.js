@@ -122,7 +122,7 @@ function loadChaptersInfo($title, $description) {
 }
 
 function loadSlideNotes() {
-    var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.swiper-slide-active')[0],
+    var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.parent.swiper-slide-active')[0],
         slideNoteEl = $('footer #slide-notes'),
         scroll = null;
 
@@ -228,7 +228,7 @@ function trancateTitle(title) {
 }
 
 function loadRelatedDocuments() {
-    var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.swiper-slide-active')[0],
+    var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.parent.swiper-slide-active')[0],
         chapterNumber = $(selectedSlideEl).data('chapter-no'),
         slideNumber = $(selectedSlideEl).data('slide-no'),
         relatedDocumentFolderId = $(selectedSlideEl).data('related-docs-folder-id');
@@ -382,7 +382,7 @@ $(document).on('onTemplateRenderComplete', function () {
 
     $('footer #main-menu-btn').click(function () {
         $('.chapter-menu').slideDown(function () {
-            var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.swiper-slide-active')[0],
+            var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.parent.swiper-slide-active')[0],
                 slideThumb = $('footer div.slides-outer div.owl-item div.item'),
                 chapterNo = $(selectedSlideEl).data('chapter-no'),
                 slideNo = $(selectedSlideEl).data('slide-no'),
