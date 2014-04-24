@@ -5,7 +5,8 @@
     "jquery": "~1.11.0",
     "owlcarousel": "~1.3.2",
     "handlebars": "~1.3.0",
-    "iscroll": "~5.1.1"
+    "iscroll": "~5.1.1",
+    "swiper": "~2.6.0"
   },
   "devDependencies": {}
 }
