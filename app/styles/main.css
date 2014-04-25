@@ -59,7 +59,11 @@ a img { display: block; }
 .main-container footer.footer-menu .chapter-menu .chapters .owl-wrapper-outer .owl-wrapper .owl-item { float: left; }
 .main-container footer.footer-menu .chapter-menu .chapter-info { padding: 10px; background: #f9f9f9; }
 .main-container footer.footer-menu .chapter-menu .chapter-info p { font-size: 18px; font-family: zeissfrutigernextpro-rg,helvetica, arial; color: #363636; }
+<<<<<<< HEAD
 .main-container footer.footer-menu .chapter-menu .slides-outer { padding: 0px 35px 0px; height: 250px; max-height: 250px; background: #f9f9f9; overflow: hidden; }
+=======
+.main-container footer.footer-menu .chapter-menu .slides-outer { padding: 0px 35px 10px; height: 260px; background: #f9f9f9; overflow: hidden; }
+>>>>>>> 548b57cd8cafd6a1c3e4e552fa499473bc0e3ff6
 .main-container footer.footer-menu .chapter-menu .slides-outer .slides-container { position: relative; }
 .main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .owl-wrapper-outer { overflow: hidden; }
 .main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .owl-wrapper-outer .owl-wrapper { *zoom: 1; }
