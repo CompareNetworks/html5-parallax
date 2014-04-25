@@ -300,7 +300,7 @@ function loadRelatedDocuments() {
             );
         }
     }else{
-         $('#related-documents').append('<div class = "no-items-found" id = "no-items-found">No Related Documents found.</div>');
+        $('#related-documents').append('<div class = "no-items-found" id = "no-items-found">No Related Documents found.</div>');
     }
 }
 
