@@ -41,7 +41,7 @@ a img { display: block; }
 .main-container footer.footer-menu .chapter-menu .tab-buttons li.selected-tab { background: #f5f5f5; background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #e6e6e6)); background: -webkit-linear-gradient(top, #f5f5f5 0%, #e6e6e6 100%); background: linear-gradient(to bottom, #f5f5f5 0%, #e6e6e6 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); }
 .main-container footer.footer-menu .chapter-menu .tab-buttons li.selected-tab a { color: #034ea1; cursor: default; }
 .main-container footer.footer-menu .chapter-menu .tab-contents { min-height: 120px; border-top: none; background: #f0ede8; }
-.main-container footer.footer-menu .chapter-menu .tab-contents .tab { height: 420px; }
+.main-container footer.footer-menu .chapter-menu .tab-contents .tab { height: 410px; }
 .main-container footer.footer-menu .chapter-menu .chapters { *zoom: 1; padding: 10px 10px 0px 10px; background: #d5d5d5; }
 .main-container footer.footer-menu .chapter-menu .chapters:before, .main-container footer.footer-menu .chapter-menu .chapters:after { display: table; content: " "; }
 .main-container footer.footer-menu .chapter-menu .chapters:after { clear: both; }
@@ -59,7 +59,7 @@ a img { display: block; }
 .main-container footer.footer-menu .chapter-menu .chapters .owl-wrapper-outer .owl-wrapper .owl-item { float: left; }
 .main-container footer.footer-menu .chapter-menu .chapter-info { padding: 10px; background: #f9f9f9; }
 .main-container footer.footer-menu .chapter-menu .chapter-info p { font-size: 18px; font-family: zeissfrutigernextpro-rg,helvetica, arial; color: #363636; }
-.main-container footer.footer-menu .chapter-menu .slides-outer { padding: 0px 35px 10px; height: 260px; background: #f9f9f9; overflow: hidden; }
+.main-container footer.footer-menu .chapter-menu .slides-outer { padding: 0px 35px 0px; height: 250px; max-height: 250px; background: #f9f9f9; overflow: hidden; }
 .main-container footer.footer-menu .chapter-menu .slides-outer .slides-container { position: relative; }
 .main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .owl-wrapper-outer { overflow: hidden; }
 .main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .owl-wrapper-outer .owl-wrapper { *zoom: 1; }

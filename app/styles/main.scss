@@ -230,7 +230,7 @@ a {
         border-top: none;
         background:$lightGrey;
         .tab{
-          height:420px;
+          height:410px;
         }
       }
       .chapters {
@@ -311,8 +311,9 @@ a {
         }
       }
       .slides-outer {
-        padding: 0px 35px 10px;
-        height:260px;
+        padding: 0px 35px 0px;
+        height:250px;
+        max-height:250px;
         background:#f9f9f9;
         overflow:hidden;
         .slides-container {
