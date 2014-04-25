@@ -349,10 +349,10 @@ $(document).on('onTemplateRenderComplete', function () {
 
     $innerCss += '<style type="text/css">' +
         '.main-slides-container #wrapper .page{' +
-        'height:' + $windowHeight + 'px' +
+        'height:644px' +
         '}' +
 		'.swiper-container{' +
-		'height:' + $windowHeight + 'px' +
+		'height:644px' +
         '</style>';
 
     $('.main-container').append($innerCss);
