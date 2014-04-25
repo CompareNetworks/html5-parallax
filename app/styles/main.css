@@ -78,7 +78,7 @@ a img { display: block; }
 .main-container footer.footer-menu .chapter-menu #slide-notes .notes-wrapper .inner-content { -webkit-column-gap: 40px; column-gap: 40px; -webkit-column-count: 2; column-count: 2; }
 .main-container footer.footer-menu .chapter-menu #slide-notes .notes-wrapper h3 { font-weight: bold; font-size: 1.2em; padding-bottom: 15px; }
 .main-container footer.footer-menu .chapter-menu #slide-notes .notes-wrapper p { font-size: 1em; padding-bottom: 15px; line-height: 20px; }
-.main-container footer.footer-menu .chapter-menu #related-documents .no-item-found { font-size: 26px; font-weight: bold; text-align: center; padding-top: 180px; }
+.main-container footer.footer-menu .chapter-menu #related-documents .no-items-found { font-size: 26px; font-weight: bold; text-align: center; padding-top: 180px; }
 .main-container footer.footer-menu .chapter-menu #related-documents .related-doc { *zoom: 1; padding: 15px; }
 .main-container footer.footer-menu .chapter-menu #related-documents .related-doc:before, .main-container footer.footer-menu .chapter-menu #related-documents .related-doc:after { display: table; content: " "; }
 .main-container footer.footer-menu .chapter-menu #related-documents .related-doc:after { clear: both; }
