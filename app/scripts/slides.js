@@ -255,48 +255,52 @@ function loadRelatedDocuments() {
         slideNumber = $(selectedSlideEl).data('slide-no'),
         relatedDocumentFolderId = $(selectedSlideEl).data('related-docs-folder-id');
 
-    var divId = getDivId(chapterNumber, slideNumber, relatedDocumentFolderId);
     $( '#no-items-found' ).remove();
     $('#related-documents').children().hide();
 
-    if ($('div[id^=' + divId + ']').length > 0) {
-        $('#' + divId).show();
-    }
-    else {
-        macs.getFolderAssets(
-            relatedDocumentFolderId.toString(),
-            function (data) {
-                if (data) {
-                    dataSource.divId = divId;
-                    dataSource.assetsContain = false;
-                    var children = [];
-                    var chidrenCount = 0;
-                    $.each(data.children, function (index, itemId) {
-                        var resultArray = getItemInfo(itemId);
-                        children.push([]);
-                        children[chidrenCount].isNotFolder = resultArray.isNotFolder;
+    if (chapterNumber && slideNumber && relatedDocumentFolderId) {
+        var divId = getDivId(chapterNumber, slideNumber, relatedDocumentFolderId);
+        if ($('div[id^=' + divId + ']').length > 0) {
+            $('#' + divId).show();
+        }
+        else {
+            macs.getFolderAssets(
+                relatedDocumentFolderId.toString(),
+                function (data) {
+                    if (data) {
+                        dataSource.divId = divId;
+                        dataSource.assetsContain = false;
+                        var children = [];
+                        var chidrenCount = 0;
+                        $.each(data.children, function (index, itemId) {
+                            var resultArray = getItemInfo(itemId);
+                            children.push([]);
+                            children[chidrenCount].isNotFolder = resultArray.isNotFolder;
 
-                        if (resultArray.isNotFolder) {
-                            dataSource.assetsContain = true;
-                            var imagePath = getIconImagePath(resultArray.iconImageName, resultArray.fileType);
-                            children[chidrenCount].itemId = itemId;
-                            children[chidrenCount].imagePath = imagePath;
-                            children[chidrenCount].title= trancateTitle(resultArray.title, 20);
-                            children[chidrenCount].description = resultArray.itemDescription;
-                            chidrenCount++;
-                        }
-                    });
-                    dataSource.children = children;
+                            if (resultArray.isNotFolder) {
+                                dataSource.assetsContain = true;
+                                var imagePath = getIconImagePath(resultArray.iconImageName, resultArray.fileType);
+                                children[chidrenCount].itemId = itemId;
+                                children[chidrenCount].imagePath = imagePath;
+                                children[chidrenCount].title= trancateTitle(resultArray.title, 20);
+                                children[chidrenCount].description = resultArray.itemDescription;
+                                chidrenCount++;
+                            }
+                        });
+                        dataSource.children = children;
 
-                    var chaptersCompliedTpl = Handlebars.compile(relatedDocumentTemplates);
-                    $('#related-documents').append(chaptersCompliedTpl(dataSource));
-                    $.event.trigger({type: 'onRelatedDocumentsRenderComplete'});
+                        var chaptersCompliedTpl = Handlebars.compile(relatedDocumentTemplates);
+                        $('#related-documents').append(chaptersCompliedTpl(dataSource));
+                        $.event.trigger({type: 'onRelatedDocumentsRenderComplete'});
+                    }
+                },
+                function () {
+                    $('#related-documents').append('<div class = "no-items-found" id = "no-items-found">No Related Documents found.</div>');
                 }
-            },
-            function () {
-                $('#related-documents').append('<div class = "no-items-found" id = "no-items-found">No Related Documents found.</div>');
-            }
-        );
+            );
+        }
+    }else{
+         $('#related-documents').append('<div class = "no-items-found" id = "no-items-found">No Related Documents found.</div>');
     }
 }
 
