@@ -230,7 +230,7 @@ a {
         border-top: none;
         background:$lightGrey;
         .tab{
-          height:410px;
+          height:420px;
         }
       }
       .chapters {
@@ -312,8 +312,9 @@ a {
       }
       .slides-outer {
         padding: 0px 35px 10px;
-        height:250px;
+        height:260px;
         background:#f9f9f9;
+        overflow:hidden;
         .slides-container {
           position:relative;
           .owl-wrapper-outer {
