@@ -1,6 +1,24 @@
 var itemTypes = fileTypes.initItemTypes(),
     loadingMessage = '<p class="loading-text">Loading...</p>',
-    verticalScroll = null;
+    verticalScroll = null,
+    relatedDocumentTemplates = '<div id = {{divId}}>' +  
+                                    '<ul class="related-doc">' +
+                                        '{{#each children}}'+
+                                            '{{#if this.isNotFolder}}'+
+                                                    '<li class="related-doc-item" data_item_id="{{this.itemId}}">'+
+                                                        '<a href="#">'+
+                                                            '<img src="{{this.imagePath}}"></img>'+
+                                                            '<span class="title">{{this.title}}</span>'+
+                                                            '<span class="description">{{this.description}}</span>'+
+                                                        '</a>'+
+                                                    '</li>'+
+                                            '{{/if}}'+
+                                        '{{/each}}'+
+                                    '</ul>'+
+                                    '{{#unless assetsContain}}'+
+                                        '<div class = "no-items-found" id = "no_items_found">No Related Documents found.</div>'+
+                                    '{{/unless}}'+
+                                '</div>';      
 
 function initSlideSpecificPlugins(domElement) {
     if (domElement.data('vertical-scrollable')) {
@@ -223,8 +241,7 @@ function getItemInfo(itemId) {
     return indexArray;
 }
 
-function trancateTitle(title) {
-    var length = 10;
+function trancateTitle(title, length) {
     if (title.length > length) {
         title = title.substring(0, length) + '...';
     }
@@ -232,6 +249,7 @@ function trancateTitle(title) {
 }
 
 function loadRelatedDocuments() {
+    var dataSource = [];
     var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.parent.swiper-slide-active')[0],
         chapterNumber = $(selectedSlideEl).data('chapter-no'),
         slideNumber = $(selectedSlideEl).data('slide-no'),
@@ -249,42 +267,29 @@ function loadRelatedDocuments() {
             relatedDocumentFolderId.toString(),
             function (data) {
                 if (data) {
-                    var assetsContain = false;
-                    var divContent = null;
-                    divContent = '<div id = ' + divId + '>';
-                    divContent += '<ul class="related-doc">';
-
+                    dataSource.divId = divId;
+                    dataSource.assetsContain = false;
+                    var children = [];
+                     var chidrenCount = 0;
                     $.each(data.children, function (index, itemId) {
                         var resultArray = getItemInfo(itemId);
+                        children.push([]);
+                        children[chidrenCount].isNotFolder = resultArray.isNotFolder;
+
                         if (resultArray.isNotFolder) {
-                            assetsContain = true;
+                            dataSource.assetsContain = true;
                             var imagePath = getIconImagePath(resultArray.iconImageName, resultArray.fileType);
-                            divContent += '<li class="related-doc-item" data_item_id="' + itemId + '">';
-                            divContent += '<a href="#">';
-
-                            divContent += '<img src="' + imagePath + '">';
-                            divContent += '</img>';
-                            divContent += '<span class="title">';
-                            divContent += trancateTitle(resultArray.title);
-                            divContent += '</span>';
-
-                            divContent += '<span class="description">';
-                            divContent += resultArray.itemDescription;
-                            divContent += '</span>';
-
-                            divContent += '</a>';
-                            divContent += '</li>';
+                            children[chidrenCount].itemId = itemId;
+                            children[chidrenCount].imagePath = imagePath;
+                            children[chidrenCount].title= trancateTitle(resultArray.title, 10);
+                            children[chidrenCount].description = resultArray.itemDescription;
+                            chidrenCount++;
                         }
                     });
+                    dataSource.children = children;
 
-                    if (!assetsContain){
-                        divContent += '<div class = "no-items-found" id = "no_items_found">No Related Documents found.</div>';
-                    }
-
-                    divContent += '</ul>';
-                    divContent += '</div>';
-
-                    $('#related-documents').append(divContent);
+                    var chaptersCompliedTpl = Handlebars.compile(relatedDocumentTemplates);
+                    $('#related-documents').append(chaptersCompliedTpl(dataSource));
                     $.event.trigger({type: 'onRelatedDocumentsRenderComplete'});
                 }
             },
@@ -340,7 +345,7 @@ $(document).on('onTemplateRenderComplete', function () {
         $slideThumbs = $('.slides-container'),
         $chapters = $('.chapters'),
         $innerCss = '',
-        $windowHeight = $(window).height() - 60;
+        $windowHeight = $(window).height() - 63;
 
     $innerCss += '<style type="text/css">' +
         '.main-slides-container #wrapper .page{' +
