@@ -1,7 +1,7 @@
 var itemTypes = fileTypes.initItemTypes(),
     loadingMessage = '<p class="loading-text">Loading...</p>',
     verticalScroll = null,
-    relatedDocumentTemplates = '<div id = {{divId}}>' +  
+    relatedDocumentTemplates = '<div id = {{divId}}>' +
                                     '<ul class="related-doc">' +
                                         '{{#each children}}'+
                                             '{{#if this.isNotFolder}}'+
@@ -18,7 +18,7 @@ var itemTypes = fileTypes.initItemTypes(),
                                     '{{#unless assetsContain}}'+
                                         '<div class = "no-items-found" id = "no_items_found">No Related Documents found.</div>'+
                                     '{{/unless}}'+
-                                '</div>';      
+                                '</div>';
 
 function initSlideSpecificPlugins(domElement) {
     if (domElement.data('vertical-scrollable')) {
@@ -363,6 +363,7 @@ $(document).on('onTemplateRenderComplete', function () {
         scrollPerPage: true,
         pagination: false,
 		navigation:true,
+        rewindNav: false,
         itemsDesktop: [1000, 5],
         itemsDesktopSmall: [900, 5],
         itemsTablet: [600, 5]
