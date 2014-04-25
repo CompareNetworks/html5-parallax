@@ -105,16 +105,18 @@ a {
     width: 100%;
     .main-menu {
       @include menuGradient(0.8);
-      padding: 16px 20px 13px;
       position: relative;
       z-index: 3000;
       border-top:solid 1px $darkGrey;
       font-family:zeissfrutigernextpro-rg,helvetica, arial;
-      a {
+      a#main-menu-btn {
         color: $themeColor;
         text-decoration: none;
-        font-size: 30px;
-        padding:0px 118px;
+        font-size: 24px;
+        padding: 20px 0px 17px;
+        display:block;
+        width:300px;
+        text-align:center;
       }
       .arrows{
         position: absolute;
@@ -132,6 +134,8 @@ a {
           height:15px;
           top: 10px;
           left: 0px;
+          background:url(../images/menu-arrow-left-disabled.png) no-repeat;
+          background-size:9px 15px;
           &.active{
             background:url(../images/menu-arrow-left.png) no-repeat;
             background-size:9px 15px;
@@ -142,6 +146,8 @@ a {
           height:15px;
           top: 10px;
           right: 0px;
+          background:url(../images/menu-arrow-right-disabled.png) no-repeat;
+          background-size:9px 15px;
           &.active{
             background:url(../images/menu-arrow-right.png) no-repeat;
             background-size:9px 15px;
@@ -152,6 +158,8 @@ a {
           height:8px;
           bottom: 0px;
           left: 10px;
+          background:url(../images/menu-arrow-bottom-disabled.png) no-repeat;
+          background-size:16px 8px;
           &.active{
             background:url(../images/menu-arrow-bottom.png) no-repeat;
             background-size:16px 8px;
@@ -229,7 +237,6 @@ a {
         @include clearfix;
         padding: 10px 10px 0px 10px;
         background: #d5d5d5;
-        height: 110px;
         .item {
           width: 154px;
           height:111px;
