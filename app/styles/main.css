@@ -72,7 +72,9 @@ a img { display: block; }
 .main-container footer.footer-menu .chapter-menu .slides-outer .owl-controls { position: absolute; top: 0px; width: 100%; }
 .main-container footer.footer-menu .chapter-menu .slides-outer .owl-controls .owl-prev, .main-container footer.footer-menu .chapter-menu .slides-outer .owl-controls .owl-next { width: 20px; height: 36px; text-indent: -9999px; position: absolute; -webkit-border-radius: 0px; -moz-border-radius: 0px; border-radius: 0px; background: none; opacity: 1; top: 90px; }
 .main-container footer.footer-menu .chapter-menu .slides-outer .owl-controls .owl-prev { left: -30px; background: url(../images/prev-btn.png) no-repeat; background-size: 20px 36px; }
+.main-container footer.footer-menu .chapter-menu .slides-outer .owl-controls .owl-prev.disabled { background: url(../images/prev-btn-disabled.png) no-repeat; background-size: 20px 36px; }
 .main-container footer.footer-menu .chapter-menu .slides-outer .owl-controls .owl-next { right: -50px; background: url(../images/next-btn.png) no-repeat; background-size: 20px 36px; }
+.main-container footer.footer-menu .chapter-menu .slides-outer .owl-controls .owl-next.disabled { background: url(../images/next-btn-disabled.png) no-repeat; background-size: 20px 36px; }
 .main-container footer.footer-menu .chapter-menu #slide-notes .sn-availability { font-size: 26px; font-weight: bold; text-align: center; padding-top: 180px; }
 .main-container footer.footer-menu .chapter-menu #slide-notes .notes-wrapper { padding: 15px; }
 .main-container footer.footer-menu .chapter-menu #slide-notes .notes-wrapper .inner-content { -webkit-column-gap: 40px; column-gap: 40px; -webkit-column-count: 2; column-count: 2; }

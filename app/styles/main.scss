@@ -356,11 +356,19 @@ a {
             left:-30px;
             background:url(../images/prev-btn.png) no-repeat;
             background-size:20px 36px;
+            &.disabled{
+              background:url(../images/prev-btn-disabled.png) no-repeat;
+              background-size:20px 36px;
+            }
           }
           .owl-next{
             right:-50px;
             background:url(../images/next-btn.png) no-repeat;
             background-size:20px 36px;
+            &.disabled{
+              background:url(../images/next-btn-disabled.png) no-repeat;
+              background-size:20px 36px;
+            }
           }
         }
       }
