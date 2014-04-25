@@ -387,6 +387,10 @@ $(document).on('onTemplateRenderComplete', function () {
             loadSlideContent(swiper);
             swiperObj = swiper;
         },
+        /**
+         * The default 'onSlideChangeEnd' callback function of Swiper does not work when the user swipes multiple slides
+         * quickly. Hence the 'onSetWrapperTransform' callback has used to handel such situation manually.,
+         **/
         onSetWrapperTransform: function (swiper) {
             setTimeout(function () {
                 if (index !== swiper.activeIndex) {
