@@ -10,7 +10,7 @@
                 {
                     "slide_no": "1",
                     "slide_title": "Chapter 1 - Slide 1",
-                    "vertical_scrollable": "false",
+                    "vertical_scrollable": "true",
                     "slide_thumb": "data/presentation-content/chapter_1/slide_1/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_1/slide_1/content.html",
                     "slide_notes": "data/presentation-content/chapter_1/slide_1/notes.html",
@@ -19,7 +19,7 @@
                 {
                     "slide_no": "2",
                     "slide_title": "Chapter 1 - Slide 2",
-                    "vertical_scrollable": "false",
+                    "vertical_scrollable": "true",
                     "slide_thumb": "data/presentation-content/chapter_1/slide_2/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_1/slide_2/content.html",
                     "slide_notes": "data/presentation-content/chapter_1/slide_2/notes.html",
@@ -28,7 +28,7 @@
                 {
                     "slide_no": "3",
                     "slide_title": "Chapter 1 - Slide 3",
-                    "vertical_scrollable": "false",
+                    "vertical_scrollable": "true",
                     "slide_thumb": "data/presentation-content/chapter_1/slide_3/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_1/slide_3/content.html",
                     "slide_notes": "data/presentation-content/chapter_1/slide_3/notes.html",
@@ -37,7 +37,7 @@
                 {
                     "slide_no": "4",
                     "slide_title": "Chapter 1 - Slide 4",
-                    "vertical_scrollable": "false",
+                    "vertical_scrollable": "true",
                     "slide_thumb": "data/presentation-content/chapter_1/slide_4/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_1/slide_4/content.html",
                     "slide_notes": "data/presentation-content/chapter_1/slide_4/notes.html",
@@ -46,7 +46,7 @@
                 {
                     "slide_no": "5",
                     "slide_title": "Chapter 1 - Slide 5",
-                    "vertical_scrollable": "false",
+                    "vertical_scrollable": "true",
                     "slide_thumb": "data/presentation-content/chapter_1/slide_5/thumbnail.png",
                     "slide_content": "data/presentation-content/chapter_1/slide_5/content.html",
                     "slide_notes": "data/presentation-content/chapter_1/slide_5/notes.html",
