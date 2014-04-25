@@ -1,25 +1,25 @@
 //noinspection JSHint
 (function (w, d) {
 
-	var ITEM_TYPE_NAMES = 
-	{
-	    'PDF'		: 'pdf',
-	    'LINK'		: 'weblink',
-	    'VIDEO'		: 'video',
-	    'AUDIO'		: 'audio',
-	    'IMAGE'		: 'image',
-	    'CSV'		: 'csv',
-	    'EXCEL'		: 'excel',
-	    'PPT'		: 'ppt',
-	    'TEXT'		: 'text',
-	    'WORD'		: 'word',
-	    'ZIP'		: 'app',
-	    'BUY'		: 'buy',
-	    'EXTERNAL'	: 'external',
-	    'KEYNOTE' 	:'keynote',
-	    'EPUB'		:'epub',
-	    'IBOOKS'	:'ibooks'
-	};
+    var ITEM_TYPE_NAMES =
+    {
+        'PDF': 'pdf',
+        'LINK': 'weblink',
+        'VIDEO': 'video',
+        'AUDIO': 'audio',
+        'IMAGE': 'image',
+        'CSV': 'csv',
+        'EXCEL': 'excel',
+        'PPT': 'ppt',
+        'TEXT': 'text',
+        'WORD': 'word',
+        'ZIP': 'app',
+        'BUY': 'buy',
+        'EXTERNAL': 'external',
+        'KEYNOTE': 'keynote',
+        'EPUB': 'epub',
+        'IBOOKS': 'ibooks'
+    };
 
     var api = {
         initItemTypes: function () {
