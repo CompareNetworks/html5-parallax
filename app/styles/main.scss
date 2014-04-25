@@ -363,6 +363,12 @@ a {
         }
       }
       #slide-notes{
+        .sn-availability{
+          font-size: 26px;
+          font-weight: bold;
+          text-align: center;
+          padding-top: 180px;
+        }
         .notes-wrapper{
           padding:15px;
           .inner-content{
@@ -384,12 +390,18 @@ a {
         }
       }
       #related-documents{
+        .no-item-found{
+          font-size: 26px;
+          font-weight: bold;
+          text-align: center;
+          padding-top: 180px;
+        }
         .related-doc{
           @include clearfix;
           padding:15px;
           .related-doc-item{
             float:left;
-            width:335px;
+            width:315px;
             margin:0px 15px 40px 0px;
             a{
               @include clearfix;
