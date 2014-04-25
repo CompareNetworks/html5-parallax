@@ -335,6 +335,7 @@ $(document).on('onTemplateRenderComplete', function () {
     };
 
     var swiperObj = null,
+        index = 0,
         $slides = $('.swiper-container'),
         $slideThumbs = $('.slides-container'),
         $chapters = $('.chapters'),
@@ -373,14 +374,27 @@ $(document).on('onTemplateRenderComplete', function () {
     });
 
     $slides.swiper({
+        speed: 300,
         mode: 'horizontal',
+        queueEndCallbacks: true,
         onSlideChangeEnd: function (swiper) {
+            index = swiper.activeIndex;
             loadSlideContent(swiper);
             swiperObj = swiper;
         },
         onFirstInit: function (swiper) {
+            index = swiper.activeIndex;
             loadSlideContent(swiper);
             swiperObj = swiper;
+        },
+        onSetWrapperTransform: function (swiper) {
+            setTimeout(function () {
+                if (index !== swiper.activeIndex) {
+                    index = swiper.activeIndex;
+                    loadSlideContent(swiper);
+                    swiperObj = swiper;
+                }
+            }, 2000);
         }
     });
 
