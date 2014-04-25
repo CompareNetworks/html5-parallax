@@ -256,7 +256,7 @@ function loadRelatedDocuments() {
         relatedDocumentFolderId = $(selectedSlideEl).data('related-docs-folder-id');
 
     var divId = getDivId(chapterNumber, slideNumber, relatedDocumentFolderId);
-    $( '#no_items_found' ).remove();
+    $( '#no-items-found' ).remove();
     $('#related-documents').children().hide();
 
     if ($('div[id^=' + divId + ']').length > 0) {
@@ -270,7 +270,7 @@ function loadRelatedDocuments() {
                     dataSource.divId = divId;
                     dataSource.assetsContain = false;
                     var children = [];
-                     var chidrenCount = 0;
+                    var chidrenCount = 0;
                     $.each(data.children, function (index, itemId) {
                         var resultArray = getItemInfo(itemId);
                         children.push([]);
@@ -281,7 +281,7 @@ function loadRelatedDocuments() {
                             var imagePath = getIconImagePath(resultArray.iconImageName, resultArray.fileType);
                             children[chidrenCount].itemId = itemId;
                             children[chidrenCount].imagePath = imagePath;
-                            children[chidrenCount].title= trancateTitle(resultArray.title, 10);
+                            children[chidrenCount].title= trancateTitle(resultArray.title, 20);
                             children[chidrenCount].description = resultArray.itemDescription;
                             chidrenCount++;
                         }
@@ -294,7 +294,7 @@ function loadRelatedDocuments() {
                 }
             },
             function () {
-                $('#related-documents').append('<div class = "no_items_found" id = "no_items_found">No Related Documents found.</div>');
+                $('#related-documents').append('<div class = "no-items-found" id = "no-items-found">No Related Documents found.</div>');
             }
         );
     }
