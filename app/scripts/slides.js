@@ -339,7 +339,7 @@ $(document).on('onTemplateRenderComplete', function () {
         $slideThumbs = $('.slides-container'),
         $chapters = $('.chapters'),
         $innerCss = '',
-        $windowHeight = $(window).height() - 63;
+        $windowHeight = $(window).height() - 60;
 
     $innerCss += '<style type="text/css">' +
         '.main-slides-container #wrapper .page{' +

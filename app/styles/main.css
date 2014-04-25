@@ -10,6 +10,7 @@ body { font-family: helvetica, arial; font-size: 100%; margin: 0px; }
 
 a img { display: block; }
 
+.main-container .loading-text { padding-top: 318px; font-size: 35px; text-align: center; font-family: zeissfrutigernextpro-rg,helvetica, arial; }
 .main-container .main-slides-container #wrapper .page img.dummyContent { height: auto; width: auto; max-width: 100%; display: block; }
 .main-container .main-slider .owl-wrapper-outer { overflow: hidden; }
 .main-container .main-slider .owl-wrapper-outer .owl-wrapper { *zoom: 1; }
@@ -19,9 +20,9 @@ a img { display: block; }
 .main-container .main-slider .owl-wrapper-outer .owl-wrapper .owl-item .item img { display: block; margin: 0 auto; }
 .main-container footer.footer-menu { position: fixed; bottom: 0px; width: 100%; }
 .main-container footer.footer-menu .main-menu { background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(245, 245, 245, 0.8)), color-stop(100%, rgba(230, 230, 230, 0.8))); background: -webkit-linear-gradient(top, rgba(245, 245, 245, 0.8) 0%, rgba(230, 230, 230, 0.8) 100%); background: linear-gradient(to bottom, rgba(245, 245, 245, 0.8) 0%, rgba(230, 230, 230, 0.8) 100%); padding: 16px 20px 13px; position: relative; z-index: 3000; border-top: solid 1px #b2b2b2; font-family: zeissfrutigernextpro-rg,helvetica, arial; }
-.main-container footer.footer-menu .main-menu a { color: #034ea1; text-decoration: none; font-size: 30px; }
+.main-container footer.footer-menu .main-menu a { color: #034ea1; text-decoration: none; font-size: 30px; padding: 0px 118px; }
 .main-container footer.footer-menu .main-menu .arrows { position: absolute; right: 20px; top: 13px; height: 36px; width: 36px; }
-.main-container footer.footer-menu .main-menu .arrows a { display: block; position: absolute; }
+.main-container footer.footer-menu .main-menu .arrows a { display: block; position: absolute; padding: 0px; }
 .main-container footer.footer-menu .main-menu .arrows .left-arrow { width: 9px; height: 15px; top: 10px; left: 0px; }
 .main-container footer.footer-menu .main-menu .arrows .left-arrow.active { background: url(../images/menu-arrow-left.png) no-repeat; background-size: 9px 15px; }
 .main-container footer.footer-menu .main-menu .arrows .right-arrow { width: 9px; height: 15px; top: 10px; right: 0px; }
@@ -58,7 +59,7 @@ a img { display: block; }
 .main-container footer.footer-menu .chapter-menu .chapters .owl-wrapper-outer .owl-wrapper .owl-item { float: left; }
 .main-container footer.footer-menu .chapter-menu .chapter-info { padding: 10px; background: #f9f9f9; }
 .main-container footer.footer-menu .chapter-menu .chapter-info p { font-size: 18px; font-family: zeissfrutigernextpro-rg,helvetica, arial; color: #363636; }
-.main-container footer.footer-menu .chapter-menu .slides-outer { padding: 0px 25px 10px; height: 250px; background: #f9f9f9; }
+.main-container footer.footer-menu .chapter-menu .slides-outer { padding: 0px 35px 10px; height: 250px; background: #f9f9f9; }
 .main-container footer.footer-menu .chapter-menu .slides-outer .slides-container { position: relative; }
 .main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .owl-wrapper-outer { overflow: hidden; }
 .main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .owl-wrapper-outer .owl-wrapper { *zoom: 1; }
@@ -70,8 +71,8 @@ a img { display: block; }
 .main-container footer.footer-menu .chapter-menu .slides-outer .slides-container .item.slide-selected img { box-shadow: 0px 1px 4px #555555; }
 .main-container footer.footer-menu .chapter-menu .slides-outer .owl-controls { position: absolute; top: 0px; width: 100%; }
 .main-container footer.footer-menu .chapter-menu .slides-outer .owl-controls .owl-prev, .main-container footer.footer-menu .chapter-menu .slides-outer .owl-controls .owl-next { width: 20px; height: 36px; text-indent: -9999px; position: absolute; -webkit-border-radius: 0px; -moz-border-radius: 0px; border-radius: 0px; background: none; opacity: 1; top: 90px; }
-.main-container footer.footer-menu .chapter-menu .slides-outer .owl-controls .owl-prev { left: -20px; background: url(../images/prev-btn.png) no-repeat; background-size: 20px 36px; }
-.main-container footer.footer-menu .chapter-menu .slides-outer .owl-controls .owl-next { right: -40px; background: url(../images/next-btn.png) no-repeat; background-size: 20px 36px; }
+.main-container footer.footer-menu .chapter-menu .slides-outer .owl-controls .owl-prev { left: -30px; background: url(../images/prev-btn.png) no-repeat; background-size: 20px 36px; }
+.main-container footer.footer-menu .chapter-menu .slides-outer .owl-controls .owl-next { right: -50px; background: url(../images/next-btn.png) no-repeat; background-size: 20px 36px; }
 .main-container footer.footer-menu .chapter-menu #slide-notes .notes-wrapper { padding: 15px; }
 .main-container footer.footer-menu .chapter-menu #slide-notes .notes-wrapper .inner-content { -webkit-column-gap: 40px; column-gap: 40px; -webkit-column-count: 2; column-count: 2; }
 .main-container footer.footer-menu .chapter-menu #slide-notes .notes-wrapper h3 { font-weight: bold; font-size: 1.2em; padding-bottom: 15px; }

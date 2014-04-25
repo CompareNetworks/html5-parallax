@@ -61,6 +61,12 @@ a {
 }
 
 .main-container {
+  .loading-text{
+    padding-top: 318px;
+    font-size: 35px;
+    text-align: center;
+    font-family: zeissfrutigernextpro-rg,helvetica, arial;
+  }
   .main-slides-container{
     #wrapper{
       .page{
@@ -106,6 +112,7 @@ a {
         color: $themeColor;
         text-decoration: none;
         font-size: 30px;
+        padding:0px 118px;
       }
       .arrows{
         position: absolute;
@@ -116,6 +123,7 @@ a {
         a{
           display:block;
           position:absolute;
+          padding:0px;
         }
         .left-arrow{
           width:9px;
@@ -294,7 +302,7 @@ a {
         }
       }
       .slides-outer {
-        padding: 0px 25px 10px;
+        padding: 0px 35px 10px;
         height:250px;
         background:#f9f9f9;
         .slides-container {
@@ -343,12 +351,12 @@ a {
             top:90px;
           }
           .owl-prev{
-            left:-20px;
+            left:-30px;
             background:url(../images/prev-btn.png) no-repeat;
             background-size:20px 36px;
           }
           .owl-next{
-            right:-40px;
+            right:-50px;
             background:url(../images/next-btn.png) no-repeat;
             background-size:20px 36px;
           }
