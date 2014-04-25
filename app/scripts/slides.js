@@ -340,6 +340,7 @@ $(document).on('onTemplateRenderComplete', function () {
     };
 
     var swiperObj = null,
+        index = 0,
         $slides = $('.swiper-container'),
         $slideThumbs = $('.slides-container'),
         $chapters = $('.chapters'),
@@ -378,14 +379,31 @@ $(document).on('onTemplateRenderComplete', function () {
     });
 
     $slides.swiper({
+        speed: 300,
         mode: 'horizontal',
+        queueEndCallbacks: true,
         onSlideChangeEnd: function (swiper) {
+            index = swiper.activeIndex;
             loadSlideContent(swiper);
             swiperObj = swiper;
         },
         onFirstInit: function (swiper) {
+            index = swiper.activeIndex;
             loadSlideContent(swiper);
             swiperObj = swiper;
+        },
+        /**
+         * The default 'onSlideChangeEnd' callback function of Swiper does not work when the user swipes multiple slides
+         * quickly. Hence the 'onSetWrapperTransform' callback has used to handel such situation manually.,
+         **/
+        onSetWrapperTransform: function (swiper) {
+            setTimeout(function () {
+                if (index !== swiper.activeIndex) {
+                    index = swiper.activeIndex;
+                    loadSlideContent(swiper);
+                    swiperObj = swiper;
+                }
+            }, 2000);
         }
     });
 
