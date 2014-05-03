@@ -413,29 +413,37 @@ $(document).on('onTemplateRenderComplete', function () {
     });
 
     $('footer #main-menu-btn').click(function () {
-        $('.chapter-menu').slideDown(function () {
-            var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.parent.swiper-slide-active')[0],
-                slideThumb = $('footer div.slides-outer div.owl-item div.item'),
-                chapterNo = $(selectedSlideEl).data('chapter-no'),
-                slideNo = $(selectedSlideEl).data('slide-no'),
-                selectedChapter = $('footer div.chapters div.chapter a').eq(chapterNo - 1);
+        var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.parent.swiper-slide-active')[0],
+            slideThumb = $('footer div.slides-outer div.owl-item div.item'),
+            chapterNo = $(selectedSlideEl).data('chapter-no'),
+            slideNo = $(selectedSlideEl).data('slide-no'),
+            selectedChapter = $('footer div.chapters div.chapter a').eq(chapterNo - 1);
 
-            $('footer .chapters a').removeClass('selected');
-            slideThumb.removeClass('slide-selected');
-            selectedChapter.addClass('selected');
-            loadChaptersInfo(selectedChapter.data('title'), selectedChapter.data('description'));
-            $slideThumbs.trigger('owl.goTo', (slideNo - 1));
-            $chapters.trigger('owl.goTo', (chapterNo - 1));
-            slideThumb.eq(slideNo - 1).addClass('slide-selected');
-            $('.owl-wrapper-outer', $chapters).fadeIn();
-        });
+        $('footer .chapters a').removeClass('selected');
+        slideThumb.removeClass('slide-selected');
+        selectedChapter.addClass('selected');
+        loadChaptersInfo(selectedChapter.data('title'), selectedChapter.data('description'));
+        $slideThumbs.trigger('owl.goTo', (slideNo - 1));
+        $chapters.trigger('owl.goTo', (chapterNo - 1));
+        slideThumb.eq(slideNo - 1).addClass('slide-selected');
+        $('.owl-wrapper-outer', $chapters).show();
+        $('.swipe-overlay').show();
+        move('.chapter-menu')
+            .set('bottom', '0')
+            .duration(400)
+            .end(function () {
+            });
         return false;
     });
 
     $('footer .close-btn').click(function () {
-        $('.chapter-menu').slideUp(function () {
-            loadFirstTab();
-        });
+        $('.swipe-overlay').hide();
+        move('.chapter-menu')
+            .set('bottom','-473px')
+            .duration(400)
+            .end(function () {
+                loadFirstTab();
+            });
         return false;
     });
 
@@ -491,9 +499,13 @@ $(document).on('onTemplateRenderComplete', function () {
         var container = $('.chapter-menu');
         if (!container.is(e.target) && container.has(e.target).length === 0) {
             $('.owl-wrapper-outer', $chapters).hide();
-            $('.chapter-menu').slideUp(function () {
-                loadFirstTab();
-            });
+            $('.swipe-overlay').hide();
+            move('.chapter-menu')
+                .set('bottom','-473px')
+                .duration(400)
+                .end(function () {
+                    loadFirstTab();
+                });
         }
     });
 

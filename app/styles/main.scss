@@ -42,11 +42,12 @@ $themeColor:#034ea1;
 
 @mixin menuGradient($opacity){
   background:rgba(245,245,245,$opacity);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(245,245,245,$opacity)), color-stop(100%,rgba(230,230,230,$opacity)));
-  background: -webkit-linear-gradient(top,  rgba(245,245,245,$opacity) 0%,rgba(230,230,230,$opacity) 100%);
-  background: linear-gradient(to bottom,  rgba(245,245,245,$opacity) 0%,rgba(230,230,230,$opacity) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );
+  //background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(245,245,245,$opacity)), color-stop(100%,rgba(230,230,230,$opacity)));
+  //background: -webkit-linear-gradient(top,  rgba(245,245,245,$opacity) 0%,rgba(230,230,230,$opacity) 100%);
+  //background: linear-gradient(to bottom,  rgba(245,245,245,$opacity) 0%,rgba(230,230,230,$opacity) 100%);
+  //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );
 }
+
 
 
 /*styles*/
@@ -54,6 +55,10 @@ body {
   font-family: helvetica, arial;
   font-size: 100%;
   margin:0px;
+}
+a {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
 }
 
 a {
@@ -98,11 +103,20 @@ a {
       }
     }
   }
-
+  .swipe-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2998;
+    display:none;
+  }
   footer.footer-menu {
     position: fixed;
     bottom: 0px;
     width: 100%;
+    z-index:2999;
     .main-menu {
       @include menuGradient(0.8);
       position: relative;
@@ -181,9 +195,8 @@ a {
       position: absolute;
       z-index: 4000;
       left: 0px;
-      bottom: 0px;
+      bottom: -473px;
       width: 100%;
-      display: none;
       a.close-btn {
         position: absolute;
         display: block;

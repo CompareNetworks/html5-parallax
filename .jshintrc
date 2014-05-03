@@ -3,7 +3,9 @@
         "Handlebars": false,
         "IScroll": false,
         "macs": false,
-        "fileTypes": false
+        "fileTypes": false,
+        "FastClick": false,
+        "move": false
     },
     "node": true,
     "browser": true,
