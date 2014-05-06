@@ -1,5 +1,4 @@
-//noinspection JSHint
-(function (w, d) {
+(function (w) {
 
     var ITEM_TYPE_NAMES =
     {
@@ -94,4 +93,4 @@
 
     w.fileTypes = api;
 
-})(window, document);
+})(window);

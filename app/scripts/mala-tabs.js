@@ -1,5 +1,4 @@
 (function ($) {
-    //noinspection JSHint
     var defaults = {
         animation: 'fade', //fade or none
         fistTabId: '',  // ID of the first tab. Example: '#tab1'. Default ''
