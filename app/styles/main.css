@@ -6,7 +6,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'ZeissFrutigerNextPro-Bold';
   src: url("fonts/ZeissFrutigerNextPro-Bold.eot");
@@ -14,7 +13,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 /*variables*/
 /*mixins*/
 /*styles*/
@@ -25,7 +23,7 @@ body {
 }
 
 a {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
 
