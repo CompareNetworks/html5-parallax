@@ -1,3 +1,10 @@
+var currentChapter = 0;
+var currentSlide = 0;
+var previousSlide = 0;
+var currentSubSlide = 0;
+var previousSubSlide = 0;
+var horizontalSwiperObj = null;
+var verticalSwiperObj = null;
 var itemTypes = fileTypes.initItemTypes(),
     loadingMessage = '<p class="loading-text">Loading...</p>',
     verticalScroll = null,
@@ -19,6 +26,27 @@ var itemTypes = fileTypes.initItemTypes(),
                                         '<div class = "no-items-found" id = "no_items_found">No Related Documents found.</div>'+
                                     '{{/unless}}'+
                                 '</div>';
+
+function broadcastSlideChange(eventType, horizontalSwiperData, verticalSwiperData) {
+    var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.parent.swiper-slide-active')[0];
+    currentChapter = $(selectedSlideEl).data('chapter-no');
+    currentSlide = horizontalSwiperData.activeIndex + 1;
+    previousSlide = horizontalSwiperData.previousIndex + 1;
+    if(verticalSwiperData !== null) {
+        currentSubSlide = verticalSwiperData.activeIndex + 1;
+        previousSubSlide = verticalSwiperData.previousIndex + 1;
+    } else {
+        currentSubSlide = 1;
+        previousSubSlide = 1;
+    }
+    $.event.trigger({   type: eventType, 
+                        currentChapter: currentChapter, 
+                        currentSlide: currentSlide, 
+                        previousSlide: previousSlide,
+                        currentSubSlide: currentSubSlide,
+                        previousSubSlide: previousSubSlide
+                        });
+}
 
 function initSlideSpecificPlugins(domElement) {
     if (domElement.data('vertical-scrollable')) {
@@ -43,6 +71,14 @@ function initSlideSpecificPlugins(domElement) {
                     topArrow.removeClass('active');
                     bottomArrow.addClass('active');
                 }
+                verticalSwiperObj = swiper;
+                broadcastSlideChange('onSlideChangeEnd', horizontalSwiperObj, verticalSwiperObj);
+            },
+            onFirstInit: function (swiper) {
+                broadcastSlideChange('onSlideChangeInit', horizontalSwiperObj, swiper);
+            },
+            onSlideChangeStart: function (swiper) {
+                broadcastSlideChange('onSlideChangeStart', horizontalSwiperObj, swiper);
             }
         });
     }
@@ -116,8 +152,9 @@ function loadSlideContent(swiperData) {
     function addToDom(domElement) {
         if (domElement[0].innerHTML === loadingMessage) {
             domElement.empty();
-            domElement.load(domElement.data('content'), function () {
-                // Initializing the required plugins for the slide. E.g: IScroll.
+            $.get(domElement.data('content'), function(data){
+                var slideHTMLTemplate = Handlebars.compile(data);
+                domElement.append(slideHTMLTemplate({ slide_number : domElement.data('slide-no') }));
                 initSlideSpecificPlugins(domElement);
             });
         }
@@ -247,7 +284,6 @@ function trancateTitle(title, length) {
     }
     return title;
 }
-
 function loadRelatedDocuments() {
     var dataSource = [];
     var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.parent.swiper-slide-active')[0],
@@ -342,9 +378,7 @@ $(document).on('onTemplateRenderComplete', function () {
     document.ontouchmove = function (e) {
         e.preventDefault();
     };
-
-    var swiperObj = null,
-        index = 0,
+    var index = 0,
         $slides = $('.swiper-container'),
         $slideThumbs = $('.slides-container'),
         $chapters = $('.chapters'),
@@ -390,12 +424,19 @@ $(document).on('onTemplateRenderComplete', function () {
         onSlideChangeEnd: function (swiper) {
             index = swiper.activeIndex;
             loadSlideContent(swiper);
-            swiperObj = swiper;
+            horizontalSwiperObj = swiper;
+            broadcastSlideChange('onSlideChangeEnd', swiper, null);
         },
         onFirstInit: function (swiper) {
             index = swiper.activeIndex;
             loadSlideContent(swiper);
-            swiperObj = swiper;
+            horizontalSwiperObj = swiper;
+            broadcastSlideChange('onSlideChangeInit', swiper, null);
+        },
+        onSlideChangeStart: function (swiper) {
+            index = swiper.activeIndex;
+            horizontalSwiperObj = swiper;
+            broadcastSlideChange('onSlideChangeStart', swiper, null);
         },
         /**
          * The default 'onSlideChangeEnd' callback function of Swiper does not work when the user swipes multiple slides
@@ -406,7 +447,8 @@ $(document).on('onTemplateRenderComplete', function () {
                 if (index !== swiper.activeIndex) {
                     index = swiper.activeIndex;
                     loadSlideContent(swiper);
-                    swiperObj = swiper;
+                    horizontalSwiperObj = swiper;
+                    broadcastSlideChange('onSlideChangeEnd', swiper, null);
                 }
             }, 2000);
         }
@@ -481,7 +523,7 @@ $(document).on('onTemplateRenderComplete', function () {
         selectedChapter.addClass('selected');
         loadChaptersInfo(selectedChapter.data('title'), selectedChapter.data('description'));
         $chapters.trigger('owl.goTo', (chapterNo - 1));
-        swiperObj.swipeTo(slideNumber - 1, 1);
+        horizontalSwiperObj.swipeTo(slideNumber - 1, 1);
         slideThumb.removeClass('slide-selected');
         slide.addClass('slide-selected');
         return false;
