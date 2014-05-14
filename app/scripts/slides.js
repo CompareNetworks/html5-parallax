@@ -30,12 +30,16 @@ var itemTypes = fileTypes.initItemTypes(),
 
 function broadcastSlideChange(eventType, horizontalSwiperData, verticalSwiperData) {
     var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.parent.swiper-slide-active')[0];
+    var currentSwipedSlide = 1;
+    var currentSwipedSubSlide = 1;
     currentChapter = $(selectedSlideEl).data('chapter-no');
     currentSlide = horizontalSwiperData.activeIndex + 1;
     previousSlide = horizontalSwiperData.previousIndex + 1;
+    currentSwipedSlide = horizontalSwiperData.clickedSlideIndex + 1;
     if(verticalSwiperData !== null) {
         currentSubSlide = verticalSwiperData.activeIndex + 1;
         previousSubSlide = verticalSwiperData.previousIndex + 1;
+        currentSwipedSubSlide = verticalSwiperData.clickedSlideIndex + 1;
     } else {
         currentSubSlide = 1;
         previousSubSlide = 1;
@@ -45,7 +49,9 @@ function broadcastSlideChange(eventType, horizontalSwiperData, verticalSwiperDat
                         currentSlide: currentSlide, 
                         previousSlide: previousSlide,
                         currentSubSlide: currentSubSlide,
-                        previousSubSlide: previousSubSlide
+                        previousSubSlide: previousSubSlide,
+                        currentSwipedSlide: currentSwipedSlide,
+                        currentSwipedSubSlide: currentSwipedSubSlide
                         });
 }
 
@@ -286,8 +292,20 @@ function loadSlideContent(swiperData) {
         if (domElement[0].innerHTML === loadingMessage) {
             domElement.empty();
             $.get(domElement.data('content'), function(data){
+                //Add Slide Number Dyncamicall so slide can use other data
                 var slideHTMLTemplate = Handlebars.compile(data);
-                domElement.append(slideHTMLTemplate({ slide_number : domElement.data('slide-no') }));
+                var slideHTML = slideHTMLTemplate({ slide_number : domElement.data('slide-no') });
+                domElement.append(slideHTML);
+                //LESS processing for animation
+                var styles = $(domElement).find('style');
+                for (var i = 0; i < styles.length; i++) {
+                    if (styles[i].type.match(/^text\/(x-)?less$/)) {
+                        new(less.Parser)().parse(styles[i].innerHTML || '', function (e, tree) {
+                            styles[i].type      = 'text/css';
+                            styles[i].innerHTML = tree.toCSS();
+                        });
+                    }
+                }
                 initSlideSpecificPlugins(domElement);
             });
         }
