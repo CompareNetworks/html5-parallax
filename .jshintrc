@@ -5,7 +5,8 @@
         "macs": false,
         "fileTypes": false,
         "FastClick": false,
-        "move": false
+        "move": false,
+        "less": false
     },
     "node": true,
     "browser": true,

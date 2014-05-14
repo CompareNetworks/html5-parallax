@@ -5,18 +5,20 @@
             <p class="element2">Test Level 2</p>
             <img src="data/presentation-content/chapter_1/slide_2/2.jpg" class="dummyContent mainBackground" />
         </div>
-        <div class="swiper-slide verticalSlide2"><img src="data/presentation-content/chapter_1/slide_2/2-1.jpg" class="dummyContent" /></div>
+        <div class="swiper-slide verticalSlide2"><img src="data/presentation-content/chapter_1/slide_2/2-1.png" class="dummyContent" /></div>
     </div>
 </div>
 <script type="text/javascript">
 $(document).ready(function() {
     var thisSlideNumber = {{slide_number}};
+    var thisSlide = $('.horizontalSlide' + thisSlideNumber);
     $(document).on({
         'onSlideChangeEnd' : function(event){
             if(event.currentSlide === thisSlideNumber) {
                 animateOnEnter(event);
+
             } else {
-                resetAnimation(event);
+                resetAllAnimations(event);
             }
         },
         'onSlideChangeStart' : function(event){
@@ -29,8 +31,19 @@ $(document).ready(function() {
         }
     });
     function animateOnEnter(event){
+        resetAnimation(event);
         if(event.currentSubSlide === 1) {
-            
+            move($('.verticalSlide1 .element1', thisSlide)[0])
+                .x(100)
+                .set('opacity', 1)
+                .duration(300)
+                .end();
+            move($('.verticalSlide1 .element2', thisSlide)[0])
+                .x(100)
+                .set('opacity', 1)
+                .delay(100)
+                .duration(300)
+                .end();  
         } else if (event.currentSubSlide === 2) {
 
         } else if (event.currentSubSlide === 3) {
@@ -38,10 +51,28 @@ $(document).ready(function() {
         }
     }
     function animateOnLeave(event){
-
     }
     function resetAnimation(event){
+        if(event.currentSubSlide !== 1) {
+            $('.verticalSlide1', thisSlide).find('*').each(function(i, element){
+                $(element).attr('style', '');
+            });
+        } else if (event.currentSubSlide !== 2) {
 
+        } else if (event.currentSubSlide !== 3) {
+            
+        }
+    }
+    function resetAllAnimations(event){
+        $(thisSlide).find('*').each(function(i, element){
+            console.log($(element).attr('style'));
+            if($(element).attr('class') !== undefined) {
+                if( $(element).attr('class').indexOf('swiper-') < 0)
+                {
+                 $(element).attr('style', '');
+                }
+            }
+        });
     }
 });
 </script>
@@ -58,6 +89,9 @@ $(document).ready(function() {
         p {
             z-index: 2;
             position: relative;
+            opacity: 0;
+            display:block;
+            float:left;
             &.element1 {
                 left:100px;
                 top:200px;
