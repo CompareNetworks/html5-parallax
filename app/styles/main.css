@@ -79,7 +79,7 @@ a img {
   z-index: 2999;
 }
 .main-container footer.footer-menu .main-menu {
-  background: rgba(245, 245, 245, 0.8);
+  background: whitesmoke;
   position: relative;
   z-index: 3000;
   border-top: solid 1px #b2b2b2;

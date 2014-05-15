@@ -5,9 +5,9 @@
             <p class="element2">Test Level 2</p>
             <img src="data/presentation-content/chapter_1/slide_2/2.jpg" class="dummyContent mainBackground" />
         </div>
-        <div class="swiper-slide verticalSlide2"><img src="data/presentation-content/chapter_1/slide_2/2-1.png" class="dummyContent" /></div>
     </div>
 </div>
+
 <script type="text/javascript">
 $(document).ready(function() {
     var thisSlideNumber = {{slide_number}};
@@ -30,8 +30,11 @@ $(document).ready(function() {
         }
     });
     function animateOnEnter(event){
+
         resetVerticalSlideAnimation(event);
         if(event.currentSubSlide === 1) {
+
+            /*
             move($('.verticalSlide1 .element1', thisSlide)[0])
                 .x(100)
                 .set('opacity', 1)
@@ -42,7 +45,8 @@ $(document).ready(function() {
                 .set('opacity', 1)
                 .delay(100)
                 .duration(300)
-                .end();  
+                .end();
+                */  
         } else if (event.currentSubSlide === 2) {
 
         } else if (event.currentSubSlide === 3) {
@@ -50,10 +54,11 @@ $(document).ready(function() {
         }
     }
     function animateOnLeave(event){
+        $(".hairBubbles1").css("top", "450px");
     }
     function resetVerticalSlideAnimation(event){
         if(event.currentSubSlide !== 1) {
-            resetSlideAnimations($('.verticalSlide1', thisSlide));
+            //resetSlideAnimations($('.verticalSlide1', thisSlide));
         } else if (event.currentSubSlide !== 2) {
             
         } else if (event.currentSubSlide !== 3) {
@@ -62,6 +67,7 @@ $(document).ready(function() {
     }
 });
 </script>
+
 <style type="text/less">
     .horizontalSlide{{slide_number}}{
         position: relative;

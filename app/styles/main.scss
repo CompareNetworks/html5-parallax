@@ -118,7 +118,7 @@ a {
     width: 100%;
     z-index:2999;
     .main-menu {
-      @include menuGradient(0.8);
+      @include menuGradient(1);
       position: relative;
       z-index: 3000;
       border-top:solid 1px $darkGrey;

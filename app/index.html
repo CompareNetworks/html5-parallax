@@ -18,12 +18,19 @@
 
 <body>
 <div class="main-container">
+
+  <!-- overlay -->
+  <div class="waves" style="width:1024px; height:auto; margin:0 auto; position:relative; pointer-events:none">
+    <div class="brianWave" style="position:absolute; top:450px; left:0; z-index:2997; -webkit-transition: all 0.5s ease-out; cursor:none"><img src="images/wave.png" /></div>
+    <div class="hairBubbles1" style="position:absolute; top:550px; left:0; z-index:2998; -webkit-transition: all 0.5s ease-out; cursor:none"><img src="images/hairBubbles1.png" /></div>
+  </div>
+
     <div class="main-slider swiper-container">
-    <div class="wave" style="position:absolute; top:0; left:0; z-index:10000">WAAAAAVE!</div>
         <!-- Individual slides get into following div -->
         <div class="main-slides-container swiper-wrapper"></div>
     </div>
-    <div class="swipe-overlay"></div>
+
+    <div class="swipe-overlay">  </div>
     <footer class="footer-menu">
         <div class="main-menu">
             <a href="javascript:;" id="main-menu-btn">MENU</a>
