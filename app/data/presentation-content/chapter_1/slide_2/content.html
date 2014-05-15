@@ -54,7 +54,9 @@ $(document).ready(function() {
         }
     }
     function animateOnLeave(event){
-        $(".hairBubbles1").css("top", "450px");
+        $(".hairBubble").css("top", "450px");
+        $(".wave").css("opacity", "1");
+        $(".hairBubble").css("opacity", "1");
     }
     function resetVerticalSlideAnimation(event){
         if(event.currentSubSlide !== 1) {

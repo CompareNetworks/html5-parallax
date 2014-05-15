@@ -1,0 +1,31 @@
+  .parallaxHolder {
+    width:1024px;
+    height:auto;
+    margin:0 auto;
+    position:relative;
+    pointer-events:none;
+
+      .wave {
+        position:absolute;
+        top:450px;
+        left:0;
+        z-index:2997;
+        -webkit-backface-visibility: hidden;
+        -webkit-perspective: 1000;
+        -webkit-transform: translate3d(0, 0, 0);
+        -webkit-transition: all 0.75s ease-out;
+        cursor:none;
+      }
+
+      .hairBubble {
+        position:absolute;
+        top:500px;
+        left:0;
+        z-index:2998;
+        -webkit-backface-visibility: hidden;
+        -webkit-perspective: 1000;
+        -webkit-transform: translate3d(0, 0, 0);
+        -webkit-transition: all 0.75s ease-out;
+        cursor:none;
+      }
+  }

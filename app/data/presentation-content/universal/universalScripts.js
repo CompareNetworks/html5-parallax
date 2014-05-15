@@ -19,8 +19,8 @@ $(function () {
 
 
         //move('.brianWave').x(modSwiperProgress).duration(300).end();
-        $(".brianWave").css("left", "" + modSwiperProgress + "px");
-        $(".hairBubbles1").css("left", "" + (modSwiperProgress * -.8) + "px");
+        $(".wave").css("left", "" + modSwiperProgress + "px");
+        $(".hairBubble").css("left", "" + (modSwiperProgress * -.8) + "px");
 
 
         //Do something with common swiper progress

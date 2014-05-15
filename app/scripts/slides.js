@@ -451,7 +451,7 @@ $(document).on('onTemplateRenderComplete', function () {
     });
 
     $slides.swiper({
-        speed: 500,
+        speed: 750,
         mode: 'horizontal',
         queueEndCallbacks: true,
         progress: true,
