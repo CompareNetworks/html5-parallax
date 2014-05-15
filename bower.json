@@ -1,5 +1,5 @@
 {
-  "name": "interactive-content-navigator",
+  "name": "html5-parallax",
   "private": true,
   "dependencies": {
     "jquery": "~1.11.0",
