@@ -13,7 +13,7 @@ var $ = require('gulp-load-plugins')();
 
 // Styles
 gulp.task('styles', function () {
-    return gulp.src('app/styles/*.scss')
+    return gulp.src(['app/styles/*.scss', 'app/data/presentation-content/universal/*.scss'])
         .pipe($.rubySass({
             style: 'expanded',
             loadPath: ['app/bower_components']
@@ -25,7 +25,7 @@ gulp.task('styles', function () {
 
 // Scripts
 gulp.task('scripts', function () {
-    return gulp.src(['app/scripts/**/*.js', '!app/scripts/move.js'])
+    return gulp.src(['app/scripts/**/*.js', '!app/scripts/move.js', '!app/scripts/idangerous.swiper.progress.js'])
         .pipe($.jshint('.jshintrc'))
         .pipe($.jshint.reporter('default'))
         .pipe($.size());

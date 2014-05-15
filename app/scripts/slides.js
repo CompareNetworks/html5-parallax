@@ -28,10 +28,8 @@ var itemTypes = fileTypes.initItemTypes(),
                                 '</div>';
 
 function broadcastSlideChange(eventType, horizontalSwiperData, verticalSwiperData) {
-    var selectedSlideEl = $('div.main-container div.swiper-wrapper div.swiper-slide.parent.swiper-slide-active')[0];
     var currentSwipedSlide = 1;
     var currentSwipedSubSlide = 1;
-    currentChapter = $(selectedSlideEl).data('chapter-no');
     currentSlide = horizontalSwiperData.activeIndex + 1;
     previousSlide = horizontalSwiperData.previousIndex + 1;
     currentSwipedSlide = horizontalSwiperData.clickedSlideIndex + 1;
@@ -44,13 +42,14 @@ function broadcastSlideChange(eventType, horizontalSwiperData, verticalSwiperDat
         previousSubSlide = 1;
     }
     $.event.trigger({   type: eventType, 
-                        currentChapter: currentChapter, 
                         currentSlide: currentSlide, 
                         previousSlide: previousSlide,
                         currentSubSlide: currentSubSlide,
                         previousSubSlide: previousSubSlide,
                         currentSwipedSlide: currentSwipedSlide,
-                        currentSwipedSubSlide: currentSwipedSubSlide
+                        currentSwipedSubSlide: currentSwipedSubSlide,
+                        horizontalSwiperObj: horizontalSwiperData,
+                        verticalSwiperObj: verticalSwiperData
                         });
 }
 
@@ -62,6 +61,7 @@ function initSlideSpecificPlugins(domElement) {
         $('.vertical-scroll-slide', domElement).swiper({
             mode: 'vertical',
             slidesPerView: 1,
+            progress: true,
             onSlideChangeEnd: function (swiper) {
                 verticalScroll = swiper;
                 if (swiper.activeIndex > 0) {
@@ -81,10 +81,16 @@ function initSlideSpecificPlugins(domElement) {
                 broadcastSlideChange('onSlideChangeEnd', horizontalSwiperObj, verticalSwiperObj);
             },
             onFirstInit: function (swiper) {
+                verticalSwiperObj = swiper;
                 broadcastSlideChange('onSlideChangeInit', horizontalSwiperObj, swiper);
             },
             onSlideChangeStart: function (swiper) {
+                verticalSwiperObj = swiper;
                 broadcastSlideChange('onSlideChangeStart', horizontalSwiperObj, swiper);
+            },
+            onProgressChange: function(swiper) {
+                verticalSwiperObj = swiper;
+                broadcastSlideChange('onProgressChange', horizontalSwiperObj, swiper);
             }
         });
     }
@@ -120,6 +126,16 @@ function updateNavigation(slideEl, selectedSlide, swiperData) {
         leftArrow.removeClass('active');
     }
 
+}
+function resetSlideAnimations(slideDom){
+    $(slideDom).find('*').each(function(i, element){
+        if($(element).attr('class') !== undefined) {
+            if( $(element).attr('class').indexOf('swiper-') < 0)
+            {
+             $(element).attr('style', '');
+            }
+        }
+    });
 }
 
 function destroySlideContent(previousSlide, selectedSlide, bufferSize) {
@@ -243,7 +259,6 @@ function getIconImagePath (iconName, fileType) {
     else{
         iconImagePath = 'images/fileTypes/' + itemTypes[fileType] + '_default_thumbnail.png';
     }
-
     return iconImagePath;
 }
 
@@ -436,9 +451,10 @@ $(document).on('onTemplateRenderComplete', function () {
     });
 
     $slides.swiper({
-        speed: 300,
+        speed: 500,
         mode: 'horizontal',
         queueEndCallbacks: true,
+        progress: true,
         onSlideChangeEnd: function (swiper) {
             index = swiper.activeIndex;
             loadSlideContent(swiper);
@@ -469,6 +485,9 @@ $(document).on('onTemplateRenderComplete', function () {
                     broadcastSlideChange('onSlideChangeEnd', swiper, null);
                 }
             }, 2000);
+        },
+        onProgressChange: function(swiper) {
+            broadcastSlideChange('onProgressChange', swiper, verticalSwiperObj);
         }
     });
 

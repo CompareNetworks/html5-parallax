@@ -18,7 +18,7 @@ $(document).ready(function() {
                 animateOnEnter(event);
 
             } else {
-                resetAllAnimations(event);
+                resetSlideAnimations(thisSlide);
             }
         },
         'onSlideChangeStart' : function(event){
@@ -27,11 +27,10 @@ $(document).ready(function() {
             }
         },
         'onSlideChangeInit' : function(event){
-            console.log(event);
         }
     });
     function animateOnEnter(event){
-        resetAnimation(event);
+        resetVerticalSlideAnimation(event);
         if(event.currentSubSlide === 1) {
             move($('.verticalSlide1 .element1', thisSlide)[0])
                 .x(100)
@@ -52,61 +51,48 @@ $(document).ready(function() {
     }
     function animateOnLeave(event){
     }
-    function resetAnimation(event){
+    function resetVerticalSlideAnimation(event){
         if(event.currentSubSlide !== 1) {
-            $('.verticalSlide1', thisSlide).find('*').each(function(i, element){
-                $(element).attr('style', '');
-            });
+            resetSlideAnimations($('.verticalSlide1', thisSlide));
         } else if (event.currentSubSlide !== 2) {
-
-        } else if (event.currentSubSlide !== 3) {
             
+        } else if (event.currentSubSlide !== 3) {
+             
         }
-    }
-    function resetAllAnimations(event){
-        $(thisSlide).find('*').each(function(i, element){
-            console.log($(element).attr('style'));
-            if($(element).attr('class') !== undefined) {
-                if( $(element).attr('class').indexOf('swiper-') < 0)
-                {
-                 $(element).attr('style', '');
-                }
-            }
-        });
     }
 });
 </script>
 <style type="text/less">
-.horizontalSlide{{slide_number}}{
-    position: relative;
-    .verticalSlide1 {
-        color:red;
-        .mainBackground {
-            position: absolute;
-            top:0;
-            left:0;
-        }
-        p {
-            z-index: 2;
-            position: relative;
-            opacity: 0;
-            display:block;
-            float:left;
-            &.element1 {
-                left:100px;
-                top:200px;
+    .horizontalSlide{{slide_number}}{
+        position: relative;
+        .verticalSlide1 {
+            color:red;
+            .mainBackground {
+                position: absolute;
+                top:0;
+                left:0;
             }
-            &.element2 {
-                left:400px;
-                top:300px;
+            p {
+                z-index: 2;
+                position: relative;
+                opacity: 0;
+                display:block;
+                float:left;
+                &.element1 {
+                    left:100px;
+                    top:200px;
+                }
+                &.element2 {
+                    left:400px;
+                    top:300px;
+                }
             }
         }
-    }
-    .verticalSlide2 {
+        .verticalSlide2 {
 
-    }
-    .verticalSlide3 {
+        }
+        .verticalSlide3 {
 
+        }
     }
-}
 </style>
